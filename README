@@ -1,0 +1,15 @@
+Portfolio plugin
+For: RefineryCMS
+http://www.refinerycms.com
+http://github.com/resolve/Refinery
+
+By: Resolve Digital Ltd
+http://www.resolvedigital.com
+
+Just 'git clone' Refinery, install this as a plugin using:
+script/plugin install git://github.com/resolve/portfolio.git
+
+Then run:
+rake portfolio:install
+
+..and follow the instructions!
