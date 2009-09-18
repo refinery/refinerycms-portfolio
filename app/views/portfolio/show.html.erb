@@ -2,7 +2,7 @@
 <% content_for :head, stylesheet_link_tag('portfolio') %>
 <div id='body_content' class='clearfix portfolio'>
 	<div id='body_content_left' class='clearfix'>
-		<h1>
+		<h1 class='clearfix'>
 		  <span><%= @master_entry.title %></span>
 			<%= select :portfolio_entry, :to_param, @master_entry.children.collect{|entry| [entry.title, entry.to_param] } %>
 		</h1>
