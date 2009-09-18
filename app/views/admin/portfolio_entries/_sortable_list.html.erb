@@ -1,0 +1,4 @@
+<% @portfolio_entries.each do |entry| %>
+ 	<%= render :partial => 'list', :locals => {:entry => entry} %>
+<% end %>
+<%= render :partial => "/shared/admin/sortable_list" %>

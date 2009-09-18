@@ -1,0 +1,41 @@
+<% content_for :title, "#{@portfolio_entry.title} - " %>
+<% content_for :head, stylesheet_link_tag('portfolio') %>
+<div id='body_content' class='clearfix portfolio'>
+	<div id='body_content_left' class='clearfix'>
+		<h1>
+		  <span><%= @master_entry.title %></span>
+			<%= select :portfolio_entry, :to_param, @master_entry.children.collect{|entry| [entry.title, entry.to_param] } %>
+		</h1>
+		
+		<%= image_fu @image, :portfolio, :id => "portfolio_main_image" unless @image.nil? %>
+	</div>
+	<div id='body_content_right' class='clearfix'>
+		<h2><%= @portfolio_entry.title %></h2>
+		<ul id='portfolio_images'>
+			<% (images = @portfolio_entry.images).each do |image| %>
+				<li class='<%= cycle("odd", "even") %>'>
+					<% className = (selected = images.index(image) == params[:image_id].to_i) ? "selected" : "pale" %>
+				  <%= link_to_if !selected, 
+									image_fu(image, :portfolio_thumb, :class => className), 
+									portfolio_image_url(@master_entry, @portfolio_entry, images.index(image)) %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<% content_for :head do %>
+	<%# remove these javascript_include_tag calls if they are included in your layout.
+	%>
+	<%= javascript_include_tag 'prototype', 'fastinit'  %>
+	<script type='text/javascript'>
+		FastInit.addOnLoad(function(){	
+			$$("ul#portfolio_images li img.pale").each(function(img){
+				img.setOpacity(0.3);
+			});
+			
+			$('portfolio_entry_to_param').observe('change', function(e){
+				window.location = "<%= portfolio_project_url(@master_entry, nil) %>" + this.value;
+			});
+		});
+	</script>
+<% end %>

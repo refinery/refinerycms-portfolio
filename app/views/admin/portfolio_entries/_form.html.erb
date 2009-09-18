@@ -1,0 +1,23 @@
+<%= error_messages_for :portfolio_entry %>
+<% form_for [:admin, @portfolio_entry] do |f| %>
+  <div class='field'>
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "larger", :style => 'width: 954px' %>
+  </div>
+  <div class='field clearfix' style='width: 963px'>
+    <%= f.label :body, 'Content' %>
+    <%= f.text_area :body, :class => "wymeditor" %>
+  </div>
+  <div>
+    <%= label_tag('portfolio_entry_image_ids', 'Images') %>
+    <select name="portfolio_entry[image_ids][]" size="7" multiple="multiple" style='width: 100%;'>
+      <%= options_from_collection_for_select(@images, 'id', 'title', @selected) %>
+    </select>
+    <p>Use CTRL + Click to select more than one image</p>
+  </div>
+  <div class='form-actions'>
+    <%= f.submit 'Save', :class => "wymupdate" %> 
+		or 
+		<%= link_to "Cancel", admin_portfolio_entries_url, :title => "Cancelling will lose all changes you've made to this entry" %>
+  </div>
+<% end %>
