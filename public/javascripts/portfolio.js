@@ -42,7 +42,7 @@ image_added = function() {
 	});
 	
 	new_list_item = new Element("li").addClassName("empty");
-	img = new Element("img", {id: 'current_portfolio_entry_image', src: '', alt: ''});
+	img = new Element("img", {id: 'current_portfolio_entry_image', src: '', alt: '', style: 'display:none'});
 	
 	hidden_id = new Element("input", {'type': 'hidden', 'id' : "portfolio_entry_image_id", 'name':'portfolio_entry[image_ids][]'});
 	

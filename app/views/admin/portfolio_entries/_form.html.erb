@@ -1,4 +1,3 @@
-<% insert_args = "?thickbox=true&modal=true&titlebar=true&field=portfolio_entry_image_id&callback=image_added&update_image=current_portfolio_entry_image&thumbnail=grid&KeepThis=true&TB_iframe=true&width=950&height=510" %>
 <%= error_messages_for :portfolio_entry %>
 <% form_for [:admin, @portfolio_entry] do |f| %>
   <div class='field'>
@@ -8,7 +7,7 @@
   <div class='field images_field'>
 		<span class='clearfix label_inline_with_link'>
 	    <%= label_tag('portfolio_entry_image_ids', 'Images') %>
-			<%= link_to "#{refinery_icon_tag "add.png"} Add", "#{insert_admin_images_url}#{insert_args}", :class => "thickbox", :name => "Add Another Image", :id => "add_image_link" %>
+			<%= link_to "#{refinery_icon_tag "add.png"} Add", "#{insert_admin_images_url}?thickbox=true&modal=true&titlebar=true&field=portfolio_entry_image_id&callback=image_added&update_image=current_portfolio_entry_image&thumbnail=grid&KeepThis=true&TB_iframe=true&width=950&height=510", :class => "thickbox", :name => "Add Another Image", :id => "add_image_link" %>
 		</span>
 		<ul id='portfolio_images' class='clearfix portfolio_entry_images'>
 			<% @portfolio_entry.images.each do |image| %>

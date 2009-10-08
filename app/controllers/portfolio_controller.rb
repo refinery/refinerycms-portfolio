@@ -3,7 +3,7 @@ class PortfolioController < ApplicationController
   before_filter :load_page, :only => [:index, :show, :empty]
   
   def index
-    redirect_to portfolio_url(PortfolioEntry.find(:first, :order => "position ASC", :conditions => "parent_id IS NULL")) rescue error_404
+    redirect_to portfolio_url(PortfolioEntry.find_by_parent_id(nil, :order => "position ASC")) rescue error_404
   end
  
   def show
@@ -11,7 +11,7 @@ class PortfolioController < ApplicationController
 			if params[:id]
 	    	@master_entry = PortfolioEntry.find(params[:id])
 			else
-				@master_entry = PortfolioEntry.find(:first, :order => "position ASC", :conditions => "parent_id IS NULL")
+				@master_entry = PortfolioEntry.find_by_parent_id(nil, :order => "position ASC")
 			end
 		
 			if params[:portfolio_id]
@@ -37,7 +37,7 @@ class PortfolioController < ApplicationController
 protected
 
   def load_page
-    @page = Page.find_by_link_url('/portfolio', :include => [:parts, :slugs]) 
+    @page = Page.find_by_link_url('/portfolio', :include => [:parts]) 
   end
  
 end
