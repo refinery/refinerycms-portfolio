@@ -5,7 +5,8 @@ class CreatePortfolioStructure < ActiveRecord::Migration
 	    t.integer :portfolio_entry_id
 	  end
 
-	  add_index :images_portfolio_entries, [:image_id, :portfolio_entry_id], :name => :composite_key_index, :unique => true
+    # people should be allowed to have the same image twice, if they really want to.
+	  #add_index :images_portfolio_entries, [:image_id, :portfolio_entry_id], :name => :composite_key_index, :unique => true
 
 	  create_table :portfolio_entries, :force => true do |t|
 	    t.string   :title

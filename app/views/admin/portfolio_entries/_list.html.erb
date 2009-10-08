@@ -9,11 +9,11 @@
   <div class='clearfix'>
     <span class='actions'>
 			<% url = entry.parent ? portfolio_project_url(entry.parent, entry) : portfolio_url(entry)  %>
-    	<%= link_to image_tag('refinery/icons/application_go.png'), url, :target => "_blank",
+    	<%= link_to refinery_icon_tag('application_go.png'), url, :target => "_blank",
                  :title => "View this entry live <br/><em>(opens in a new window)</em>" %>
-    	<%= link_to image_tag('refinery/icons/application_edit.png'), edit_admin_portfolio_entry_path(entry),
+    	<%= link_to refinery_icon_tag('application_edit.png'), edit_admin_portfolio_entry_path(entry),
                  :title => "Edit this entry" %>
-    	<%= link_to image_tag('refinery/icons/delete.png'), admin_portfolio_entry_path(entry),
+    	<%= link_to refinery_icon_tag('delete.png'), admin_portfolio_entry_path(entry),
                           :confirm => "Are you sure you want to delete '#{entry.title}'?", :class => "cancel",
                           :method => :delete,
                           :title => "Remove this entry forever" %>

@@ -5,10 +5,24 @@ http://github.com/resolve/Refinery
 By: Resolve Digital Ltd
 http://www.resolvedigital.com
 
+Plugin Installation
+===================
+
 Just 'git clone' Refinery, install this as a plugin using:
 script/plugin install git://github.com/resolve/portfolio.git
 
 Then run:
 rake portfolio:install
+
+..and follow the instructions!
+
+Gem Installation
+================
+
+Just install the gem 'portfolio' with the command:
+gem install portfolio --source http://gemcutter.org
+
+Then run:
+portfolio-install /path/to/your/refinery/application
 
 ..and follow the instructions!

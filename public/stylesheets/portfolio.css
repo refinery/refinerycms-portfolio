@@ -42,3 +42,23 @@
 #portfolio_images li.odd {
 	margin-right: 18px;
 }
+
+#portfolio_images.portfolio_entry_images {
+    width: 100%;
+}
+#portfolio_images.portfolio_entry_images li {
+    margin-right: 20px;
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#portfolio_images.portfolio_entry_images li .image_actions {
+    background: white;
+    position: absolute;
+    padding: 3px;
+    left: 0px;
+    top: 0px;
+}
+#portfolio_images.portfolio_entry_images li * {
+    cursor: pointer;
+}
