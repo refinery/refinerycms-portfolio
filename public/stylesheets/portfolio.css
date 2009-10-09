@@ -62,3 +62,6 @@
 #portfolio_images.portfolio_entry_images li * {
     cursor: move;
 }
+#portfolio_images.portfolio_entry_images li .image_actions * {
+    cursor: pointer;
+}

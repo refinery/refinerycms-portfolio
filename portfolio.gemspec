@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 	
   s.name = %q{portfolio}
-  s.version = "0.9.1.6"
+  s.version = "0.9.1.7"
 
   s.authors = ["Resolve Digital", "Philip Arndt"]
   s.date = %q{2009-10-09}
