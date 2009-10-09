@@ -60,5 +60,5 @@
     top: 0px;
 }
 #portfolio_images.portfolio_entry_images li * {
-    cursor: pointer;
+    cursor: move;
 }
