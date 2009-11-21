@@ -7,9 +7,10 @@ unless RAILS_ROOT.nil? or RAILS_ROOT.length == 0
   dirs.each do |dir|
     FileUtils::makedirs File.join(RAILS_ROOT, dir)
   end
-  
+
   copies = [
     {:from => ["db", "migrate"],:to => ["db", "migrate"],:filename => "20090917224823_create_portfolio_structure.rb"},
+    {:from => ["db", "migrate"],:to => ["db", "migrate"],:filename => "20091121033434_add_position_to_images_portfolio_entries.rb"},
     {:from => ["public", "stylesheets"],:to => ["public", "stylesheets"],:filename => "portfolio.css"},
     {:from => ["public", "javascripts"],:to => ["public", "javascripts"],:filename => "portfolio.js"}
   ]
@@ -22,7 +23,7 @@ unless RAILS_ROOT.nil? or RAILS_ROOT.length == 0
       puts "'#{File.join copy[:to], copy[:filename]}' already existed in your application so your existing file was not overwritten."
     end
   end
-	
+
 	puts "---------"
 	puts "Copied all portfolio files."
 	puts "Now, run rake db:migrate and then rake images:regenerate"
