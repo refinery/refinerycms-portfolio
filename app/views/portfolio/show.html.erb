@@ -6,8 +6,8 @@
 		  <span><%= @master_entry.title %></span>
 			<%= select :portfolio_entry, :to_param, @master_entry.children.collect{|entry| [entry.title, entry.to_param] } %>
 		</h1>
-		
-		<%= image_fu @image, :portfolio, :id => "portfolio_main_image" unless @image.nil? %>
+
+		<%= render :partial => "main_image" %>
 	</div>
 	<div id='body_content_right' class='clearfix'>
 		<h2><%= @portfolio_entry.title %></h2>
@@ -15,9 +15,8 @@
 			<% (images = @portfolio_entry.images).each do |image| %>
 				<li class='<%= cycle("odd", "even") %>'>
 					<% className = (selected = images.index(image) == params[:image_id].to_i) ? "selected" : "pale" %>
-				  <%= link_to_if !selected, 
-									image_fu(image, :portfolio_thumb, :class => className), 
-									portfolio_image_url(@master_entry, @portfolio_entry, images.index(image)) %>
+				  <%= link_to	image_fu(image, :portfolio_thumb),
+				      portfolio_image_url(@master_entry, @portfolio_entry, images.index(image)), :class => className %>
 				</li>
 			<% end %>
 		</ul>
@@ -26,15 +25,34 @@
 <% content_for :head do %>
 	<%# remove these javascript_include_tag calls if they are included in your layout.
 	%>
-	<%= javascript_include_tag 'prototype', 'fastinit'  %>
+	<%= javascript_include_tag 'jquery' %>
 	<script type='text/javascript'>
-		FastInit.addOnLoad(function(){	
-			$$("ul#portfolio_images li img.pale").each(function(img){
-				img.setOpacity(0.3);
-			});
-			
-			$('portfolio_entry_to_param').observe('change', function(e){
+		$(document).ready(function(){
+			$("ul#portfolio_images li a.pale img").fadeTo(0, 0.3);
+
+			$('#portfolio_entry_to_param').change(function() {
 				window.location = "<%= portfolio_project_url(@master_entry, nil) %>" + this.value;
+			});
+
+      var clicked_on = null;
+			$("ul#portfolio_images li a").click(function(event) {
+			  if (!$(this).hasClass('selected')) {
+			    clicked_on = $(this);
+  			  $.get($(this).attr('href'), function(data, textStatus) {
+  			    if (textStatus == "success") {
+  			      $('#portfolio_main_image').before(data).remove();
+
+  			      $('ul#portfolio_images li a.selected').removeClass('selected').addClass('pale');
+
+  			      clicked_on.removeClass('pale').addClass('selected');
+  			      clicked_on.find('img').fadeTo(0, 1);
+
+  			      $("ul#portfolio_images li a.pale img").fadeTo(0, 0.3);
+  		      }
+  			  });
+  		  }
+
+        return false;
 			});
 		});
 	</script>
