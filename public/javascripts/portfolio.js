@@ -13,7 +13,7 @@ reset_functionality = function() {
         img_delete = $("<img src='/images/refinery/icons/delete.png' width='16' height='16' />");
         img_delete.appendTo(image_actions);
         img_delete.click(function() {
-          $(this).parent().remove();
+          $(this).parents('li[id*=image_]').remove();
         });
 
         image_actions.appendTo($(li));
