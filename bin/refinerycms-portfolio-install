@@ -32,8 +32,8 @@ if rails_root.exist?
   end
 
 	puts "---------"
-	puts "Copied all refinery-portfolio files."
+	puts "Copied all refinerycms-portfolio files."
 	puts "Now, run rake db:migrate and then rake images:regenerate"
 else
-  puts "Please specify the path of the project that you want to use the portfolio with, i.e. refinery-portfolio-install /path/to/project"
+  puts "Please specify the path of the project that you want to use the portfolio with, i.e. refinerycms-portfolio-install /path/to/project"
 end

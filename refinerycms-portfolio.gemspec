@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
-  s.name = %q{refinery-portfolio}
-  s.version = "0.9.2"
+  s.name = %q{refinerycms-portfolio}
+  s.version = "0.9.3"
 
   s.authors = ["Resolve Digital", "Philip Arndt"]
   s.date = %q{2010-02-18}
@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.description = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS.}
   s.summary = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
 
-  s.executables = ["refinery-portfolio-install"]
-  s.default_executable = %q{refinery-portfolio-install}
+  s.executables = ["refinerycms-portfolio-install"]
+  s.default_executable = %q{refinerycms-portfolio-install}
 
   s.email = %q{info@refinerycms.com}
 
@@ -42,7 +42,7 @@ Gem::Specification.new do |s|
     "app/views/portfolio/empty.html.erb",
     "app/views/portfolio/show.html.erb",
     "bin",
-    "bin/refinery-portfolio-install",
+    "bin/refinerycms-portfolio-install",
     "config",
     "config/locale",
     "config/locale/en.yml",
