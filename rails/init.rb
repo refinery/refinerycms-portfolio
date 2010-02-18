@@ -3,8 +3,8 @@ Refinery::Plugin.register do |plugin|
 	plugin.title = "Portfolio"
 	plugin.description = "Manage a portfolio"
 	plugin.url = "/admin/#{plugin.title.downcase}"
-	plugin.version = '0.9.1.8'
-	plugin.menu_match = /admin\/((portfolio)|(portfolio_entries))/
+	plugin.version = '0.9.2'
+	plugin.menu_match = /admin\/portfolio(_entries)?/
 	plugin.activity = {
 		:class => PortfolioEntry,
 		:title => 'title',

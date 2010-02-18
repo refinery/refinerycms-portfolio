@@ -8,8 +8,8 @@ ActionController::Routing::Routes.draw do |map|
 		portfolio.resources :portfolio, :as => :portfolio
 	end
 
-  map.namespace(:admin) do |admin| 
-    admin.resources :portfolio_entries, :as => :portfolio
+  map.namespace(:admin) do |admin|
+    admin.resources :portfolio_entries, :as => :portfolio, :collection => {:emancipate => :get}
   end
 
 end

@@ -65,3 +65,13 @@
 #portfolio_images.portfolio_entry_images li .image_actions * {
     cursor: pointer;
 }
+
+#content ul.ui-sortable li {
+    border: 0px none;
+    background: none !important;
+}
+
+#content #portfolio_images.ui-sortable li.placeholder {
+    width: 135px;
+    height: 135px;
+}

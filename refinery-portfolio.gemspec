@@ -1,27 +1,26 @@
 Gem::Specification.new do |s|
 
-  s.name = %q{portfolio}
+  s.name = %q{refinery-portfolio}
   s.version = "0.9.2"
 
   s.authors = ["Resolve Digital", "Philip Arndt"]
-  s.date = %q{2010-01-19}
+  s.date = %q{2010-02-18}
 
   s.description = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS.}
   s.summary = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
 
-  s.executables = ["portfolio-install"]
-  s.default_executable = %q{portfolio-install}
+  s.executables = ["refinery-portfolio-install"]
+  s.default_executable = %q{refinery-portfolio-install}
 
   s.email = %q{info@refinerycms.com}
-  s.extra_rdoc_files = ["README", "CONTRIBUTORS", "LICENSE"]
 
   s.homepage = %q{http://refinerycms.com}
   s.rubygems_version = %q{1.3.4}
 
   s.files = [
-    "CONTRIBUTORS",
-    "LICENSE",
-    "README",
+    "contributors.md",
+    "license.md",
+    "readme.md",
     "app",
     "app/controllers",
     "app/controllers/admin",
@@ -43,8 +42,10 @@ Gem::Specification.new do |s|
     "app/views/portfolio/empty.html.erb",
     "app/views/portfolio/show.html.erb",
     "bin",
-    "bin/portfolio-install",
+    "bin/refinery-portfolio-install",
     "config",
+    "config/locale",
+    "config/locale/en.yml",
     "config/routes.rb",
     "db",
     "db/migrate",
@@ -58,7 +59,8 @@ Gem::Specification.new do |s|
     "public/javascripts",
     "public/javascripts/portfolio.js",
     "public/stylesheets",
-    "public/stylesheets/portfolio.css","rails",
+    "public/stylesheets/portfolio.css",
+    "rails",
     "rails/init.rb"
   ]
 

@@ -4,7 +4,7 @@
     <li>
       <%= link_to "Create New Portfolio Entry", new_admin_portfolio_entry_url, :class => "add_icon" %>
     </li>
-   <% if PortfolioEntry.count > 1 %>
+   <% if PortfolioEntry.any? %>
 		<li>
 			<%= link_to "Reorder Portfolio", "", :id => "reorder_action", :class => "reorder_icon" %>
 			<%= link_to "Done Reordering Portfolio", "", :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
@@ -13,18 +13,18 @@
   </ul>
 </div>
 <div id='records' class='tree'>
-<% if @portfolio_entries.size > 0 %>
-	<h2>Portfolio</h2>
-	<ul id='sortable_list'>
-		<%= render :partial => 'sortable_list' %>
-	</ul>
-	<% else %>
-	<p>
-		<strong>
-			There are no portfolio entries yet.
-			Click "Create New Portfolio Entry" to add your first portfolio entries.
-		</strong>
-	</p>
-<% end %>
+  <% if @portfolio_entries.any? %>
+  	<h2>Portfolio</h2>
+  	<ul id='sortable_list'>
+  		<%= render :partial => 'sortable_list' %>
+  	</ul>
+  	<% else %>
+  	  <p>
+    		<strong>
+    			There are no portfolio entries yet.
+    			Click "Create New Portfolio Entry" to add your first portfolio entries.
+    		</strong>
+    	</p>
+  <% end %>
 </div>
-<%= render :partial => "/shared/admin/make_sortable", :locals => {:tree => true } if PortfolioEntry.count > 1 %>
+<%= render :partial => "/shared/admin/make_sortable", :locals => {:tree => true } if PortfolioEntry.any? %>

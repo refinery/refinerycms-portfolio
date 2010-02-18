@@ -1,4 +1,2 @@
-<% @portfolio_entries.each do |entry| %>
- 	<%= render :partial => 'list', :locals => {:entry => entry} %>
-<% end %>
-<%= render :partial => "/shared/admin/sortable_list" %>
+<%= render :partial => 'list', :collection => @portfolio_entries %>
+<%= render :partial => "/shared/admin/sortable_list", :locals => {:continue_reordering => (defined?(continue_reordering) ? continue_reordering : true)} %>

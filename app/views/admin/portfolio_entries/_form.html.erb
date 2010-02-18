@@ -7,7 +7,7 @@
   <div class='field images_field'>
 		<span class='clearfix label_inline_with_link'>
 	    <%= label_tag('portfolio_entry_image_ids', 'Images') %>
-			<%= link_to "#{refinery_icon_tag "add.png"} Add", "#{insert_admin_images_url}?thickbox=true&modal=true&titlebar=true&field=portfolio_entry_image_id&callback=image_added&update_image=current_portfolio_entry_image&thumbnail=grid&KeepThis=true&TB_iframe=true&width=950&height=510", :class => "thickbox", :name => "Add Another Image", :id => "add_image_link" %>
+			<%= link_to "#{refinery_icon_tag "add.png"} Add", "#{insert_admin_images_url}?thickbox=true&amp;modal=true&amp;titlebar=true&amp;callback=image_added&amp;KeepThis=true&amp;TB_iframe=true&amp;width=950&amp;height=510", :class => "thickbox", :name => "Add Another Image", :id => "add_image_link" %>
 		</span>
 		<ul id='portfolio_images' class='clearfix portfolio_entry_images'>
 			<% @portfolio_entry.images.each do |image| %>
@@ -27,8 +27,8 @@
     <%= f.text_area :body, :class => "wymeditor", :rows => 7 %>
   </div>
   <div class='form-actions'>
-    <%= f.submit 'Save', :class => "wymupdate" %> 
-		or 
+    <%= f.submit 'Save', :class => "wymupdate" %>
+		or
 		<%= link_to "Cancel", admin_portfolio_entries_url, :title => "Cancelling will lose all changes you've made to this entry" %>
   </div>
 <% end %>
