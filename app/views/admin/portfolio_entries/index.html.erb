@@ -4,7 +4,7 @@
     <li>
       <%= link_to "Create New Portfolio Entry", new_admin_portfolio_entry_url, :class => "add_icon" %>
     </li>
-   <% if PortfolioEntry.any? %>
+   <% if PortfolioEntry.count > 1 %>
 		<li>
 			<%= link_to "Reorder Portfolio", "", :id => "reorder_action", :class => "reorder_icon" %>
 			<%= link_to "Done Reordering Portfolio", "", :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
@@ -27,4 +27,4 @@
     	</p>
   <% end %>
 </div>
-<%= render :partial => "/shared/admin/make_sortable", :locals => {:tree => true } if PortfolioEntry.any? %>
+<%= render :partial => "/shared/admin/make_sortable", :locals => {:tree => true } if PortfolioEntry.count > 1 %>
