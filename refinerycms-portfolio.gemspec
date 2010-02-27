@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
 
   s.name = %q{refinerycms-portfolio}
-  s.version = "0.9.3.6"
+  s.version = "0.9.3.7"
 
   s.authors = ["Resolve Digital", "Philip Arndt"]
-  s.date = %q{2010-02-18}
+  s.date = %q{2010-02-27}
 
   s.description = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS.}
   s.summary = %q{Ruby on Rails portfolio plugin for RefineryCMS.}

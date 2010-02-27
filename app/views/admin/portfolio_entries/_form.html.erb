@@ -26,6 +26,12 @@
     <%= f.label :body, 'Content' %>
     <%= f.text_area :body, :class => "wymeditor", :rows => 7 %>
   </div>
+  <% if @portfolio_entries_for_parents_list.any? %>
+    <div class='field'>
+      <%= f.label :parent_id %>
+      <%= f.collection_select :parent_id, @portfolio_entries_for_parents_list, :id, :indented_title, :include_blank => true %>
+    </div>
+  <% end %>
   <div class='form-actions'>
     <%= f.submit 'Save', :class => "wymupdate" %>
 		or
