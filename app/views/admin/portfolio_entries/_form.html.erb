@@ -7,7 +7,7 @@
   <div class='field images_field'>
 		<span class='clearfix label_inline_with_link'>
 	    <%= label_tag('portfolio_entry_image_ids', 'Images') %>
-			<%= link_to "#{refinery_icon_tag "add.png"} Add", "#{insert_admin_images_url}?thickbox=true&amp;modal=true&amp;titlebar=true&amp;callback=image_added&amp;KeepThis=true&amp;TB_iframe=true&amp;width=950&amp;height=510", :class => "thickbox", :name => "Add Another Image", :id => "add_image_link" %>
+			<%= link_to "#{refinery_icon_tag "add.png"} Add", "#{insert_admin_images_url(:dialog => true, :width => 950, :height => 510, :callback => "image_added")}", :name => "Add Another Image", :id => "add_image_link" %>
 		</span>
 		<ul id='portfolio_images' class='clearfix portfolio_entry_images'>
 			<% @portfolio_entry.images.each do |image| %>

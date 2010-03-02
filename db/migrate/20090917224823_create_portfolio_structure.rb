@@ -26,7 +26,8 @@ class CreatePortfolioStructure < ActiveRecord::Migration
 			page.parts.create(:title => default_page_part, :body => nil)
 		end
 		
-		RefinerySetting[:image_thumbnails] = RefinerySetting.find_or_set(:image_thumbnails, {}).merge!({:portfolio_thumb => 'c96x96', :portfolio => '600x512'})
+		image_thumbnails = RefinerySetting.find_or_set(:image_thumbnails, {})
+		RefinerySetting[:image_thumbnails] = image_thumbnails.merge({:portfolio_thumb => 'c96x96', :portfolio => '600x512'})
   end
 
   def self.down
@@ -38,7 +39,8 @@ class CreatePortfolioStructure < ActiveRecord::Migration
 		end
 		Page.destroy_all({:link_url => "/portfolio"})
 	
-		RefinerySetting.find_or_set(:image_thumbnails, {}).delete_if {|key, value| key == :portfolio_thumb or key == :portfolio }
+		image_thumbnails = RefinerySetting.find_or_set(:image_thumbnails, {})
+		RefinerySetting[:image_thumbnails] = image_thumbnails.delete_if {|key, value| key == :portfolio_thumb or key == :portfolio }
 	
 		drop_table :images_portfolio_entries
 		drop_table :portfolio_entries
