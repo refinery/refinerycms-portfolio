@@ -16,32 +16,33 @@ class CreatePortfolioStructure < ActiveRecord::Migration
 	    t.datetime :created_at
 	    t.datetime :updated_at
 	  end
-	
+
 		User.find(:all).each do |user|
 			user.plugins.create(:title => "Portfolio", :position => (user.plugins.maximum(:position) || -1) +1)
 		end
-		
+
 		page = Page.create(:title => "Portfolio", :link_url => "/portfolio", :deletable => false, :position => ((Page.maximum(:position, :conditions => "parent_id IS NULL") || -1)+1))
 		RefinerySetting.find_or_set(:default_page_parts, ["body", "side_body"]).each do |default_page_part|
 			page.parts.create(:title => default_page_part, :body => nil)
 		end
-		
+
+    # we need to retrieve the value, merge it in and then save it back because it's a frozen hash.
 		image_thumbnails = RefinerySetting.find_or_set(:image_thumbnails, {})
 		RefinerySetting[:image_thumbnails] = image_thumbnails.merge({:portfolio_thumb => 'c96x96', :portfolio => '600x512'})
   end
 
   def self.down
 		UserPlugin.destroy_all({:title => "Portfolio"})
-		
+
 		Page.find_all_by_link_url("/portfolio").each do |page|
 			page.link_url, page.menu_match, page.deletable = nil
 			page.destroy
 		end
 		Page.destroy_all({:link_url => "/portfolio"})
-	
+
 		image_thumbnails = RefinerySetting.find_or_set(:image_thumbnails, {})
 		RefinerySetting[:image_thumbnails] = image_thumbnails.delete_if {|key, value| key == :portfolio_thumb or key == :portfolio }
-	
+
 		drop_table :images_portfolio_entries
 		drop_table :portfolio_entries
   end
