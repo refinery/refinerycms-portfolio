@@ -14,11 +14,15 @@ class PortfolioController < ApplicationController
 				@master_entry = PortfolioEntry.find_by_parent_id(nil, :order => "position ASC")
 			end
 
-			if params[:portfolio_id]
-				@portfolio_entry = @master_entry.children.find(params[:portfolio_id])
-			else
-				@portfolio_entry = @master_entry.children.first
-			end
+      if RefinerySetting.find_or_set(:multi_level_portfolio, true)
+        if params[:portfolio_id]
+    			@portfolio_entry = @master_entry.children.find(params[:portfolio_id])
+    		else
+    			@portfolio_entry = @master_entry.children.first
+    		end
+    	else
+    	  @portfolio_entry = @master_entry
+  	  end
 
 			begin
 		    if params[:image_id]

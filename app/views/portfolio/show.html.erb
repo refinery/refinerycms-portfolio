@@ -4,7 +4,7 @@
 	<div id='body_content_left' class='clearfix'>
 		<h1 class='clearfix'>
 		  <span><%= @master_entry.title %></span>
-			<%= select :portfolio_entry, :to_param, @master_entry.children.collect{|entry| [entry.title, entry.to_param] } %>
+			<%= select :portfolio_entry, :to_param, @master_entry.children.collect{|entry| [entry.title, entry.to_param] } if RefinerySetting.find_or_set(:multi_level_portfolio, true) %>
 		</h1>
 
 		<%= render :partial => "main_image" %>
@@ -12,11 +12,9 @@
 	<div id='body_content_right' class='clearfix'>
 		<h2><%= @portfolio_entry.title %></h2>
 		<ul id='portfolio_images'>
-			<% (images = @portfolio_entry.images).each do |image| %>
+			<% @portfolio_entry.images.each_with_index do |image, index| %>
 				<li class='<%= cycle("odd", "even") %>'>
-					<% className = (selected = images.index(image) == params[:image_id].to_i) ? "selected" : "pale" %>
-				  <%= link_to	image_fu(image, :portfolio_thumb),
-				      portfolio_image_url(@master_entry, @portfolio_entry, images.index(image)), :class => className %>
+					<%= link_to_portfolio_image @master_entry, @portfolio_entry, image, index %>
 				</li>
 			<% end %>
 		</ul>
@@ -31,7 +29,7 @@
 			$("ul#portfolio_images li a.pale img").fadeTo(0, 0.3);
 
 			$('#portfolio_entry_to_param').change(function() {
-				window.location = "<%= portfolio_project_url(@master_entry, nil) %>" + this.value;
+				window.location = "<%= RefinerySetting.find_or_set(:multi_level_portfolio, true) ? portfolio_project_url(@master_entry, nil) : portfolio_project_url(@master_entry) %>" + this.value;
 			});
 
       var clicked_on = null;
