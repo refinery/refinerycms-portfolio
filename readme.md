@@ -46,3 +46,7 @@ Then run:
     refinerycms-portfolio-install /path/to/your/refinery/application
 
 ..and follow the instructions!
+
+## Single or Multiple Level Portfolios
+
+The standard setup for portfolios is multi-level, with a parent portfolio having child portfolios.  If your needs are simpler, you can switch to a single level of portfolios by changing the Refinery Setting for 'Multi Level Portfolio' to false.
