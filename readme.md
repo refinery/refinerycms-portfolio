@@ -28,14 +28,14 @@ Then run:
 
 Then place in your config/environment.rb (or config/application.rb for refinery 0.9.6.x) file before all other Refinery gem calls:
 
-    config.gem "refinerycms-portfolio", :version => ">= 0.9.3.8", :lib => "portfolio", :source => "http://gemcutter.org"
+    config.gem "refinerycms-portfolio", :version => ">= 0.9.5", :lib => "portfolio", :source => "http://gemcutter.org"
 
 ..and follow the instructions!
 
 ### Method Two
 Place in your config/environment.rb (or config/application.rb for refinery 0.9.6.x) file before all other Refinery gem calls:
 
-    config.gem "refinerycms-portfolio", :version => ">= 0.9.3.8", :lib => "portfolio", :source => "http://gemcutter.org"
+    config.gem "refinerycms-portfolio", :version => ">= 0.9.5", :lib => "portfolio", :source => "http://gemcutter.org"
 
 Then run in your application's directory:
 
