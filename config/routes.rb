@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  if RefinerySetting.find_or_set(:multi_level_portfolio, true)
+  if RefinerySetting.table_exists? and RefinerySetting.find_or_set(:multi_level_portfolio, true)
 	  map.portfolio_project "/portfolio/:id/projects/:portfolio_id", :controller => "portfolio", :action => "show"
 	  map.portfolio_image "/portfolio/:id/projects/:portfolio_id/:image_id", :controller => "portfolio", :action => "show"
   else
