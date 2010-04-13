@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
 
   s.name = %q{refinerycms-portfolio}
-  s.version = "0.9.5.1"
+  s.version = "0.9.5.2"
 
   s.authors = ["Resolve Digital", "Philip Arndt"]
-  s.date = %q{2010-04-08}
+  s.date = %q{2010-04-13}
 
   s.description = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS.}
   s.summary = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
     "app/controllers/admin",
     "app/controllers/admin/portfolio_entries_controller.rb",
     "app/controllers/portfolio_controller.rb",
+    "app/helpers",
+    "app/helpers/portfolio_helper.rb",
     "app/models",
     "app/models/portfolio_entry.rb",
     "app/views",
