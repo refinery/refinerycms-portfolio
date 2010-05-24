@@ -5,27 +5,27 @@
       <%= link_to "Create New Portfolio Entry", new_admin_portfolio_entry_url, :class => "add_icon" %>
     </li>
    <% if PortfolioEntry.count > 1 %>
-		<li>
-			<%= link_to "Reorder Portfolio", "", :id => "reorder_action", :class => "reorder_icon" %>
-			<%= link_to "Done Reordering Portfolio", "", :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
-		</li>
+    <li>
+      <%= link_to "Reorder Portfolio", "", :id => "reorder_action", :class => "reorder_icon" %>
+      <%= link_to "Done Reordering Portfolio", "", :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
+    </li>
    <% end %>
   </ul>
 </div>
 <div id='records' class='tree'>
   <% if @portfolio_entries.any? %>
-  	<h2>Portfolio</h2>
-  	<ul id='sortable_list'>
-  		<%= render :partial => 'sortable_list' %>
-  	</ul>
-  	<% else %>
-  	  <p>
-    		<strong>
-    			There are no portfolio entries yet.
-    			Click "Create New Portfolio Entry" to add your first portfolio entries.
-    		</strong>
-    	</p>
+    <h2>Portfolio</h2>
+    <ul id='sortable_list'>
+      <%= render :partial => 'sortable_list' %>
+    </ul>
+    <% else %>
+      <p>
+        <strong>
+          There are no portfolio entries yet.
+          Click "Create New Portfolio Entry" to add your first portfolio entries.
+        </strong>
+      </p>
   <% end %>
 </div>
-<%= render :partial => "/shared/admin/make_sortable", 
-					 :locals => { :tree => RefinerySetting.find_or_set(:multi_level_portfolio, true) } if PortfolioEntry.count > 1 %>
+<%= render :partial => "/shared/admin/make_sortable",
+           :locals => { :tree => RefinerySetting.find_or_set(:multi_level_portfolio, true) } if PortfolioEntry.count > 1 %>

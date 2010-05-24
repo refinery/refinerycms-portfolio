@@ -16,16 +16,16 @@ class PortfolioEntry < ActiveRecord::Base
     self.body = value
   end
 
-	def image_ids=(ids)
-		self.images.clear
+  def image_ids=(ids)
+    self.images.clear
 
-		ids.reject{|id| id.blank? }.each do |image_id|
-			image = Image.find(image_id.to_i) rescue nil
-			self.images << image unless image.nil?
-		end
-	end
+    ids.reject{|id| id.blank? }.each do |image_id|
+      image = Image.find(image_id.to_i) rescue nil
+      self.images << image unless image.nil?
+    end
+  end
 
-	def indented_title
+  def indented_title
     "#{"--" * self.ancestors.size} #{self.title}".chomp
   end
 
