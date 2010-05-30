@@ -3,7 +3,7 @@ class PortfolioEntry < ActiveRecord::Base
   validates_presence_of :title
 
   # call to gems included in refinery.
-  has_friendly_id :title, :use_slug => true, :strip_diacritics => true
+  has_friendly_id :title, :use_slug => true
   acts_as_tree :order => "position"
 
   has_and_belongs_to_many :images
