@@ -21,37 +21,11 @@
   </div>
 </div>
 <% content_for :head do %>
-  <%# remove these javascript_include_tag calls if they are included in your layout.
+  <%# remove the jquery_include_tags call if jquery is included in your layout.
   %>
-  <%= javascript_include_tag 'jquery' %>
+  <%= jquery_include_tags(:include_ui => false) %>
+  <%= javascript_include_tag 'portfolio' %>
   <script type='text/javascript'>
-    $(document).ready(function(){
-      $("ul#portfolio_images li a.pale img").fadeTo(0, 0.3);
-
-      $('#portfolio_entry_to_param').change(function() {
-        window.location = "<%= RefinerySetting.find_or_set(:multi_level_portfolio, true) ? portfolio_project_url(@master_entry, nil) : portfolio_project_url(@master_entry) %>" + this.value;
-      });
-
-      var clicked_on = null;
-      $("ul#portfolio_images li a").click(function(event) {
-        if (!$(this).hasClass('selected')) {
-          clicked_on = $(this);
-          $.get($(this).attr('href'), function(data, textStatus) {
-            if (textStatus == "success") {
-              $('#portfolio_main_image').before(data).remove();
-
-              $('ul#portfolio_images li a.selected').removeClass('selected').addClass('pale');
-
-              clicked_on.removeClass('pale').addClass('selected');
-              clicked_on.find('img').fadeTo(0, 1);
-
-              $("ul#portfolio_images li a.pale img").fadeTo(0, 0.3);
-            }
-          });
-        }
-
-        return false;
-      });
-    });
+    var portfolio_entry_url = "<%= RefinerySetting.find_or_set(:multi_level_portfolio, true) ? portfolio_project_url(@master_entry, nil) : portfolio_project_url(@master_entry) %>";
   </script>
 <% end %>

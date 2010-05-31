@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
     portfolio.resources :portfolio, :as => :portfolio
   end
 
-  map.namespace(:admin) do |admin|
+  map.namespace(:admin, :path_prefix => 'refinery') do |admin|
     admin.resources :portfolio_entries, :as => :portfolio, :collection => {:emancipate => :get}
   end
 

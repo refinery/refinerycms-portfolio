@@ -1,3 +1,5 @@
+var portfolio_entry_url = null;
+
 reset_functionality = function() {
   $("#portfolio_images").sortable({
     'tolerance': 'pointer'
@@ -44,4 +46,33 @@ image_added = function(image) {
   reset_functionality();
 }
 
-$(document).ready(reset_functionality);
+$(document).ready(function() {
+  reset_functionality();
+
+  $("ul#portfolio_images li a.pale img").fadeTo(0, 0.3);
+
+  $('#portfolio_entry_to_param').change(function() {
+    window.location = portfolio_entry_url + this.value;
+  });
+
+  var clicked_on = null;
+  $("ul#portfolio_images li a").click(function(event) {
+    if (!$(this).hasClass('selected')) {
+      clicked_on = $(this);
+      $.get($(this).attr('href'), function(data, textStatus) {
+        if (textStatus == "success") {
+          $('#portfolio_main_image').before(data).remove();
+
+          $('ul#portfolio_images li a.selected').removeClass('selected').addClass('pale');
+
+          clicked_on.removeClass('pale').addClass('selected');
+          clicked_on.find('img').fadeTo(0, 1);
+
+          $("ul#portfolio_images li a.pale img").fadeTo(0, 0.3);
+        }
+      });
+    }
+
+    return false;
+  });
+}
