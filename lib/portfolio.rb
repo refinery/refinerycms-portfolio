@@ -1,4 +1,3 @@
-# empty as yet
 module Refinery
   module Portfolio
     class Version
@@ -6,8 +5,8 @@ module Refinery
       MINOR = 9
       TINY = 6
       BUILD = nil
-      
+
       STRING = [MAJOR, MINOR, TINY, BUILD].compact.join('.')
     end
-  end      
+  end
 end
