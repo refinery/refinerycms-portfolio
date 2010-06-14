@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
-  s.authors           = %w(Resolve\ Digital Philip\ Arndt)
+  s.authors           = %w(Resolve\\ Digital Philip\\ Arndt)
   s.require_paths     = %w(lib)
   s.executables       = %w(refinerycms-portfolio-install)
 
