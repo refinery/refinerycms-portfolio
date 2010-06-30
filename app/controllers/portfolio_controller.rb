@@ -14,7 +14,7 @@ class PortfolioController < ApplicationController
         @master_entry = PortfolioEntry.find_by_parent_id(nil, :order => "position ASC")
       end
 
-      if RefinerySetting.find_or_set(:multi_level_portfolio, true)
+      if ::Refinery::Portfolio.multi_level?
         if params[:portfolio_id]
           @portfolio_entry = @master_entry.children.find(params[:portfolio_id])
         else

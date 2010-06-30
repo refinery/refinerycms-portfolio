@@ -15,7 +15,7 @@ protected
 
   # This finds all of the entries that could possibly be assigned as the current entry's parent.
   def find_portfolio_entries_for_parents_list
-    if RefinerySetting.find_or_set(:multi_level_portfolio, true)
+    if ::Refinery::Portfolio.multi_level?
       @portfolio_entries_for_parents_list = PortfolioEntry.find(:all, :order => "parent_id, position ASC")
 
       # We need to remove all references to the current entry or any of its decendants or we get a nightmare.

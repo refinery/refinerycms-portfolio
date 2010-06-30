@@ -8,13 +8,13 @@
 <li class='clearfix record<%= " #{branch}" %>' id="<%= dom_id(list) -%>">
   <div class='clearfix'>
     <span class='actions'>
-      <% url = list.parent ? portfolio_project_url(list.parent, list) : portfolio_url(list)  %>
+      <% url = (::Refinery::Portfolio.multi_level? && list.parent ? portfolio_project_url(list.parent, list) : portfolio_url(list))  %>
       <%= link_to refinery_icon_tag('application_go.png'), url, :target => "_blank",
                  :title => "View this entry live <br/><em>(opens in a new window)</em>" %>
       <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_portfolio_entry_path(list),
                  :title => "Edit this entry" %>
       <%= link_to refinery_icon_tag('arrow_up.png'),
-                 {:controller => "/admin/portfolio_entries", :action => "emancipate", :id => list.id},
+                 emancipate_admin_portfolio_entry_url(list),
                  :title => "Move this entry up one level" if list.parent.present? %>
       <%= link_to refinery_icon_tag('delete.png'), admin_portfolio_entry_path(list),
                  :class => "cancel confirm-delete",

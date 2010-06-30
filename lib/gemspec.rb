@@ -3,7 +3,7 @@ require File.expand_path('../portfolio.rb', __FILE__)
 version = Refinery::Portfolio::Version::STRING
 raise "Could not get version so gemspec can not be built" if version.nil?
 files = %w( readme.md license.md  )
-%w(app bin config db lib public rails test vendor).each do |dir|
+%w(app config generators lib public rails test vendor).each do |dir|
   files += Dir.glob("#{dir}/**/*") if File.directory?(dir)
 end
 
@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.homepage          = %q{http://refinerycms.com}
   s.authors           = %w(Resolve\\ Digital Philip\\ Arndt)
   s.require_paths     = %w(lib)
-  s.executables       = %w(refinerycms-portfolio-install)
 
   s.files             = [
     '#{files.join("',\n    '")}'

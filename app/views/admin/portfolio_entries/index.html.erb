@@ -28,4 +28,4 @@
   <% end %>
 </div>
 <%= render :partial => "/shared/admin/make_sortable",
-           :locals => { :tree => RefinerySetting.find_or_set(:multi_level_portfolio, true) } if PortfolioEntry.count > 1 %>
+           :locals => { :tree => ::Refinery::Portfolio.multi_level? } if PortfolioEntry.count > 1 %>

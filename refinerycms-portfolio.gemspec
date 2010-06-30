@@ -2,13 +2,12 @@ Gem::Specification.new do |s|
   s.name              = %q{refinerycms-portfolio}
   s.version           = %q{0.9.6}
   s.description       = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS}
-  s.date              = %q{2010-06-15}
+  s.date              = %q{2010-06-30}
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
   s.authors           = %w(Resolve\ Digital Philip\ Arndt)
   s.require_paths     = %w(lib)
-  s.executables       = %w(refinerycms-portfolio-install)
 
   s.files             = [
     'readme.md',
@@ -34,13 +33,13 @@ Gem::Specification.new do |s|
     'app/views/portfolio/_main_image.html.erb',
     'app/views/portfolio/empty.html.erb',
     'app/views/portfolio/show.html.erb',
-    'bin/refinerycms-portfolio-install',
     'config/locale',
     'config/locale/en.yml',
     'config/routes.rb',
-    'db/migrate',
-    'db/migrate/20090917224823_create_portfolio_structure.rb',
-    'db/migrate/20091121033434_add_position_to_images_portfolio_entries.rb',
+    'generators/portfolio',
+    'generators/portfolio/portfolio_generator.rb',
+    'generators/portfolio/templates',
+    'generators/portfolio/templates/migration.rb',
     'lib/gemspec.rb',
     'lib/portfolio.rb',
     'lib/tasks',

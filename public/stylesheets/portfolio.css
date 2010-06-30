@@ -10,7 +10,6 @@
 }
 #body_content.portfolio #body_content_left h1 select {
 	margin-left: 12px;
-	min-width: 200px;
 	float: right;
 	margin-top: 3px;
 	display: block;
@@ -24,9 +23,10 @@
 	font-size: 15px;
 	font-weight: normal;
 }
-
-#portfolio_main_image {
-	border: 3px solid #d4cabc;
+#portfolio_main_image_container {
+  border: 3px solid #d4cabc;
+  width: 100%;
+  text-align: center;
 }
 #portfolio_images {
 	margin: 0px;
@@ -42,7 +42,6 @@
 #portfolio_images li.odd {
 	margin-right: 18px;
 }
-
 #portfolio_images.portfolio_entry_images {
     width: 100%;
 }
@@ -65,12 +64,10 @@
 #portfolio_images.portfolio_entry_images li .image_actions * {
     cursor: pointer;
 }
-
 #content ul.ui-sortable li {
     border: 0px none;
     background: none !important;
 }
-
 #content #portfolio_images.ui-sortable li.placeholder {
     width: 135px;
     height: 135px;

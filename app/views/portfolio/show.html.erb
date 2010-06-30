@@ -1,13 +1,20 @@
+<% ::ActionController::Routing::Routes.reload! %>
 <% content_for :title, "#{@portfolio_entry.title} - " %>
 <% content_for :head, stylesheet_link_tag('portfolio') %>
 <div id='body_content' class='clearfix portfolio'>
   <div id='body_content_left' class='clearfix'>
     <h1 class='clearfix'>
       <span><%= @master_entry.title %></span>
-      <%= select :portfolio_entry, :to_param, @master_entry.children.collect{|entry| [entry.title, entry.to_param] } if RefinerySetting.find_or_set(:multi_level_portfolio, true) %>
+      <% if ::Refinery::Portfolio.multi_level? %>
+        <%= select :portfolio_entry, :to_param, @master_entry.children.collect{|entry| [entry.title, entry.to_param] } %>
+      <% else %>
+        <%= select :portfolio_entry, :to_param, PortfolioEntry.all.collect{|entry| [entry.title, entry.to_param] } %>
+      <% end %>
     </h1>
 
-    <%= render :partial => "main_image" %>
+    <div id='portfolio_main_image_container'>
+      <%= render :partial => "main_image" %>
+    </div>
   </div>
   <div id='body_content_right' class='clearfix'>
     <h2><%= @portfolio_entry.title %></h2>
@@ -26,6 +33,6 @@
   <%= jquery_include_tags(:include_ui => false) %>
   <%= javascript_include_tag 'portfolio' %>
   <script type='text/javascript'>
-    var portfolio_entry_url = "<%= RefinerySetting.find_or_set(:multi_level_portfolio, true) ? portfolio_project_url(@master_entry, nil) : portfolio_project_url(@master_entry) %>";
+    var portfolio_entry_url = "<%= portfolio_project_url(@master_entry, '') if ::Refinery::Portfolio.multi_level? %>";
   </script>
 <% end %>
