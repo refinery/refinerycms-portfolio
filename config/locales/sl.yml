@@ -14,12 +14,12 @@ sl:
       list:
         view_live: Poglej si ta zapis v živo <br/><em>(odpre se v novem oknu)</em>
         edit_this_entry: "Uredi zapis"
-        move_this_entry_up: "Premekni zapis en nivo višje"
+        move_this_entry_up: "Premakni zapis en nivo višje"
         confirm_delete_entry_title: "Odstrani zapis"
       form:
         title: Naslov
         images: Slike
         add: Dodaj
-        add_another_image: Dodaj se eno sliko
+        add_another_image: Dodaj sliko
         content: Vsebina
         parent: Izberi Starša
