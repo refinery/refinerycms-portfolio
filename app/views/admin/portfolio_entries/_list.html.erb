@@ -10,15 +10,15 @@
     <span class='actions'>
       <% url = (::Refinery::Portfolio.multi_level? && list.parent ? portfolio_project_url(list.parent, list) : portfolio_url(list))  %>
       <%= link_to refinery_icon_tag('application_go.png'), url, :target => "_blank",
-                 :title => "View this entry live <br/><em>(opens in a new window)</em>" %>
+                 :title => t('.view_live') %>
       <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_portfolio_entry_path(list),
-                 :title => "Edit this entry" %>
+                 :title => t('.edit_this_entry') %>
       <%= link_to refinery_icon_tag('arrow_up.png'),
                  emancipate_admin_portfolio_entry_url(list),
-                 :title => "Move this entry up one level" if list.parent.present? %>
+                 :title => t('.move_this_entry_up') if list.parent.present? %>
       <%= link_to refinery_icon_tag('delete.png'), admin_portfolio_entry_path(list),
                  :class => "cancel confirm-delete",
-                 :title => "Remove this entry forever" %>
+                 :title => t('.confirm_delete_entry_title') %>
     </span>
     <%=h list.title %>
   </div>

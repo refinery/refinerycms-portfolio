@@ -6,15 +6,15 @@
 <%= error_messages_for :portfolio_entry %>
 <% form_for [:admin, @portfolio_entry] do |f| %>
   <div class='field'>
-    <%= f.required_label :title %>
+    <%= f.required_label t('.title') %>
     <%= f.text_field :title, :class => "larger widest" %>
   </div>
   <div class='field images_field'>
     <span class='clearfix label_inline_with_link'>
-      <%= label_tag('portfolio_entry_image_ids', 'Images') %>
-      <%= link_to "#{refinery_icon_tag "add.png"} Add",
+      <%= label_tag('portfolio_entry_image_ids', t('.images')) %>
+      <%= link_to "#{refinery_icon_tag "add.png"} #{t('.add')}",
                   insert_admin_images_url(:dialog => true, :width => 950, :height => 510, :callback => "image_added"),
-                  :name => "Add Another Image",
+                  :name => t('.add_another_image'),
                   :id => "add_image_link" %>
     </span>
     <ul id='portfolio_images' class='clearfix portfolio_entry_images'>
@@ -32,12 +32,12 @@
     </ul>
   </div>
   <div class='field clearfix'>
-    <%= f.label :body, 'Content' %>
+    <%= f.label :body, t('.content') %>
     <%= f.text_area :body, :class => "wymeditor widest", :rows => 7 %>
   </div>
   <% if @portfolio_entries_for_parents_list.any? %>
     <div class='field'>
-      <%= f.label :parent_id %>
+      <%= f.label t('.parent') %>
       <%= f.collection_select :parent_id, @portfolio_entries_for_parents_list, :id, :indented_title, :include_blank => true %>
     </div>
   <% end %>

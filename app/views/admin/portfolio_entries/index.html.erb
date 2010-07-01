@@ -1,28 +1,27 @@
 <div id='actions'>
-  <h2>Actions</h2>
+  <h2><%= t('.actions') %></h2>
   <ul>
     <li>
-      <%= link_to "Create New Portfolio Entry", new_admin_portfolio_entry_url, :class => "add_icon" %>
+      <%= link_to t('.create_new_portfolio_entry'), new_admin_portfolio_entry_url, :class => "add_icon" %>
     </li>
    <% if PortfolioEntry.count > 1 %>
     <li>
-      <%= link_to "Reorder Portfolio", "", :id => "reorder_action", :class => "reorder_icon" %>
-      <%= link_to "Done Reordering Portfolio", "", :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
+      <%= link_to t('.reorder_portfolio'), "", :id => "reorder_action", :class => "reorder_icon" %>
+      <%= link_to t('.reorder_portfolio_done'), "", :id => "reorder_action_done", :style => "display: none;", :class => "reorder_icon" %>
     </li>
    <% end %>
   </ul>
 </div>
 <div id='records' class='tree'>
   <% if @portfolio_entries.any? %>
-    <h2>Portfolio</h2>
+    <h2><%= t('.portfolio') %></h2>
     <ul id='sortable_list'>
       <%= render :partial => 'sortable_list' %>
     </ul>
     <% else %>
       <p>
         <strong>
-          There are no portfolio entries yet.
-          Click "Create New Portfolio Entry" to add your first portfolio entries.
+          <%=t('.no_portfolio_entries_yet')%>
         </strong>
       </p>
   <% end %>

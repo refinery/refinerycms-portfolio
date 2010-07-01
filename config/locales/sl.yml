@@ -1,0 +1,25 @@
+sl:
+  plugins:
+    portfolio:
+      title: Portfelja
+  admin:
+    portfolio_entries:
+      index:
+        actions: Dejavnosti
+        create_new_portfolio_entry: "Ustvari Novo Portfelje"
+        reorder_portfolio: "Prerazporedi Portfelja"
+        reorder_portfolio_done: "Končaj s prerazporejanjem Portfelja"
+        portfolio: Portfelja
+        no_portfolio_entries_yet: 'Trenutno še ni nobenega portfelja. Kliknite "Ustvari Novo Portfelje" če želite dodati prvo portfelje.'
+      list:
+        view_live: Poglej si ta zapis v živo <br/><em>(odpre se v novem oknu)</em>
+        edit_this_entry: "Uredi zapis"
+        move_this_entry_up: "Premekni zapis en nivo višje"
+        confirm_delete_entry_title: "Odstrani zapis"
+      form:
+        title: Naslov
+        images: Slike
+        add: Dodaj
+        add_another_image: Dodaj se eno sliko
+        content: Vsebina
+        parent: Izberi Starša
