@@ -22,7 +22,7 @@ class <%= migration_name %> < ActiveRecord::Migration
     add_index :portfolio_entries, :parent_id
 
     User.find(:all).each do |user|
-      user.plugins.create(:title => "Portfolio", :position => (user.plugins.maximum(:position) || -1) +1)
+      user.plugins.create(:name => "Portfolio", :position => (user.plugins.maximum(:position) || -1) +1)
     end
 
     page = Page.create(:title => "Portfolio", :link_url => "/portfolio", :menu_match => "\/portfolio(|\/.+?)", :deletable => false, :position => ((Page.maximum(:position, :conditions => {:parent_id => nil}) || -1)+1))
