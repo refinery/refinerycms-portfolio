@@ -1,12 +1,14 @@
 module Refinery
   module Portfolio
-    class Version
-      MAJOR = 0
-      MINOR = 9
-      TINY = 6
-      BUILD = nil
 
-      STRING = [MAJOR, MINOR, TINY, BUILD].compact.join('.')
+    def self.version
+      ::Refinery::Portfolio::Version.to_s
+    end
+
+    class Version
+      def self.to_s
+        %q{0.9.7}
+      end
     end
 
     class << self
