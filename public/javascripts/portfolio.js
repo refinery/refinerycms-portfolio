@@ -8,7 +8,7 @@ reset_functionality = function() {
     , 'items': 'li'
   });
 
-  $('#content portfolio_images li:not(.empty)').each(function(index, li) {
+  $('#content #portfolio_images li:not(.empty)').each(function(index, li) {
     $(li).mouseover(function(e){
       if ((image_actions = $(this).find('.image_actions')).length == 0) {
         image_actions = $("<div class='image_actions'></div>");
