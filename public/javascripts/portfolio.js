@@ -9,7 +9,7 @@ reset_functionality = function() {
   });
 
   $('#content #portfolio_images li:not(.empty)').each(function(index, li) {
-    $(li).mouseover(function(e){
+    $(this).hover(function(e){
       if ((image_actions = $(this).find('.image_actions')).length == 0) {
         image_actions = $("<div class='image_actions'></div>");
         img_delete = $("<img src='/images/refinery/icons/delete.png' width='16' height='16' />");
@@ -22,9 +22,7 @@ reset_functionality = function() {
       }
 
       image_actions.show();
-    });
-
-    $(li).mouseout(function(e) {
+    }, function(e) {
       $(this).find('.image_actions').hide();
     });
   });
