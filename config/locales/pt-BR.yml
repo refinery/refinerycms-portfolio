@@ -1,0 +1,22 @@
+pt-BR:
+  admin:
+    portfolio_entries:
+      index:
+        actions: Ações
+        create_new_portfolio_entry: "Criar novo Portfólio"
+        reorder_portfolio: "Reordenar Portfólio"
+        reorder_portfolio_done: "Finalizar reordenação do Portfólio"
+        portfolio: Portfólio
+        no_portfolio_entries_yet: 'Não há portfólios cadastrados. Clique em "Criar novo Portfólio" para cadastrar seu primeiro portfólio.'
+      list:
+        view_live: "Ver este portfólio no site<br/><em>(abrirá em uma nova janela)</em>"
+        edit_this_entry: "Alterar este portfólio"
+        move_this_entry_up: "Mover este portfólio um nível acima"
+        confirm_delete_entry_title: "Remover este portfólio para sempre"
+      form:
+        title: Título
+        images: Imagens
+        add: Adicionar
+        add_another_image: "Adicionar outra Imagem"
+        content: Conteúdo
+        parent: Pai
