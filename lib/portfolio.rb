@@ -13,7 +13,7 @@ module Refinery
 
     class << self
       def multi_level?
-        RefinerySetting.table_exists? and RefinerySetting.find_or_set(:multi_level_portfolio, true, {
+        RefinerySetting.table_exists? and RefinerySetting.find_or_set(:multi_level_portfolio, false, {
           :callback_proc_as_string => %q{::ActionController::Routing::Routes.reload!},
           :restricted => true
         })

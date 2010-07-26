@@ -28,4 +28,4 @@ Then run:
 
 ## Single or Multiple Level Portfolios
 
-The standard setup for portfolios is multi-level, with a parent portfolio having child portfolios.  If your needs are simpler, you can switch to a single level of portfolios by changing the Refinery Setting for 'Multi Level Portfolio' to false.
+The standard setup for portfolios is single-level. If you need a multi-level portfolio where you have "categories" of portfolio items you can switch to a multi level setup by changing the Refinery Setting for 'Multi Level Portfolio' to true.
