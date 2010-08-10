@@ -31,7 +31,7 @@ class <%= migration_name %> < ActiveRecord::Migration
     end
 
     # we need to retrieve the value, merge it in and then save it back because it's a frozen hash.
-    image_thumbnails = RefinerySetting.find_or_set(:image_thumbnails, {})
+    image_thumbnails = RefinerySetting.find_or_set(:image_thumbnails, {}).dup
     RefinerySetting[:image_thumbnails] = image_thumbnails.merge({:portfolio_thumb => 'c96x96', :portfolio => '600x512'})
   end
 
