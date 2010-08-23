@@ -3,8 +3,12 @@
   <%= javascript_include_tag 'portfolio' %>
 <% end %>
 
-<%= error_messages_for :portfolio_entry %>
 <% form_for [:admin, @portfolio_entry] do |f| %>
+  <%= render :partial => "/shared/admin/error_messages",
+             :locals => {
+               :object => f.object,
+               :include_object_name => true
+             }  %>
   <div class='field'>
     <%= f.required_label t('.title') %>
     <%= f.text_field :title, :class => "larger widest" %>
@@ -12,7 +16,7 @@
   <div class='field images_field'>
     <span class='clearfix label_inline_with_link'>
       <%= label_tag('portfolio_entry_image_ids', t('.images')) %>
-      <%= link_to "#{refinery_icon_tag "add.png"} #{t('.add')}",
+      <%= link_to "#{refinery_icon_tag "add.png"} #{t('.add')}".html_safe,
                   insert_admin_images_url(
                     :dialog => true,
                     :width => 866,
@@ -36,7 +40,7 @@
       </li>
     </ul>
   </div>
-  <div class='field clearfix'>
+  <div id='portfolio_body' class='field clearfix'>
     <%= f.label :body, t('.content') %>
     <%= f.text_area :body, :class => "wymeditor widest", :rows => 7 %>
   </div>
