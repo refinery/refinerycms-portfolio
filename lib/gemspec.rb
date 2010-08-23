@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require File.expand_path('../portfolio.rb', __FILE__)
+require File.expand_path('../portfolio/version.rb', __FILE__)
 version = Refinery::Portfolio.version
 raise "Could not get version so gemspec can not be built" if version.nil?
 files = %w( readme.md license.md  )
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
-  s.authors           = %w(Resolve\\ Digital)
+  s.authors           = ['Resolve Digital']
   s.require_paths     = %w(lib)
 
   s.files             = [

@@ -6,26 +6,18 @@ By: [Resolve Digital](http://www.resolvedigital.com)
 
 Open your ``Gemfile`` and add this line to the bottom:
 
-    gem 'refinerycms-portfolio', '= 0.9.7', :require => 'portfolio'
+    gem 'refinerycms-portfolio', '~> 0.9.8', :require => 'portfolio'
 
 Now run ``bundle install`` and once bundler has installed the gem run:
 
-    rake refinery:portfolio:install
+    rails generate portfolio
+    rake db:migrate
 
-..and follow the instructions!
-
-## Plugin Installation
-
-From within your Refinery directory at command line, install this as a plugin using:
-
-    script/plugin install git://github.com/resolve/refinerycms-portfolio.git
-
-Then run:
-
-    rake refinery:portfolio:install
-
-..and follow the instructions!
+Now, restart your web server and enjoy.
 
 ## Single or Multiple Level Portfolios
 
-The standard setup for portfolios is single-level. If you need a multi-level portfolio where you have "categories" of portfolio items you can switch to a multi level setup by changing the Refinery Setting for 'Multi Level Portfolio' to true.
+The standard setup for portfolios is single-level.
+If you need a multi-level portfolio where you have "categories" of portfolio
+items you can switch to a multi level setup by changing the Refinery Setting for
+``Multi Level Portfolio`` to true.

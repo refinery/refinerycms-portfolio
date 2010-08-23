@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-portfolio}
-  s.version           = %q{0.9.7}
+  s.version           = %q{0.9.8}
   s.description       = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS}
-  s.date              = %q{2010-07-09}
+  s.date              = %q{2010-08-23}
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
@@ -35,21 +35,28 @@ Gem::Specification.new do |s|
     'app/views/portfolio/show.html.erb',
     'config/locales',
     'config/locales/en.yml',
+    'config/locales/pt-BR.yml',
     'config/locales/sl.yml',
     'config/routes.rb',
-    'generators/portfolio',
-    'generators/portfolio/portfolio_generator.rb',
-    'generators/portfolio/templates',
-    'generators/portfolio/templates/migration.rb',
     'lib/gemspec.rb',
+    'lib/generators',
+    'lib/generators/portfolio',
+    'lib/generators/portfolio/portfolio_generator.rb',
+    'lib/generators/portfolio/templates',
+    'lib/generators/portfolio/templates/db',
+    'lib/generators/portfolio/templates/db/migrate',
+    'lib/generators/portfolio/templates/db/migrate/migration_number_create_structure_for_portfolio.rb',
+    'lib/generators/portfolio/templates/db/seeds',
+    'lib/generators/portfolio/templates/db/seeds/portfolio.rb',
+    'lib/portfolio',
+    'lib/portfolio/version.rb',
     'lib/portfolio.rb',
     'lib/tasks',
     'lib/tasks/portfolio.rake',
     'public/javascripts',
     'public/javascripts/portfolio.js',
     'public/stylesheets',
-    'public/stylesheets/portfolio.css',
-    'rails/init.rb'
+    'public/stylesheets/portfolio.css'
   ]
   
 end

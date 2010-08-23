@@ -1,24 +1,40 @@
 require File.expand_path("../../lib/portfolio.rb", __FILE__)
 
-ActionController::Routing::Routes.draw do |map|
-
+Refinery::Application.routes.draw do
   # Make sure you restart your web server after changing the multi level setting.
   if ::Refinery::Portfolio.multi_level?
-    map.portfolio_project "/portfolio/:id/projects/:portfolio_id", :controller => "portfolio", :action => "show"
-    map.portfolio_image "/portfolio/:id/projects/:portfolio_id/:image_id", :controller => "portfolio", :action => "show"
+    match "/portfolio/:id/projects/:portfolio_id",
+          :as => :portfolio_project,
+          :to => "portfolio#show"
+
+    match "/portfolio/:id/projects/:portfolio_id/:image_id",
+          :as => :portfolio_image,
+          :to => "portfolio#show"
   else
-    map.portfolio_project "/portfolio/:id", :controller => "portfolio", :action => "show"
-    map.portfolio_image "/portfolio/:id/:image_id", :controller => "portfolio", :action => "show"
+    match "/portfolio/:id",
+          :as => :portfolio_project,
+          :to => "portfolio#show"
+
+    match "/portfolio/:id/:image_id",
+          :as => :portfolio_image,
+          :to => "portfolio#show"
   end
 
-  map.portfolio "/portfolio/:id/", :controller => 'portfolio', :action => 'show'
+  match '/portfolio/:id', :as => 'portfolio', :to => 'portfolio#show'
 
-  map.resources :portfolio do |portfolio|
-    portfolio.resources :portfolio, :as => :portfolio
+  resources :portfolio do
+    resources :portfiolio, :as => :portfolio
   end
 
-  map.namespace(:admin, :path_prefix => (defined?(REFINERY_GEM_VERSION) ? 'admin' : 'refinery')) do |admin|
-    admin.resources :portfolio_entries, :as => :portfolio, :member => {:emancipate => :get}, :collection => {:update_positions => :post}
+  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
+    resources :portfolio, :as => :portfolio_entries do
+      member do
+        get :emancipate
+      end
+      collection do
+        post :update_positions
+      end
+    end
   end
 
 end

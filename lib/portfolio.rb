@@ -1,15 +1,9 @@
+require 'refinery'
+
 module Refinery
   module Portfolio
 
-    def self.version
-      ::Refinery::Portfolio::Version.to_s
-    end
-
-    class Version
-      def self.to_s
-        %q{0.9.7}
-      end
-    end
+    autoload :Version, 'portfolio/version'
 
     class << self
       def multi_level?
@@ -17,6 +11,27 @@ module Refinery
           :callback_proc_as_string => %q{::ActionController::Routing::Routes.reload!},
           :restricted => true
         })
+      end
+    end
+
+    class Engine < Rails::Engine
+      initializer "static assets" do |app|
+        app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
+      end
+
+      config.to_prepare do
+        Refinery::Plugin.register do |plugin|
+          plugin.name = "portfolio"
+          plugin.title = "Portfolio"
+          plugin.description = "Manage a portfolio within RefineryCMS"
+          plugin.version = ::Refinery::Portfolio::Version.to_s
+          plugin.menu_match = /(admin|refinery)\/portfolio(_entries)?/
+          plugin.url = '/refinery/portfolio'
+          plugin.activity = {
+            :class => PortfolioEntry
+          }
+        end
+
       end
     end
   end

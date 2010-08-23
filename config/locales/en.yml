@@ -1,4 +1,7 @@
 en:
+  plugins:
+    portfolio:
+      title: Portfolio
   admin:
     portfolio_entries:
       index:

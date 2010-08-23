@@ -1,4 +1,7 @@
 pt-BR:
+  plugins:
+    portfolio:
+      title: Pasta
   admin:
     portfolio_entries:
       index:

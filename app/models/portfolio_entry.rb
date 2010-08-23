@@ -8,13 +8,7 @@ class PortfolioEntry < ActiveRecord::Base
 
   has_and_belongs_to_many :images
 
-  def content
-    self.body
-  end
-
-  def content=(value)
-    self.body = value
-  end
+  alias_attribute :content, :body
 
   def image_ids=(ids)
     self.images.clear
