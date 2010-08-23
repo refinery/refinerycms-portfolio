@@ -1,4 +1,4 @@
-class Admin::PortfolioEntriesController < Admin::BaseController
+class Admin::PortfolioController < Admin::BaseController
 
   crudify :portfolio_entry, :order => 'position ASC', :conditions => "parent_id IS NULL"
   before_filter :find_portfolio_entries_for_parents_list, :only => [:new, :create, :edit, :update]
