@@ -3,7 +3,7 @@ sl:
     portfolio:
       title: Portfelja
   admin:
-    portfolio_entries:
+    portfolio:
       index:
         actions: Dejavnosti
         create_new_portfolio_entry: "Ustvari Novo Portfelje"

@@ -3,7 +3,7 @@ en:
     portfolio:
       title: Portfolio
   admin:
-    portfolio_entries:
+    portfolio:
       index:
         actions: Actions
         create_new_portfolio_entry: "Create New Portfolio Entry"

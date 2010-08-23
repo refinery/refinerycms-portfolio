@@ -3,7 +3,7 @@ pt-BR:
     portfolio:
       title: Pasta
   admin:
-    portfolio_entries:
+    portfolio:
       index:
         actions: Ações
         create_new_portfolio_entry: "Criar novo Portfólio"
