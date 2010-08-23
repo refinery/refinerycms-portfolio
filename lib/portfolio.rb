@@ -19,7 +19,7 @@ module Refinery
         app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
       end
 
-      config.to_prepare do
+      config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "portfolio"
           plugin.title = "Portfolio"
