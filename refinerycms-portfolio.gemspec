@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
-  s.authors           = %w(Resolve\ Digital)
+  s.authors           = ['Resolve Digital']
   s.require_paths     = %w(lib)
 
   s.files             = [
@@ -51,8 +51,6 @@ Gem::Specification.new do |s|
     'lib/portfolio',
     'lib/portfolio/version.rb',
     'lib/portfolio.rb',
-    'lib/tasks',
-    'lib/tasks/portfolio.rake',
     'public/javascripts',
     'public/javascripts/portfolio.js',
     'public/stylesheets',
