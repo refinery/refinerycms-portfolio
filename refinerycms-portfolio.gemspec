@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
     'license.md',
     'app/controllers',
     'app/controllers/admin',
-    'app/controllers/admin/portfolio_entries_controller.rb',
+    'app/controllers/admin/portfolio_controller.rb',
     'app/controllers/portfolio_controller.rb',
     'app/helpers',
     'app/helpers/portfolio_helper.rb',

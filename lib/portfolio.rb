@@ -25,8 +25,7 @@ module Refinery
           plugin.title = "Portfolio"
           plugin.description = "Manage a portfolio within RefineryCMS"
           plugin.version = ::Refinery::Portfolio::Version.to_s
-          plugin.menu_match = /(admin|refinery)\/portfolio(_entries)?/
-          plugin.url = '/refinery/portfolio'
+          plugin.menu_match = /admin\/portfolio(_entries)?/
           plugin.activity = {
             :class => PortfolioEntry
           }

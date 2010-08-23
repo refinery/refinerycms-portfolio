@@ -3,7 +3,9 @@ class PortfolioController < ApplicationController
   before_filter :load_page, :only => [:index, :show, :empty]
 
   def index
-    redirect_to portfolio_url(PortfolioEntry.find_by_parent_id(nil, :order => "position ASC")) rescue error_404
+    if (first_entry = PortfolioEntry.find_by_parent_id(nil, :order => "position ASC")).present?
+      redirect_to portfolio_url(first_entry)
+    end
   end
 
   def show
