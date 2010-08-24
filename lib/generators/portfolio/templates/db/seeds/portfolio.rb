@@ -15,4 +15,7 @@ end
 
 # we need to retrieve the value, merge it in and then save it back because it's a frozen hash.
 image_thumbnails = RefinerySetting.find_or_set(:image_thumbnails, {}).dup
-RefinerySetting[:image_thumbnails] = image_thumbnails.merge({:portfolio_thumb => '96x96#c', :portfolio => '600x512'})
+RefinerySetting[:image_thumbnails] = image_thumbnails.merge({
+  :portfolio_thumb => '96x96#c',
+  :portfolio => '600x512'
+})
