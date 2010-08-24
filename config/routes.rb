@@ -12,8 +12,6 @@ Refinery::Application.routes.draw do
     match "/portfolio/:id/projects/:portfolio_id",
           :as => :portfolio_project,
           :to => "portfolio#show"
-
-    match '/portfolio/:id', :as => 'portfolio_show', :to => 'portfolio#show'
   else
     match "/portfolio/:id/:image_id",
           :as => :portfolio_image,
@@ -23,6 +21,8 @@ Refinery::Application.routes.draw do
           :as => :portfolio_project,
           :to => "portfolio#show"
   end
+
+  match '/portfolio/:id', :as => 'portfolio', :to => 'portfolio#show'
 
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :portfolio, :as => :portfolio_entries do
