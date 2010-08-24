@@ -1,5 +1,8 @@
 User.find(:all).each do |user|
-  user.plugins.create(:name => "portfolio", :position => (user.plugins.maximum(:position) || -1) +1)
+  user.plugins.create({
+    :name => "portfolio",
+    :position => (user.plugins.maximum(:position) || -1) +1
+  })
 end
 
 page = Page.create({
