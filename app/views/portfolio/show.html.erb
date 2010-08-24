@@ -1,33 +1,37 @@
 <% content_for :title, @portfolio_entry.title %>
-<% content_for :head, stylesheet_link_tag('portfolio') %>
-<div id='body_content' class='clearfix portfolio'>
-  <div id='body_content_left' class='clearfix'>
-    <h1 class='clearfix'>
-      <span><%= @master_entry.title %></span>
-      <% if @portfolio_entries.many? %>
-        <%= select(:portfolio_entry, :to_param,
-                   @portfolio_entries.collect{|entry|
-                     [entry.title, entry.to_param]
-                    }) %>
-      <% end %>
-    </h1>
 
-    <div id='portfolio_main_image_container'>
-      <%= render :partial => "main_image" %>
-    </div>
+<% content_for :body_content_page_title do %>
+  <span><%= @master_entry.title %></span>
+
+  <%= select(:portfolio_entry, :to_param,
+             @portfolio_entries.collect{|entry|
+               [entry.title, entry.to_param]
+             }) if @portfolio_entries.many? %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <div id='portfolio_main_image_container'>
+    <%= render :partial => "main_image" %>
   </div>
-  <div id='body_content_right' class='clearfix'>
-    <h2><%= @portfolio_entry.title %></h2>
-    <ul id='portfolio_images'>
-      <% @portfolio_entry.images.each_with_index do |image, index| %>
-        <li class='<%= cycle("odd", "even") %>'>
-          <%= link_to_portfolio_image(@master_entry, @portfolio_entry, image, index) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <h2><%= @portfolio_entry.title %></h2>
+  <ul id='portfolio_images'>
+    <% @portfolio_entry.images.each_with_index do |image, index| %>
+      <li class='<%= cycle("odd", "even") %>'>
+        <%= link_to_portfolio_image(@master_entry, @portfolio_entry, image, index) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class='portfolio'>
+  <%= render :partial => "/shared/content_page" %>
 </div>
+
 <% content_for :head do %>
+  <%= stylesheet_link_tag('portfolio') %>
   <%# remove the jquery_include_tags call if jquery is included in your layout.
   %>
   <%= jquery_include_tags(:include_ui => false) %>

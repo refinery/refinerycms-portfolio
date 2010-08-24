@@ -45,6 +45,7 @@ image_added = function(image) {
 }
 
 $(document).ready(function() {
+  $('h1#body_content_page_title').addClass('clearfix');
   reset_functionality();
 
   $("ul#portfolio_images li a.pale img").fadeTo(0, 0.3);
