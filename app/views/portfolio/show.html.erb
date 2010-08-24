@@ -1,13 +1,14 @@
-<% content_for :title, "#{@portfolio_entry.title} - " %>
+<% content_for :title, @portfolio_entry.title %>
 <% content_for :head, stylesheet_link_tag('portfolio') %>
 <div id='body_content' class='clearfix portfolio'>
   <div id='body_content_left' class='clearfix'>
     <h1 class='clearfix'>
       <span><%= @master_entry.title %></span>
-      <% if ::Refinery::Portfolio.multi_level? %>
-        <%= select :portfolio_entry, :to_param, @master_entry.children.collect{|entry| [entry.title, entry.to_param] } %>
-      <% else %>
-        <%= select :portfolio_entry, :to_param, PortfolioEntry.all.collect{|entry| [entry.title, entry.to_param] } %>
+      <% if @portfolio_entries.many? %>
+        <%= select(:portfolio_entry, :to_param,
+                   @portfolio_entries.collect{|entry|
+                     [entry.title, entry.to_param]
+                    }) %>
       <% end %>
     </h1>
 
@@ -20,7 +21,7 @@
     <ul id='portfolio_images'>
       <% @portfolio_entry.images.each_with_index do |image, index| %>
         <li class='<%= cycle("odd", "even") %>'>
-          <%= link_to_portfolio_image @master_entry, @portfolio_entry, image, index %>
+          <%= link_to_portfolio_image(@master_entry, @portfolio_entry, image, index) %>
         </li>
       <% end %>
     </ul>

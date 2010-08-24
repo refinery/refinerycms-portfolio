@@ -4,7 +4,8 @@ class PortfolioEntry < ActiveRecord::Base
 
   # call to gems included in refinery.
   has_friendly_id :title, :use_slug => true
-  acts_as_tree :order => "position"
+  acts_as_tree :order => 'position ASC'
+  default_scope :order => 'position ASC'
 
   has_and_belongs_to_many :images
 

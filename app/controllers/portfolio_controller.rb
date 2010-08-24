@@ -3,35 +3,28 @@ class PortfolioController < ApplicationController
   before_filter :load_page, :only => [:index, :show, :empty]
 
   def index
-    if (first_entry = PortfolioEntry.find_by_parent_id(nil, :order => "position ASC")).present?
+    if (first_entry = PortfolioEntry.where(:parent_id => nil).first).present?
       redirect_to portfolio_url(first_entry)
     end
   end
 
   def show
     begin
-      if params[:id]
-        @master_entry = PortfolioEntry.find(params[:id])
+      @master_entry = if params[:id]
+        PortfolioEntry.find(params[:id])
       else
-        @master_entry = PortfolioEntry.find_by_parent_id(nil, :order => "position ASC")
+        PortfolioEntry.where(:parent_id => nil).first
       end
 
       if ::Refinery::Portfolio.multi_level?
-        if params[:portfolio_id]
-          @portfolio_entry = @master_entry.children.find(params[:portfolio_id])
-        else
-          @portfolio_entry = @master_entry.children.first
-        end
+        multi_level
       else
-        @portfolio_entry = @master_entry
+        single_level
       end
 
       begin
-        if params[:image_id]
-          @image = @portfolio_entry.images[params[:image_id].to_i]
-        else
-          @image = @portfolio_entry.images.first
-        end
+        image_index = (params[:image_id].presence || '0').to_i
+        @image = @portfolio_entry.images[image_index]
       rescue
         render :action => "empty"
       end
@@ -43,6 +36,20 @@ class PortfolioController < ApplicationController
   end
 
 protected
+
+  def multi_level
+    @portfolio_entries = @master_entry.children
+    @portfolio_entry = if params[:portfolio_id]
+      @portfolio_entries.find(params[:portfolio_id])
+    else
+      @portfolio_entries.first
+    end
+  end
+
+  def single_level
+    @portfolio_entries = PortfolioEntry.all
+    @portfolio_entry = @master_entry
+  end
 
   def load_page
     @page = Page.find_by_link_url('/portfolio', :include => [:parts])
