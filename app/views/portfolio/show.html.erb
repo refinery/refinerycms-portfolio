@@ -1,6 +1,6 @@
 <% content_for :title, @portfolio_entry.title %>
 
-<% content_for :body_content_page_title do %>
+<% content_for :body_content_title do %>
   <span><%= @master_entry.title %></span>
 
   <%= select(:portfolio_entry, :to_param,
