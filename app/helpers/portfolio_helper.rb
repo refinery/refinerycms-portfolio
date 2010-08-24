@@ -10,8 +10,7 @@ module PortfolioHelper
 
   def link_to_portfolio_image(master, portfolio, image, index)
     link_to(image_fu(image, :portfolio_thumb),
-            portfolio_image_link(master, portfolio, index),
-            :class => ((index == params[:image_id].to_i) ? "selected" : "pale"))
+            portfolio_image_link(master, portfolio, index))
   end
 
 end

@@ -1,26 +1,27 @@
-#body_content.portfolio #body_content_left {
+.portfolio #body_content #body_content_left {
 	width: 621px;
 	margin-right: 39px;
 }
-#body_content.portfolio #body_content_left h1 {
+.portfolio #body_content h1#body_content_page_title {
 	margin-bottom: 24px;
+	width: 621px;
 }
-#body_content.portfolio #body_content_left h1 span {
+.portfolio #body_content h1#body_content_page_title span {
 	float: left;
 }
-#body_content.portfolio #body_content_left h1 select {
+.portfolio #body_content h1#body_content_page_title select {
 	margin-left: 12px;
 	float: right;
 	margin-top: 3px;
 	display: block;
 }
-#body_content.portfolio #body_content_right {
+.portfolio #body_content #body_content_right {
 	width: 280px;
 	text-align: left;
-	padding-top: 43px;
 }
-#body_content.portfolio #body_content_right h2, #body_content.portfolio #body_content_right {
+.portfolio #body_content #body_content_right h2, .portfolio #body_content #body_content_right {
 	font-size: 15px;
+	margin-top: 0px;
 	font-weight: normal;
 }
 #portfolio_main_image_container {
