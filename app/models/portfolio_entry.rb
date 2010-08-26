@@ -12,12 +12,9 @@ class PortfolioEntry < ActiveRecord::Base
   alias_attribute :content, :body
 
   def image_ids=(ids)
-    self.images.clear
-
-    ids.reject{|id| id.blank? }.each do |image_id|
-      image = Image.find(image_id.to_i) rescue nil
-      self.images << image unless image.nil?
-    end
+    self.images = ids.reject{|id| id.blank?}.collect {|image_id|
+      (Image.find(image_id.to_i) rescue nil)
+    }.compact
   end
 
   def indented_title
