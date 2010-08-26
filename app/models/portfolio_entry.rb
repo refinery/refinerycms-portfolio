@@ -13,7 +13,7 @@ class PortfolioEntry < ActiveRecord::Base
 
   def image_ids=(ids)
     self.images = ids.reject{|id| id.blank?}.collect {|image_id|
-      (Image.find(image_id.to_i) rescue nil)
+      Image.find(image_id.to_i) rescue nil
     }.compact
   end
 
