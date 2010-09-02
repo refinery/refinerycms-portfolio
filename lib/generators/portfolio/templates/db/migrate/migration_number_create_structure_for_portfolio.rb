@@ -25,7 +25,7 @@ class CreateStructureForPortfolio < ActiveRecord::Migration
   end
 
   def self.down
-    UserPlugin.destroy_all({:title => "Portfolio"})
+    UserPlugin.destroy_all({:name => "portfolio"})
 
     Page.find_all_by_link_url("/portfolio").each do |page|
       page.destroy!
