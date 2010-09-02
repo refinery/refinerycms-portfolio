@@ -1,9 +1,8 @@
 require 'refinery'
+require 'portfolio/version'
 
 module Refinery
   module Portfolio
-
-    autoload :Version, 'portfolio/version'
 
     class << self
       def multi_level?
@@ -22,15 +21,12 @@ module Refinery
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "portfolio"
-          plugin.title = "Portfolio"
-          plugin.description = "Manage a portfolio within RefineryCMS"
-          plugin.version = ::Refinery::Portfolio::Version.to_s
+          plugin.version = ::Refinery::Portfolio.version
           plugin.menu_match = /admin\/portfolio(_entries)?/
           plugin.activity = {
             :class => PortfolioEntry
           }
-        end
-
+        end unless Refinery::Plugins.registered.names.include?('portfolio')
       end
     end
   end
