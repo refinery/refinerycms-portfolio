@@ -31,9 +31,6 @@ class CreateStructureForPortfolio < ActiveRecord::Migration
       page.destroy!
     end
 
-    image_thumbnails = RefinerySetting.find_or_set(:image_thumbnails, {}).dup
-    RefinerySetting[:image_thumbnails] = image_thumbnails.delete_if {|key, value| key == :portfolio_thumb or key == :portfolio }
-
     drop_table :images_portfolio_entries
     drop_table :portfolio_entries
   end

@@ -3,7 +3,7 @@
   <%= javascript_include_tag 'portfolio' %>
 <% end %>
 
-<% form_for [:admin, @portfolio_entry] do |f| %>
+<%= form_for([:admin, @portfolio_entry]) do |f| %>
   <%= render :partial => "/shared/admin/error_messages",
              :locals => {
                :object => f.object,
@@ -29,7 +29,7 @@
     <ul id='portfolio_images' class='clearfix portfolio_entry_images'>
       <% @portfolio_entry.images.each do |image| %>
         <li id='image_<%= image.id %>'>
-          <%= image_fu image, :grid %>
+          <%= image_fu image, '135x135#c' %>
           <%= hidden_field_tag 'portfolio_entry[image_ids][]', image.id,
                                :id => "portfolio_entry_image_id_#{image.id}" %>
         </li>

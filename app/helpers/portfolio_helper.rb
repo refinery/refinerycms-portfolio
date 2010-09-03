@@ -9,7 +9,7 @@ module PortfolioHelper
   end
 
   def link_to_portfolio_image(master, portfolio, image, index)
-    link_to(image_fu(image, :portfolio_thumb),
+    link_to(image_fu(image, '96x96#c'),
             portfolio_image_link(master, portfolio, index))
   end
 
