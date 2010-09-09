@@ -13,13 +13,17 @@ class CreateStructureForPortfolio < ActiveRecord::Migration
     create_table :portfolio_entries, :force => true do |t|
       t.string   :title
       t.text     :body
-      t.integer  :position
       t.integer  :parent_id
+      t.integer  :lft
+      t.integer  :rgt
+      t.integer  :depth
       t.timestamps
     end
 
     add_index :portfolio_entries, :id
     add_index :portfolio_entries, :parent_id
+    add_index :portfolio_entries, :lft
+    add_index :portfolio_entries, :rgt
 
     load(Rails.root.join('db', 'seeds', 'portfolio.rb'))
   end

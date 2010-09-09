@@ -58,5 +58,5 @@ Gem::Specification.new do |s|
     'public/stylesheets',
     'public/stylesheets/portfolio.css'
   ]
-  
+
 end
