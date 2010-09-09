@@ -6,7 +6,7 @@ By: [Resolve Digital](http://www.resolvedigital.com)
 
 Open your ``Gemfile`` and add this line to the bottom:
 
-    gem 'refinerycms-portfolio', '~> 0.9.8', :require => 'portfolio'
+    gem 'refinerycms-portfolio', '~> 0.9.8'
 
 Now run ``bundle install`` and once bundler has installed the gem run:
 
