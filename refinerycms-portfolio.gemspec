@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name              = %q{refinerycms-portfolio}
   s.version           = %q{0.9.8}
   s.description       = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS}
-  s.date              = %q{2010-09-02}
+  s.date              = %q{2010-09-13}
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
@@ -53,10 +53,11 @@ Gem::Specification.new do |s|
     'lib/portfolio',
     'lib/portfolio/version.rb',
     'lib/portfolio.rb',
+    'lib/refinerycms_portfolio.rb',
     'public/javascripts',
     'public/javascripts/portfolio.js',
     'public/stylesheets',
     'public/stylesheets/portfolio.css'
   ]
-
+  
 end
