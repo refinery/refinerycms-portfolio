@@ -1,4 +1,4 @@
-require File.expand_path('../portfolio', __FILE__)
+require 'refinery'
 
 module Refinery
   module Portfolio
@@ -30,3 +30,5 @@ module Refinery
     end
   end
 end
+
+require File.expand_path('../portfolio', __FILE__)
