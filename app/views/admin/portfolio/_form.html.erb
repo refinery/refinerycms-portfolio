@@ -44,10 +44,10 @@
     <%= f.label :body, t('.content') %>
     <%= f.text_area :body, :class => "wymeditor widest", :rows => 7 %>
   </div>
-  <% if @portfolio_entries_for_parents_list.any? %>
+  <% if (nested_portfolios = nested_set_options(PortfolioEntry, @portfolio_entry) {|i| "#{'-' * i.level} #{i.title}" }).present? %>
     <div class='field'>
       <%= f.label t('.parent') %>
-      <%= f.select :parent_id, nested_set_options(PortfolioEntry, @portfolio_entry) {|i| "#{'-' * i.level} #{i.title}" }, :include_blank => true %>
+      <%= f.select :parent_id, nested_portfolios, :include_blank => true %>
     </div>
   <% end %>
 
