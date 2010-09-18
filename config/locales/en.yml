@@ -2,7 +2,6 @@ en:
   plugins:
     portfolio:
       title: Portfolio
-      description: Manage a portfolio within RefineryCMS
   admin:
     portfolio:
       index:
