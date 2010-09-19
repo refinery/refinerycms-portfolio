@@ -1,15 +1,15 @@
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-portfolio}
-  s.version           = %q{0.9.8}
+  s.version           = %q{0.9.8.rc1}
   s.description       = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS}
-  s.date              = %q{2010-09-14}
+  s.date              = %q{2010-09-20}
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
   s.authors           = ['Resolve Digital']
   s.require_paths     = %w(lib)
 
-  s.add_dependency    'refinerycms', '~> 0.9.8'
+  s.add_dependency    'refinerycms', '>= 0.9.8'
 
   s.files             = [
     'readme.md',

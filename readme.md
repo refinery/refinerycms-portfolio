@@ -6,7 +6,7 @@ By: [Resolve Digital](http://www.resolvedigital.com)
 
 Open your ``Gemfile`` and add this line to the bottom:
 
-    gem 'refinerycms-portfolio', :git => 'git://github.com/resolve/refinerycms-portfolio.git', :branch => 'rails3'
+    gem 'refinerycms-portfolio', '>= 0.9.8.rc1'
 
 Now run ``bundle install`` and once bundler has installed the gem run:
 
