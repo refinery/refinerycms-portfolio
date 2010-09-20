@@ -2,6 +2,7 @@ lv:
   plugins:
     portfolio:
       title: Portfolio
+      description: Pārvaldīt portfeļa izmanto Refinery CMS
   admin:
     portfolio:
       index:
