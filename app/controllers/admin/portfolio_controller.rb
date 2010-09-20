@@ -1,6 +1,9 @@
 class Admin::PortfolioController < Admin::BaseController
 
-  crudify :portfolio_entry, :order => 'lft ASC', :conditions => "parent_id IS NULL", :sortable => true
+  crudify :portfolio_entry,
+          :order => 'lft ASC',
+          :conditions => {:parent_id => nil},
+          :sortable => true
 
   def emancipate
     if (entry = PortfolioEntry.find(params[:id])).present?
