@@ -17,8 +17,4 @@ class PortfolioEntry < ActiveRecord::Base
     }.compact
   end
 
-  def indented_title
-    "#{"--" * self.ancestors.size} #{self.title}".chomp
-  end
-
 end
