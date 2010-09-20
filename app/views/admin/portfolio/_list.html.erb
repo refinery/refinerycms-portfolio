@@ -18,7 +18,9 @@
                  :title => t('.move_this_entry_up') if list.parent.present? %>
       <%= link_to refinery_icon_tag('delete.png'), admin_portfolio_entry_path(list),
                  :class => "cancel confirm-delete",
-                 :title => t('.confirm_delete_entry_title') %>
+                 :title => t('.confirm_delete_entry_title'),
+                 :'data-confirm' => t('shared.admin.delete.message', :title => list.title),
+                 :'data-method' => "delete" %>
     </span>
     <%=h list.title %>
   </div>

@@ -1,0 +1,26 @@
+lv:
+  plugins:
+    portfolio:
+      title: Portfolio
+  admin:
+    portfolio:
+      index:
+        actions: Darbības
+        create_new_portfolio_entry: Izveidot Jaunu Portfolio Ierakstu
+        reorder_portfolio: Pārkārtot Portfolio
+        reorder_portfolio_done: Pabeigt Portfolio Pārkārtošanu
+        portfolio: Portfolio
+        no_portfolio_entries_yet: Vēl nav neviena portfolio ieraksta. Spied "Izveidot Jaunu Portfolio Ierakstu", lai pievienotu pirmo ierakstu.
+      list:
+        view_live: Apskatīt šo ieraksu <br/><em>(tiks atvērts jaunā logā)</em>
+        edit_this_entry: Labot šo ierakstu
+        move_this_entry_up: Pārvietot šo ierkastu vienu līmeni augstāk
+        confirm_delete_entry_title: Dzēst šo ierakstu
+      form:
+        title: Nosaukums
+        images: Bildes
+        add: Pievienot
+        add_another_image: Pievienot Bildi
+        content: Saturs
+        # TODO: find good translation for this word
+        parent: Parent

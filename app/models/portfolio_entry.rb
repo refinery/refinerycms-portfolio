@@ -1,6 +1,6 @@
 class PortfolioEntry < ActiveRecord::Base
 
-  validates_presence_of :title
+  validates :title, :presence => true
 
   # call to gems included in refinery.
   has_friendly_id :title, :use_slug => true
