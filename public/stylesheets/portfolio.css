@@ -73,3 +73,10 @@
     width: 135px;
     height: 135px;
 }
+.wym_area_top .label_inline_with_link a, #content .wym_area_top .label_inline_with_link a {
+  margin-top: 0px;
+  line-height: 29px;
+  background: url('/images/refinery/icons/add.png') no-repeat 0px 6px;
+  padding-left: 20px;
+  border-bottom: 0px none;
+}

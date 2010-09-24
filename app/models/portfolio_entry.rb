@@ -8,13 +8,16 @@ class PortfolioEntry < ActiveRecord::Base
   default_scope :order => 'lft ASC'
 
   has_and_belongs_to_many :images
+  accepts_nested_attributes_for :images
 
-  alias_attribute :content, :body
+  def images_attributes=(data)
+    self.images.clear
 
-  def image_ids=(ids)
-    self.images = ids.reject{|id| id.blank?}.collect {|image_id|
-      Image.find(image_id.to_i) rescue nil
+    self.images += (0..(data.length-1)).collect { |i|
+      (Image.find(data[i.to_s]['id'].to_i) rescue nil)
     }.compact
   end
+
+  alias_attribute :content, :body
 
 end

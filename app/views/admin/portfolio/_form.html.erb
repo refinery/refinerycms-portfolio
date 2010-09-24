@@ -9,40 +9,51 @@
                :object => f.object,
                :include_object_name => true
              }  %>
-  <div class='field'>
+  <div id='portfolio_body' class='field clearfix'>
     <%= f.required_label t('.title') %>
     <%= f.text_field :title, :class => "larger widest" %>
   </div>
-  <div class='field images_field'>
-    <span class='clearfix label_inline_with_link'>
-      <%= label_tag('portfolio_entry_image_ids', t('.images')) %>
-      <%= link_to "#{refinery_icon_tag "add.png"} #{t('.add')}".html_safe,
-                  insert_admin_images_url(
-                    :dialog => true,
-                    :width => 866,
-                    :height => 510,
-                    :callback => "image_added"
-                  ),
-                  :name => t('.add_another_image'),
-                  :id => "add_image_link" %>
-    </span>
-    <ul id='portfolio_images' class='clearfix portfolio_entry_images'>
-      <% @portfolio_entry.images.each do |image| %>
-        <li id='image_<%= image.id %>'>
-          <%= image_fu image, '135x135#c' %>
-          <%= hidden_field_tag 'portfolio_entry[image_ids][]', image.id,
-                               :id => "portfolio_entry_image_id_#{image.id}" %>
+  <div class='field clearfix'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content'>
+      <ul id='page_parts'>
+        <li class='ui-state-default ui-state-active'>
+          <%= link_to t('.content'), '#page_part_content'%>
         </li>
-      <% end %>
-      <li class='empty'>
-        <img id="current_portfolio_entry_image" src="" alt="" style='display: none' />
-        <input type='hidden' id='portfolio_entry_image_id' name='portfolio_entry[image_ids][]' />
-      </li>
-    </ul>
-  </div>
-  <div id='portfolio_body' class='field clearfix'>
-    <%= f.label :body, t('.content') %>
-    <%= f.text_area :body, :class => "wymeditor widest", :rows => 7 %>
+        <li class='ui-state-default'>
+          <%= link_to t('.images'), '#portfolio_image_picker'%>
+        </li>
+      </ul>
+    </div>
+    <div id='page_part_editors'>
+      <div id='page_part_content' class='page_part'>
+        <%= f.text_area :body, :class => "wymeditor widest", :rows => 7 %>
+      </div>
+      <div class='page_part wym_skin_refinery' id='portfolio_image_picker'>
+        <div class='wym_area_top'>
+          <span class='clearfix label_inline_with_link'>
+            <%= link_to t('.add_another_image').html_safe,
+                        insert_admin_images_url(:dialog => true,
+                                                :width => 866,
+                                                :height => 510,
+                                                :callback => "image_added"),
+                        :id => "add_image_link" %>
+          </span>
+        </div>
+        <div class='wym_box field images_field'>
+          <ul id='portfolio_images' class='clearfix portfolio_entry_images'>
+            <% f.fields_for :images do |image_form| %>
+              <li id='image_<%= image_form.object.id %>'>
+                <%= image_form.hidden_field :id %>
+                <%= image_fu image_form.object, '135x135#c' %>
+              </li>
+            <% end %>
+            <li class='empty'>
+              <%= hidden_field_tag "portfolio_entry[images_attributes][#{@portfolio_entry.images.size}][id]" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   <% if (nested_portfolios = nested_set_options(PortfolioEntry, @portfolio_entry) {|i| "#{'-' * i.level} #{i.title}" }).present? %>
     <div class='field'>
