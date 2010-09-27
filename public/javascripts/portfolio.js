@@ -93,7 +93,7 @@ $(document).ready(function() {
     window.location = portfolio_entry_url + this.value;
   });
 
-  if ((tabs = $('#page-tabs')).length > 0) {
+  if ((tabs = $('.edit_portfolio_entry #page-tabs, .new_portfolio_entry #page-tabs')).length > 0) {
     page_options.init(false, '', '');
     $('a[href*=portfolio_image_picker]').click(function(){
       if (!(picker = $('#portfolio_image_picker')).data('size-applied')){
