@@ -13,7 +13,7 @@ class PortfolioEntry < ActiveRecord::Base
 
   def images_attributes=(data)
     self.images.clear
-    
+
     self.images = (0..(data.length-1)).collect { |i|
       unless (image_id = data[i.to_s]['id'].to_i) == 0
         Image.find(image_id) rescue nil
