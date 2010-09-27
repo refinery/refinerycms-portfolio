@@ -41,7 +41,7 @@
         </div>
         <div class='wym_box field images_field'>
           <ul id='portfolio_images' class='clearfix portfolio_entry_images'>
-            <% f.fields_for :images do |image_form| %>
+            <%= f.fields_for :images do |image_form| %>
               <li id='image_<%= image_form.object.id %>'>
                 <%= image_form.hidden_field :id %>
                 <%= image_fu image_form.object, '135x135#c' %>
