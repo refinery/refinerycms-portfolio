@@ -6,6 +6,7 @@ class PortfolioEntry < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true
   acts_as_nested_set
   default_scope :order => 'lft ASC'
+  acts_as_indexed :fields => [:title, :image_titles, :image_names]
 
   has_many :images_portfolio_entries
   has_many :images, :through => :images_portfolio_entries, :order => 'images_portfolio_entries.position ASC'
@@ -19,6 +20,14 @@ class PortfolioEntry < ActiveRecord::Base
         Image.find(image_id) rescue nil
       end
     }.compact
+  end
+  
+  def image_titles
+    self.images.collect{|i| i.title}
+  end
+  
+  def image_names
+    self.images.collect{|i| i.image_name}
   end
 
   alias_attribute :content, :body
