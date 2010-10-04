@@ -13,9 +13,6 @@
                  :title => t('.view_live') %>
       <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_portfolio_entry_path(list),
                  :title => t('.edit_this_entry') %>
-      <%= link_to refinery_icon_tag('arrow_up.png'),
-                 emancipate_admin_portfolio_entry_url(list),
-                 :title => t('.move_this_entry_up') if list.parent.present? %>
       <%= link_to refinery_icon_tag('delete.png'), admin_portfolio_entry_path(list),
                  :class => "cancel confirm-delete",
                  :title => t('.confirm_delete_entry_title'),

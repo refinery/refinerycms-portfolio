@@ -26,7 +26,7 @@
       <%= link_to t('.create_new_portfolio_entry'), new_admin_portfolio_entry_url,
                   :class => "add_icon" %>
     </li>
-   <% if @portfolio_entries.many? %>
+   <% if @portfolio_entries.many? and !searching? %>
     <li>
       <%= link_to t('.reorder_portfolio'), "",
                   :id => "reorder_action",
@@ -39,5 +39,7 @@
    <% end %>
   </ul>
 </div>
+<% content_for :head_after_javascript_libraries,
+               javascript_include_tag('refinery/nestedsortables.js') if Refinery.version < '0.9.9' -%>
 <%= render :partial => "/shared/admin/make_sortable",
            :locals => { :tree => ::Refinery::Portfolio.multi_level? } if @portfolio_entries.many? %>
