@@ -2,6 +2,8 @@
 
 By: [Resolve Digital](http://www.resolvedigital.com)
 
+## [Rails3 version which has different instructions](http://github.com/resolve/refinerycms-portfolio/tree/rails3#readme)
+
 ## Gem Installation
 
 Open your ``Gemfile`` and add this line to the bottom:
