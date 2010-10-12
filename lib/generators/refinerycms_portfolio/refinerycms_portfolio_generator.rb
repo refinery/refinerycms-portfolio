@@ -1,6 +1,6 @@
 require 'rails/generators/migration'
 
-class PortfolioGenerator < Rails::Generators::NamedBase
+class RefinerycmsPortfolioGenerator < Rails::Generators::NamedBase
 
   include Rails::Generators::Migration
 

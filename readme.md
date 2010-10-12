@@ -10,7 +10,7 @@ Open your ``Gemfile`` and add this line to the bottom:
 
 Now run ``bundle install`` and once bundler has installed the gem run:
 
-    rails generate portfolio
+    rails generate refinerycms_portfolio
     rake db:migrate
 
 Now, restart your web server and enjoy.
