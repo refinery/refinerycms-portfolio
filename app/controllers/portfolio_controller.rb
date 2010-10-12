@@ -7,6 +7,8 @@ class PortfolioController < ApplicationController
       if (first_entry = PortfolioEntry.where(:parent_id => nil).first).present?
         redirect_to portfolio_url(first_entry)
       end
+    else
+      @portfolio_entries = PortfolioEntry.all
     end
   end
 
