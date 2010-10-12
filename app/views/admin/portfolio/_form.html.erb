@@ -13,6 +13,15 @@
     <%= f.required_label t('.title') %>
     <%= f.text_field :title, :class => "larger widest" %>
   </div>
+  <div class='field'>
+    <%= f.label :image -%>
+    <%= render :partial => "/shared/admin/image_picker", :locals => {
+      :f => f,
+      :field => :title_image_id,
+      :image => @portfolio_entry.title_image,
+      :toggle_image_display => false
+    } %>
+  </div>
   <div class='field clearfix'>
     <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content'>
       <ul id='page_parts'>
