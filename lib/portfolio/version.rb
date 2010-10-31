@@ -1,7 +1,7 @@
 module Refinery
   module Portfolio
     def self.version
-      %q{0.9.8.rc7}
+      %q{0.9.8.rc8}
     end
   end
 end
