@@ -17,6 +17,7 @@ class CreateStructureForPortfolio < ActiveRecord::Migration
       t.integer  :lft
       t.integer  :rgt
       t.integer  :depth
+      t.integer  :title_image_id
       t.timestamps
     end
 

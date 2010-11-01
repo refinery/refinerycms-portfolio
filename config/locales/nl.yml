@@ -1,0 +1,26 @@
+nl:
+  plugins:
+    portfolio:
+      title: Portfolio
+      description: Beheer een portfolio in Refinery CMS
+  admin:
+    portfolio:
+      index:
+        actions: Acties
+        create_new_portfolio_entry: "Maak een nieuw Portfolio item"
+        reorder_portfolio: "Herschikken portfolio"
+        reorder_portfolio_done: "Klaar met herschikken portfolio"
+        portfolio: Portfolio
+        no_portfolio_entries_yet: 'Er bestaan nog geen portfolio items. Klik "Maak een nieuw Portfolio item" om een eerste portfolio toe te voegen.'
+      list:
+        view_live: "Preview dit item <br/><em>(opent in nieuw venster)</em>"
+        edit_this_entry: "Bewerk dit item"
+        move_this_entry_up: "Verplaats dit item een niveau hoger"
+        confirm_delete_entry_title: "Verwijder dit item voorgoed"
+      form:
+        title: Titel
+        images: Afbeeldingen
+        add: Toevoegen
+        add_another_image: "Voeg afbeelding toe"
+        content: Inhoud
+        parent: Ouder

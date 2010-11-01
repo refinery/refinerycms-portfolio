@@ -6,13 +6,15 @@ By: [Resolve Digital](http://www.resolvedigital.com)
 
 ## Gem Installation
 
+Ensure you have created your application's database before adding this engine (with ``rake db:setup``).
+
 Open your ``Gemfile`` and add this line to the bottom:
 
-    gem 'refinerycms-portfolio', '>= 0.9.8.rc1'
+    gem 'refinerycms-portfolio', '~> 0.9.8.rc8'
 
 Now run ``bundle install`` and once bundler has installed the gem run:
 
-    rails generate portfolio
+    rails generate refinerycms_portfolio
     rake db:migrate
 
 Now, restart your web server and enjoy.

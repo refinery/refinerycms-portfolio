@@ -5,12 +5,4 @@ class Admin::PortfolioController < Admin::BaseController
           :conditions => {:parent_id => nil},
           :sortable => true
 
-  def emancipate
-    if (entry = PortfolioEntry.find(params[:id])).present?
-      entry.update_attribute(:parent_id, (entry.parent.present? ? entry.parent.parent_id : nil))
-    end
-
-    redirect_to :action => "index"
-  end
-
 end

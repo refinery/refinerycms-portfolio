@@ -6,6 +6,7 @@ reset_functionality = function() {
     , 'placeholder': 'placeholder'
     , 'cursor': 'drag'
     , 'items': 'li'
+    , stop: reindex_images
   });
 
   $('#content #portfolio_images li:not(.empty)').each(function(index, li) {
@@ -16,6 +17,7 @@ reset_functionality = function() {
         img_delete.appendTo(image_actions);
         img_delete.click(function() {
           $(this).parents('li[id*=image_]').remove();
+          reindex_images();
         });
 
         image_actions.appendTo($(li));
@@ -26,19 +28,56 @@ reset_functionality = function() {
       $(this).find('.image_actions').hide();
     });
   });
+
+  reindex_images();
+}
+
+reindex_images = function() {
+  $('#portfolio_images li input:hidden').each(function(i, input){
+    // make the image's name consistent with its position.
+    parts = $(input).attr('name').split(']');
+    parts[1] = ('[' + i)
+    $(input).attr('name', parts.join(']'));
+
+    // make the image's id consistent with its position.
+    $(input).attr('id', $(input).attr('id').replace(/_\d_/, '_'+i+'_').replace(/_\d/, '_'+i));
+  });
 }
 
 image_added = function(image) {
   last_portfolio_entry_image_id = "";
+  new_list_item = (current_list_item = $('li.empty')).clone();
   image_id = $(image).attr('id').replace('image_', '');
-  hidden_identifier = $('li.empty').find('input:hidden');
-  hidden_identifier.attr('id', '').val(image_id);
-  $('li.empty').find('img').css('display', '').attr({'id': '', 'src': $(image).attr('src').replace('_dialog_thumb', '_grid'), 'title': $(image).attr('title'), 'alt': $(image).attr('alt')});
-  $('li.empty').attr('id', 'image_' + image_id).removeClass('empty');
+  current_list_item.find('input:hidden').val(image_id);
+  $.ajax({
+    async: false,
+    url: '/refinery/images/'+image_id+'/url',
+    data: {size: '135x135#c'},
+    success: function (result, status, xhr) {
+      if (result.error) {
+        if (console && console.log) {
+           console.log("Something went wrong with the image insertion!");
+           console.log(result);
+         }
+       } else {
+         (img = $("<img />")).attr({
+           title: $(image).attr('title')
+           , alt: $(image).attr('alt')
+           , src: result.url
+         }).appendTo(current_list_item);
+       }
+     },
+     error: function(xhr, txt, status) {
+       if (console && console.log) {
+         console.log("Something went wrong with the image insertion!");
+         console.log(xhr);
+         console.log(txt);
+         console.log(status);
+       }
+     }
+   });
 
-  new_list_item = $("<li class='empty'></li>");
-  $("<img id='current_portfolio_entry_image' src='' alt='' style='display:none;' />").appendTo(new_list_item);
-  $("<input type='hidden' id='portfolio_entry_image_id' name='portfolio_entry[image_ids][]' />").appendTo(new_list_item);
+  current_list_item.attr('id', 'image_' + image_id).removeClass('empty');
 
   new_list_item.appendTo($('#portfolio_images'));
   reset_functionality();
@@ -54,8 +93,30 @@ $(document).ready(function() {
     window.location = portfolio_entry_url + this.value;
   });
 
+  if ((tabs = $('.edit_portfolio_entry #page-tabs, .new_portfolio_entry #page-tabs')).length > 0) {
+    page_options.init(false, '', '');
+    $('a[href*=portfolio_image_picker]').click(function(){
+      if (!(picker = $('#portfolio_image_picker')).data('size-applied')){
+        wym_box = $('.page_part:first .wym_box');
+        iframe = $('.page_part:first iframe');
+        picker.css({
+          height: wym_box.height()
+          , width: wym_box.width()
+        }).data('size-applied', true).corner('tr 5px').corner('bottom 5px').find('.wym_box').css({
+          backgroundColor: 'white'
+          , height: iframe.height() + $('.page_part:first .wym_area_top').height() - parseInt($('.wym_area_top .label_inline_with_link a').css('lineHeight'))
+          , width: iframe.width() - 20
+          , 'border-color': iframe.css('border-top-color')
+          , 'border-style': iframe.css('border-top-style')
+          , 'border-width': iframe.css('border-top-width')
+          , padding: '0px 10px 0px 10px'
+        });
+      }
+    });
+  }
+
   var clicked_on = null;
-  $("ul#portfolio_images li a").click(function(event) {
+  $("ul#portfolio_images li a").click(function(e) {
     if (!$(this).hasClass('selected')) {
       clicked_on = $(this);
       $.get($(this).attr('href'), function(data, textStatus) {
@@ -72,6 +133,6 @@ $(document).ready(function() {
       });
     }
 
-    return false;
+    e.preventDefault();
   });
 });
