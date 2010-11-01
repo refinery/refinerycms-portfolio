@@ -2,7 +2,7 @@ Given /^I have no portfolio entries$/ do
   PortfolioEntry.delete_all
 end
 
-Given /^I (only )?have a portfolio entry titled "?([^\"]*)"?$/ do |only, title|
+Given /^I (only )?have a? ?portfolio entry?i?e?s? titled "?([^\"]*)"?$/ do |only, title|
   PortfolioEntry.delete_all if only
 
   entry = PortfolioEntry.create(:title => title)

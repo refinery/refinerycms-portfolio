@@ -7,11 +7,11 @@ en:
     portfolio:
       index:
         actions: Actions
-        create_new_portfolio_entry: "Create New Portfolio Entry"
+        create_new_portfolio_entry: "Add New Portfolio Entry"
         reorder_portfolio: "Reorder Portfolio"
         reorder_portfolio_done: "Done Reordering Portfolio"
         portfolio: Portfolio
-        no_portfolio_entries_yet: 'There are no portfolio entries yet. Click "Create New Portfolio Entry" to add your first portfolio entries.'
+        no_portfolio_entries_yet: 'There are no portfolio entries yet. Click "Add New Portfolio Entry" to add your first portfolio entries.'
       list:
         view_live: "View this entry live <br/><em>(opens in a new window)</em>"
         edit_this_entry: "Edit this entry"
