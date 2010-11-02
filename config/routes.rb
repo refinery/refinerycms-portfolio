@@ -26,9 +26,6 @@ Refinery::Application.routes.draw do
 
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :portfolio, :as => :portfolio_entries do
-      member do
-        get :emancipate
-      end
       collection do
         post :update_positions
       end
