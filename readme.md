@@ -2,8 +2,6 @@
 
 By: [Resolve Digital](http://www.resolvedigital.com)
 
-## [Rails3 version which has different instructions](http://github.com/resolve/refinerycms-portfolio/tree/rails3#readme)
-
 ## Gem Installation
 
 Ensure you have created your application's database before adding this engine (with ``rake db:setup``).
