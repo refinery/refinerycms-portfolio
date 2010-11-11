@@ -55,10 +55,11 @@ image_added = function(image) {
     data: {size: '135x135#c'},
     success: function (result, status, xhr) {
       if (result.error) {
-        if (console && console.log) {
-           console.log("Something went wrong with the image insertion!");
-           console.log(result);
-         }
+        $("<img />").attr({
+          title: $(image).attr('title')
+          , alt: $(image).attr('alt')
+          , src: $(image).attr('data-grid'); // use 'grid' size that is built into Refinery CMS (135x135#c).
+        }).appendTo(current_list_item);
        } else {
          (img = $("<img />")).attr({
            title: $(image).attr('title')
@@ -68,12 +69,11 @@ image_added = function(image) {
        }
      },
      error: function(xhr, txt, status) {
-       if (console && console.log) {
-         console.log("Something went wrong with the image insertion!");
-         console.log(xhr);
-         console.log(txt);
-         console.log(status);
-       }
+       $("<img />").attr({
+         title: $(image).attr('title')
+         , alt: $(image).attr('alt')
+         , src: $(image).attr('data-grid'); // use 'grid' size that is built into Refinery CMS (135x135#c).
+       }).appendTo(current_list_item);
      }
    });
 
