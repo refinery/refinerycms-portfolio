@@ -2,7 +2,7 @@ User.find(:all).each do |user|
   user.plugins.create({
     :name => "portfolio",
     :position => (user.plugins.maximum(:position) || -1) +1
-  }) unless user.plugins.find_by_name('portfolio').any?
+  }) unless user.plugins.find_by_name('portfolio').present?
 end
 
 unless Page.find_by_link_url('/portfolio').present?
