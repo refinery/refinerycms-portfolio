@@ -72,7 +72,7 @@ image_added = function(image) {
        $("<img />").attr({
          title: $(image).attr('title')
          , alt: $(image).attr('alt')
-         , src: $(image).attr('data-grid'); // use 'grid' size that is built into Refinery CMS (135x135#c).
+         , src: $(image).attr('data-grid') // use 'grid' size that is built into Refinery CMS (135x135#c).
        }).appendTo(current_list_item);
      }
    });
