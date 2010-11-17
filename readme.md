@@ -2,12 +2,14 @@
 
 By: [Resolve Digital](http://www.resolvedigital.com)
 
+## Requirements
+
+This engine requires RefineryCMS version >= 0.9.8 - if you want support for versions before this,
+look at [the rails2-stable branch](https://github.com/resolve/refinerycms-portfolio/tree/rails2-stable).
+
 ## Gem Installation
 
 Ensure you have created your application's database before adding this engine (with ``rake db:setup``).
-
-Note: This engine requires RefineryCMS version >= 0.9.8 - if you want support for versions before this,
-look at [the rails2-stable branch](https://github.com/resolve/refinerycms-portfolio/tree/rails2-stable).
 
 Open your ``Gemfile`` and add this line to the bottom:
 
