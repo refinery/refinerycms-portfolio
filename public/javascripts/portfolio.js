@@ -49,33 +49,26 @@ image_added = function(image) {
   new_list_item = (current_list_item = $('li.empty')).clone();
   image_id = $(image).attr('id').replace('image_', '');
   current_list_item.find('input:hidden').val(image_id);
-  $.ajax({
-    async: false,
-    url: '/refinery/images/'+image_id+'/url',
-    data: {size: '135x135#c'},
-    success: function (result, status, xhr) {
-      if (result.error) {
-        $("<img />").attr({
-          title: $(image).attr('title')
-          , alt: $(image).attr('alt')
-          , src: $(image).attr('data-grid') // use 'grid' size that is built into Refinery CMS (135x135#c).
-        }).appendTo(current_list_item);
-       } else {
-         (img = $("<img />")).attr({
-           title: $(image).attr('title')
-           , alt: $(image).attr('alt')
-           , src: result.url
-         }).appendTo(current_list_item);
-       }
-     },
-     error: function(xhr, txt, status) {
-       $("<img />").attr({
+  if($('meta[refinerycms]').attr('refinerycms') >= '0.9.9') {
+    $("<img />").attr({
+      title: $(image).attr('title')
+      , alt: $(image).attr('alt')
+      , src: $(image).attr('data-grid') // use 'grid' size that is built into Refinery CMS (135x135#c).
+    }).appendTo(current_list_item);
+  } else {
+    $.ajax({
+      async: false,
+      url: '/refinery/images/'+image_id+'/url',
+      data: {size: '135x135#c'},
+      success: function (result, status, xhr) {
+        (img = $("<img />")).attr({
          title: $(image).attr('title')
          , alt: $(image).attr('alt')
-         , src: $(image).attr('data-grid') // use 'grid' size that is built into Refinery CMS (135x135#c).
-       }).appendTo(current_list_item);
-     }
-   });
+         , src: result.url
+        }).appendTo(current_list_item);
+      }
+    });
+  }
 
   current_list_item.attr('id', 'image_' + image_id).removeClass('empty');
 

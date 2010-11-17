@@ -1,6 +1,9 @@
-<% content_for :head do %>
+<% if Refinery.version < '0.9.9' %>
   <%= stylesheet_link_tag 'portfolio' %>
   <%= javascript_include_tag 'portfolio' %>
+<% else %>
+  <% content_for :javascripts, javascript_include_tag('portfolio') %>
+  <% content_for :stylesheets, stylesheet_link_tag('portfolio') %>
 <% end %>
 
 <%= form_for([:admin, @portfolio_entry]) do |f| %>
