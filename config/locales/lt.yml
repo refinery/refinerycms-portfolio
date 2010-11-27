@@ -14,7 +14,7 @@ lt:
         no_portfolio_entries_yet: 'There are no portfolio entries yet. Click "Add New Portfolio Entry" to add your first portfolio entries.'
         no_portfolio_entries_yet: 'Kolk nėra portfolio įrašų. Paspauskite "Pridėti naują Portfolio įrašą", kad sukurti pirmąjį.'
       list:
-        view_live: "Peržiūrėti šį įrašą gyvai svetainėje<br /><em>(atsidarys naujame lange)</em>
+        view_live: "Peržiūrėti šį įrašą gyvai svetainėje<br /><em>(atsidarys naujame lange)</em>"
         edit_this_entry: "Redaguoti šį įrašą"
         move_this_entry_up: "Perkelti įrašą vienu lygiu aukštyn"
         confirm_delete_entry_title: "Pašalinti įrašą visam laikui"
