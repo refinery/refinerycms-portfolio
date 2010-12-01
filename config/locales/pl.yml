@@ -3,6 +3,7 @@ pl:
     portfolio:
       title: Portfolio
       description: Zarządzaj portfolio wewnątrz RefineryCMS
+      article: masculine
   admin:
     portfolio:
       index:
