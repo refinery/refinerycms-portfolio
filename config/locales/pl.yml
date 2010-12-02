@@ -25,3 +25,6 @@ pl:
         add_another_image: "Dodaj inny obraz"
         content: Zawartość
         parent: Wpis nadrzędny
+  activerecord:
+    models:
+      portfolio_entry: wpis w portfolio
