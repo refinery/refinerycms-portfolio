@@ -1,0 +1,26 @@
+﻿en:
+  plugins:
+    portfolio:
+      title: Galerije
+      description: Omogućava rad sa galerijama slika u Refinery CMS-u
+  admin:
+    portfolio:
+      index:
+        actions: Akcije
+        create_new_portfolio_entry: "Dodaj novu galeriju"
+        reorder_portfolio: "Promeni redosled galerija"
+        reorder_portfolio_done: "Završi sa promenom"
+        portfolio: Galerije
+        no_portfolio_entries_yet: 'Ne postoje galerije. Klikni "Dodaj novu galeriju" da dodaš.'
+      list:
+        view_live: "Pogledaj ovu galeriju <br/><em>(otvara se u novom prozoru)</em>"
+        edit_this_entry: "Izmeni ovu galeriju"
+        move_this_entry_up: "Pomeri ovu galeriju jedan nivo iznad"
+        confirm_delete_entry_title: "Ukloni ovu galeriju zauvek"
+      form:
+        title: Naslov
+        images: Slike
+        add: Dodaj
+        add_another_image: "Dodaj još slika"
+        content: Sadržaj
+        parent: Roditelj
