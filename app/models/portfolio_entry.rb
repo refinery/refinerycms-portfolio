@@ -1,6 +1,4 @@
 class PortfolioEntry < ActiveRecord::Base
-  translate :title, :body
-
   belongs_to :title_image, :class_name => 'Image'
 
   validates :title, :presence => true
