@@ -1,7 +1,11 @@
-class PortfolioEntry < ActiveRecord::Base
+require 'globalize3'
 
+class PortfolioEntry < ActiveRecord::Base
   belongs_to :title_image, :class_name => 'Image'
 
+  translate :title, :body if self.respond_to?(:translates)
+  attr_accessor :locale # to hold temporarily
+  
   validates :title, :presence => true
 
   # call to gems included in refinery.
