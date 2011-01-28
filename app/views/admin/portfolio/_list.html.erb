@@ -21,7 +21,7 @@
     </span>
     <%=h list.title %>
     <% if defined?(::Refinery::I18n) and ::Refinery::I18n.frontend_locales.many? and
-          (locales = page.translations.collect{|t| t.locale}).present? %>
+          (locales = list.translations.collect{|t| t.locale}).present? %>
       <span class='preview'>
         <% locales.each do |locale| %>
           <%= refinery_icon_tag "flags/#{locale}.png", :size => '16x11' %>
