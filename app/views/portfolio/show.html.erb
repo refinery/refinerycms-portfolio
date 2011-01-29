@@ -12,6 +12,7 @@
 <% content_for :body_content_left do %>
   <div id='portfolio_main_image_container'>
     <%= render :partial => "main_image" %>
+    <span class="content"><%= raw @portfolio_entry.body %></span>
   </div>
 <% end %>
 
