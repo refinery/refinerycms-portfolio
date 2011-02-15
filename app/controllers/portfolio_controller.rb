@@ -4,20 +4,20 @@ class PortfolioController < ApplicationController
 
   def index
     if RefinerySetting.find_or_set(:portfolio_has_no_index, true)
-      if (first_entry = PortfolioEntry.where(:parent_id => nil).first).present?
+      if (first_entry = PortfolioEntry.translated.where(:parent_id => nil).first).present?
         redirect_to portfolio_url(first_entry)
       end
     else
-      @portfolio_entries = PortfolioEntry.all
+      @portfolio_entries = PortfolioEntry.translated
     end
   end
 
   def show
     begin
       @master_entry = if params[:id]
-        PortfolioEntry.find(params[:id])
+        PortfolioEntry.translated.find(params[:id])
       else
-        PortfolioEntry.where(:parent_id => nil).first
+        PortfolioEntry.translated.where(:parent_id => nil).first
       end
 
       if ::Refinery::Portfolio.multi_level?
@@ -51,7 +51,7 @@ protected
   end
 
   def single_level
-    @portfolio_entries = PortfolioEntry.all
+    @portfolio_entries = PortfolioEntry.translated
     @portfolio_entry = @master_entry
   end
 
