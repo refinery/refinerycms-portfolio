@@ -25,6 +25,11 @@ class CreateStructureForPortfolio < ActiveRecord::Migration
     add_index :portfolio_entries, :parent_id
     add_index :portfolio_entries, :lft
     add_index :portfolio_entries, :rgt
+    
+    PortfolioEntry.create_translation_table!({
+      :title => :string,
+      :body => :text
+    })
 
     load(Rails.root.join('db', 'seeds', 'portfolio.rb'))
   end
@@ -38,6 +43,7 @@ class CreateStructureForPortfolio < ActiveRecord::Migration
 
     drop_table :images_portfolio_entries
     drop_table :portfolio_entries
+    PortfolioEntry.drop_translation_table!
   end
 
 end

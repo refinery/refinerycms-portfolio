@@ -1,6 +1,6 @@
 class PortfolioEntry < ActiveRecord::Base
   belongs_to :title_image, :class_name => 'Image'
-
+  translates :title, :body
   validates :title, :presence => true
 
   # call to gems included in refinery.
@@ -12,6 +12,15 @@ class PortfolioEntry < ActiveRecord::Base
   has_many :images_portfolio_entries
   has_many :images, :through => :images_portfolio_entries, :order => 'images_portfolio_entries.position ASC'
   accepts_nested_attributes_for :images, :allow_destroy => false
+  
+  # rejects any page that has not been translated to the current locale.
+  scope :translated, lambda {
+    portfolio_items = Arel::Table.new(PortfolioEntry.table_name)
+    translations = Arel::Table.new(PortfolioEntry.translations_table_name)
+
+    includes(:translations).where(
+      translations[:locale].eq(Globalize.locale)).where(portfolio_items[:id].eq(translations[:portfolio_entry_id]))
+  }
 
   def images_attributes=(data)
     self.images.clear
