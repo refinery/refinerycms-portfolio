@@ -30,6 +30,7 @@
   <%= render :partial => "/shared/content_page" %>
 </div>
 
+<% if Refinery.version < '0.9.9' %>
 <% content_for :head do %>
   <%= stylesheet_link_tag('portfolio') %>
   <%# remove the jquery_include_tags call if jquery is included in your layout.
@@ -39,4 +40,16 @@
   <script type='text/javascript'>
     var portfolio_entry_url = "<%= portfolio_project_url(@master_entry, @portfolio_entry) if ::Refinery::Portfolio.multi_level? %>";
   </script>
+<% end %>
+<% else %>
+  <% content_for :stylesheets, stylesheet_link_tag('portfolio') %>
+  <%# remove the jquery_include_tags call if jquery is included in your layout.
+  %>
+  <%= content_for :javascript_libraries, jquery_include_tags(:include_ui => false) %>
+  <% content_for :javascripts do %>
+  <%= javascript_include_tag 'portfolio' %>
+  <script type='text/javascript'>
+    var portfolio_entry_url = "<%= portfolio_project_url(@master_entry, @portfolio_entry) if ::Refinery::Portfolio.multi_level? %>";
+  </script>
+  <% end %>
 <% end %>
