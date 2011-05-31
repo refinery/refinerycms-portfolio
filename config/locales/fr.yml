@@ -11,7 +11,7 @@ fr:
         reorder_portfolio: "Réordonner le Portfolio"
         reorder_portfolio_done: "Fin de réordonnancement du Portfolio"
         portfolio: Portfolio
-        no_portfolio_entries_yet: 'Il n'a pas encore d'entrée au portfolio. Cliquez sur "Ajouter une entrée dans le portfolio" pour ajouter votre première entrée.'
+        no_portfolio_entries_yet: "Il n'y a pas encore d'entrée au portfolio. Cliquez sur \"Ajouter une entrée dans le portfolio\" pour ajouter votre première entrée."
       list:
         view_live: "Voir cette nouvelle entrée <br/><em>(Ouvre une nouvelle fenêtre)</em>"
         edit_this_entry: "Modifier cette entrée"
