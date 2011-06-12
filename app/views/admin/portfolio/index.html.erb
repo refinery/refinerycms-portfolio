@@ -23,7 +23,8 @@
                  :locals => {:url => admin_portfolio_entries_url} %>
     </li>
     <li>
-      <%= link_to t('.create_new_portfolio_entry'), new_admin_portfolio_entry_url,
+      <%= link_to t('.create_new_portfolio_entry'),
+                  new_admin_portfolio_entry_url,
                   :class => "add_icon" %>
     </li>
    <% if @portfolio_entries.many? and !searching? %>
