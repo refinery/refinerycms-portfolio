@@ -39,6 +39,7 @@ Gem::Specification.new do |s|
     'app/views/portfolio/show.html.erb',
     'config/locales',
     'config/locales/en.yml',
+    'config/locales/fr.yml',
     'config/locales/lt.yml',
     'config/locales/lv.yml',
     'config/locales/nl.yml',
@@ -63,7 +64,26 @@ Gem::Specification.new do |s|
     'public/javascripts',
     'public/javascripts/portfolio.js',
     'public/stylesheets',
-    'public/stylesheets/portfolio.css'
+    'public/stylesheets/portfolio.css',
+		'images',
+		'images/close.gif',
+		'images/loading.gif',
+		'images/nextlabel.gif',
+		'images/prevlabel.gif',
+		'javascripts',
+		'javascripts/portfolio',
+		'javascripts/portfolio/builder.js',
+		'javascripts/portfolio/effects.js',
+		'javascripts/portfolio/lightbox-web.js',
+		'javascripts/portfolio/lightbox.js',
+		'javascripts/portfolio/prototype.js',
+		'javascripts/portfolio/scriptaculous.js',
+		'javascripts/portfolio.js',
+		'stylesheets',
+		'stylesheets/portfolio',
+		'stylesheets/portfolio/lightbox.css',
+		'stylesheets/portfolio.css'
+
   ]
   
 end
