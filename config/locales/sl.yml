@@ -12,7 +12,7 @@ sl:
         portfolio: Portfelja
         no_portfolio_entries_yet: 'Trenutno še ni nobenega portfelja. Kliknite "Ustvari Novo Portfelje" če želite dodati prvo portfelje.'
       list:
-        view_live: Poglej si ta zapis v živo <br/><em>(odpre se v novem oknu)</em>
+        view_live_html: Poglej si ta zapis v živo <br/><em>(odpre se v novem oknu)</em>
         edit_this_entry: "Uredi zapis"
         move_this_entry_up: "Premakni zapis en nivo višje"
         confirm_delete_entry_title: "Odstrani zapis"

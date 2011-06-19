@@ -13,7 +13,7 @@ nl:
         portfolio: Portfolio
         no_portfolio_entries_yet: 'Er bestaan nog geen portfolio items. Klik "Maak een nieuw Portfolio item" om een eerste portfolio toe te voegen.'
       list:
-        view_live: "Preview dit item <br/><em>(opent in nieuw venster)</em>"
+        view_live_html: "Preview dit item <br/><em>(opent in nieuw venster)</em>"
         edit_this_entry: "Bewerk dit item"
         move_this_entry_up: "Verplaats dit item een niveau hoger"
         confirm_delete_entry_title: "Verwijder dit item voorgoed"

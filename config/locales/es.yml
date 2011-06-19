@@ -13,7 +13,7 @@ es:
         portfolio: Portfolio
         no_portfolio_entries_yet: 'No hay entradas de portfolio todavía. Pulsa en "Añadir Nueva Entrada de Portfolio" para añadir tu primera entrada de portfolio.'
       list:
-        view_live: "Ver esta entrada como abierta al público<br/><em>(la abre en ventana nueva)</em>"
+        view_live_html: "Ver esta entrada como abierta al público<br/><em>(la abre en ventana nueva)</em>"
         edit_this_entry: "Editar esta entrada"
         move_this_entry_up: "Subir esta entrada un nivel"
         confirm_delete_entry_title: "Borrar esta entrada para siempre"
