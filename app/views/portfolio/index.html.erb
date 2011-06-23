@@ -3,8 +3,7 @@
 <% end -%>
 <% content_for :body_content_left do -%>
   <% @portfolio_entries.each do | portfolio | -%>
-  <entrie id=" blog_post_<%= portfolio.id %>" class="portofolio_entrie">
-
+  	<entrie id=" blog_post_<%= portfolio.id %>" class="portofolio_entrie">
       <header>
         <h1><%= link_to portfolio.title, portfolio_path(portfolio)  %></h1>
       </header>

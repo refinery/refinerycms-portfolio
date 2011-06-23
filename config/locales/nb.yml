@@ -13,7 +13,7 @@ nb:
         portfolio: Portfolio
         no_portfolio_entries_yet: 'Det er ikke lagt til noen elementer enda. Klikk på "Legg til nytt element" for å legge til ditt første portfolio element.'
       list:
-        view_live: "Se hvordan elementet ser ut for besøkende <br/><em>(åpnes i et nytt vindu)</em>"
+        view_live_html: "Se hvordan elementet ser ut for besøkende <br/><em>(åpnes i et nytt vindu)</em>"
         edit_this_entry: "Rediger elementet"
         move_this_entry_up: "Flytt elementet opp ett nivå"
         confirm_delete_entry_title: "Fjern elementet permanent"

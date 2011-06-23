@@ -13,7 +13,7 @@ lv:
         portfolio: Portfolio
         no_portfolio_entries_yet: Vēl nav neviena portfolio ieraksta. Spied "Izveidot Jaunu Portfolio Ierakstu", lai pievienotu pirmo ierakstu.
       list:
-        view_live: Apskatīt šo ieraksu <br/><em>(tiks atvērts jaunā logā)</em>
+        view_live_html: Apskatīt šo ieraksu <br/><em>(tiks atvērts jaunā logā)</em>
         edit_this_entry: Labot šo ierakstu
         move_this_entry_up: Pārvietot šo ierkastu vienu līmeni augstāk
         confirm_delete_entry_title: Dzēst šo ierakstu

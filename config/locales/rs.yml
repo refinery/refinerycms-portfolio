@@ -13,7 +13,7 @@
         portfolio: Galerije
         no_portfolio_entries_yet: 'Ne postoje galerije. Klikni "Dodaj novu galeriju" da dodaš.'
       list:
-        view_live: "Pogledaj ovu galeriju <br/><em>(otvara se u novom prozoru)</em>"
+        view_live_html: "Pogledaj ovu galeriju <br/><em>(otvara se u novom prozoru)</em>"
         edit_this_entry: "Izmeni ovu galeriju"
         move_this_entry_up: "Pomeri ovu galeriju jedan nivo iznad"
         confirm_delete_entry_title: "Ukloni ovu galeriju zauvek"

@@ -14,7 +14,7 @@ pl:
         portfolio: Portfolio
         no_portfolio_entries_yet: 'Nie ma jeszcze żadnych wpisów w portfolio. Kliknij "Dodaj nowy wpis w portfolio" aby dodać pierwszy.'
       list:
-        view_live: "Zobacz ten wpis na żywo <br/><em>(otwiera się w nowym oknie)</em>"
+        view_live_html: "Zobacz ten wpis na żywo <br/><em>(otwiera się w nowym oknie)</em>"
         edit_this_entry: "Zmień ten wpis"
         move_this_entry_up: "Przenieś ten wpis poziom wyżej"
         confirm_delete_entry_title: "Usuń ten wpis na zawsze"

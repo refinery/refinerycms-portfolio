@@ -1,0 +1,26 @@
+it:
+  plugins:
+    portfolio:
+      title: Portfolio
+      description: Gestione di un portfolio in Refinery CMS
+  admin:
+    portfolio:
+      index:
+        actions: Azioni
+        create_new_portfolio_entry: "Aggiungi un elemento al Portfolio"
+        reorder_portfolio: "Riordina il Portfolio"
+        reorder_portfolio_done: "Riordinamento del Portfolio Finito"
+        portfolio: Portfolio
+        no_portfolio_entries_yet: 'Non ci sono ancora elementi nel portfolio. Premi "Aggiungi un elemento al Portfolio" per inserire il primo elemento al portfolio.'
+      list:
+        view_live_html: "Visualizza questo elemento <br/><em>(in una nuova finestra)</em>"
+        edit_this_entry: "Modifica questo elemento"
+        move_this_entry_up: "Muovi questo elemento su di un livello"
+        confirm_delete_entry_title: "Elimina questo elemento per sempre"
+      form:
+        title: Titolo
+        images: Immagini
+        add: Aggiungi
+        add_another_image: "Aggiungi un'altra Immagine"
+        content: Contenuto
+        parent: Genitore

@@ -25,8 +25,6 @@ class CreateStructureForPortfolio < ActiveRecord::Migration
     add_index :portfolio_entries, :parent_id
     add_index :portfolio_entries, :lft
     add_index :portfolio_entries, :rgt
-
-    load(Rails.root.join('db', 'seeds', 'portfolio.rb'))
   end
 
   def self.down

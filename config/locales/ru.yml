@@ -1,0 +1,28 @@
+ru:
+  plugins:
+    portfolio:
+      title: Портфолио
+      description: Управление галереями с помощью Refinery CMS
+  admin:
+    portfolio:
+      index:
+        actions: Действия
+        create_new_portfolio_entry: "Добавить"
+        reorder_portfolio: "Сортировать"
+        reorder_portfolio_done: "Завершить сортировку"
+        portfolio: Портфолио
+        no_portfolio_entries_yet: 'Нет ни одного Портфолио. Нажмите "Добавить" для создания первого Портфолио.'
+      list:
+        view_live_html: "Посмотреть в максимальном размере <br/><em>(открыть в новом окне)</em>"
+        edit_this_entry: "Редактировать"
+        move_this_entry_up: "Переместить вверх на один уровень"
+        confirm_delete_entry_title: "Удалить навсегда"
+      form:
+        title: Заголовок
+        images: Изображения
+        add: Добавить
+        add_another_image: "Добавить"
+        content: Содержимое
+        parent: Родитель
+  portfolio: 
+      portfolio_no_entries:  В этой галерее нет фотографий

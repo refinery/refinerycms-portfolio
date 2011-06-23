@@ -12,7 +12,7 @@ pt-BR:
         portfolio: Portfólio
         no_portfolio_entries_yet: 'Não há portfólios cadastrados. Clique em "Criar novo Portfólio" para cadastrar seu primeiro portfólio.'
       list:
-        view_live: "Ver este portfólio no site<br/><em>(abrirá em uma nova janela)</em>"
+        view_live_html: "Ver este portfólio no site<br/><em>(abrirá em uma nova janela)</em>"
         edit_this_entry: "Alterar este portfólio"
         move_this_entry_up: "Mover este portfólio um nível acima"
         confirm_delete_entry_title: "Remover este portfólio para sempre"

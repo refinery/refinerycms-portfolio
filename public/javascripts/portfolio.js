@@ -78,7 +78,11 @@ image_added = function(image) {
 
 $(document).ready(function() {
   $('h1#body_content_page_title').addClass('clearfix');
-  reset_functionality();
+  
+  if ($('#portfolio_images').sortable) {
+    reset_functionality();
+  }
+  
 
   $("ul#portfolio_images li.other a img").fadeTo(0, 0.3);
 
