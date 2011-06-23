@@ -9,7 +9,7 @@
   <%=  raw @portfolio_entry.body %><br/>
   <h2><%=  t('portfolio.overview') %></h2>
   <% @portfolio_entry.images.each_with_index do |image, index| -%>
-    <a href="<%= image.thumbnail('600x512').url %>" rel="lightbox[<%= @portfolio_entry.title  %> ]" ><%= image_fu image, '100x100' %></a>
+    <a href="<%= image.thumbnail('600x512').url %>" rel="prettyPhoto[<%= @portfolio_entry.title  %>]" ><%= image_fu image, '100x100' %></a>
   <% end %>
 <% end %>
   
@@ -26,12 +26,17 @@
   <%= render :partial => "/shared/content_page" %>
 </div>
 
+<% content_for :javascript_libraries, jquery_include_tags(:jquery_ui => false) %>
+<% content_for :javascript_libraries, javascript_include_tag('jquery.prettyPhoto.js') %>
+
 <% content_for :stylesheets do %>
-  <%= stylesheet_link_tag('portfolio/lightbox') %>
+	<%= stylesheet_link_tag('prettyPhoto') %>
 <% end %>
-  
+
 <% content_for :javascripts do %>
-  <%= javascript_include_tag('portfolio/prototype') %>
-  <%= javascript_include_tag('portfolio/scriptaculous.js?load=effects,builder') %>
-  <%= javascript_include_tag('portfolio/lightbox') %>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+		  $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false});
+		});
+	</script>
 <% end %>
