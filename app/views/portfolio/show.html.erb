@@ -30,13 +30,13 @@
 <% content_for :javascript_libraries, javascript_include_tag('jquery.prettyPhoto.js') %>
 
 <% content_for :stylesheets do %>
-	<%= stylesheet_link_tag('prettyPhoto') %>
+  <%= stylesheet_link_tag('prettyPhoto') %>
 <% end %>
 
 <% content_for :javascripts do %>
-	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function(){
-		  $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false});
-		});
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false});
+    });
 	</script>
 <% end %>
