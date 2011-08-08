@@ -2,55 +2,45 @@
 
 <% content_for :body_content_title do %>
   <span><%= @master_entry.title %></span>
-
-  <%= select(:portfolio_entry, :to_param,
-             @portfolio_entries.collect{|entry|
-               [entry.title, entry.to_param]
-             }) if @portfolio_entries.many? %>
 <% end %>
 
 <% content_for :body_content_left do %>
-  <div id='portfolio_main_image_container'>
-    <%= render :partial => "main_image" %>
-    <span class="content"><%= raw @portfolio_entry.body %></span>
-  </div>
+  <h2><%= t('portfolio.description') %></h2>
+  <%=  raw @portfolio_entry.body %><br/>
+  <h2><%=  t('portfolio.overview') %></h2>
+  <% @portfolio_entry.images.each_with_index do |image, index| -%>
+    <% if @portfolio_entry.images.count == 1 %>
+      <a href="<%= image.thumbnail('600x512').url %>" rel="prettyPhoto" ><%= image_fu image, '100x100' %></a>
+    <% else %>
+      <a href="<%= image.thumbnail('600x512').url %>" rel="prettyPhoto[<%= @portfolio_entry.title %>]" ><%= image_fu image, '100x100' %></a>
+    <% end %> 
+  <% end %>
 <% end %>
-
-<% content_for :body_content_right do %>
-  <h2><%= @portfolio_entry.title %></h2>
-  <ul id='portfolio_images'>
-    <% @portfolio_entry.images.each_with_index do |image, index| %>
-      <li class="<%= cycle('odd', 'even') %> <%= (index == params[:image_id].to_i) ? 'selected' : 'other' %>">
-        <%= link_to_portfolio_image(@master_entry, @portfolio_entry, image, index) %>
-      </li>
-    <% end %>
+  
+<% content_for :body_content_right do -%>
+  <h2><%=  t('portfolio.my_creations')%></h2>
+  <ul>
+    <% @portfolio_entries.each do | portfolio | -%>
+      <li class="clearfix"><%= link_to portfolio.title, portfolio_path(portfolio)  %></li>
+    <% end -%>
   </ul>
-<% end %>
+<% end -%>
 
 <div class='portfolio'>
   <%= render :partial => "/shared/content_page" %>
 </div>
 
-<% if Refinery.version < '0.9.9' %>
-<% content_for :head do %>
-  <%= stylesheet_link_tag('portfolio') %>
-  <%# remove the jquery_include_tags call if jquery is included in your layout.
-  %>
-  <%= jquery_include_tags(:include_ui => false) %>
-  <%= javascript_include_tag 'portfolio' %>
-  <script type='text/javascript'>
-    var portfolio_entry_url = "<%= portfolio_project_url(@master_entry, @portfolio_entry) if ::Refinery::Portfolio.multi_level? %>";
-  </script>
+<% content_for :javascript_libraries, jquery_include_tags(:jquery_ui => false) %>
+<% content_for :javascript_libraries, javascript_include_tag('jquery.prettyPhoto.js') %>
+
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag('prettyPhoto') %>
 <% end %>
-<% else %>
-  <% content_for :stylesheets, stylesheet_link_tag('portfolio') %>
-  <%# remove the jquery_include_tags call if jquery is included in your layout.
-  %>
-  <%= content_for :javascript_libraries, jquery_include_tags(:include_ui => false) %>
-  <% content_for :javascripts do %>
-  <%= javascript_include_tag 'portfolio' %>
-  <script type='text/javascript'>
-    var portfolio_entry_url = "<%= portfolio_project_url(@master_entry, @portfolio_entry) if ::Refinery::Portfolio.multi_level? %>";
+
+<% content_for :javascripts do %>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false});
+    });
   </script>
-  <% end %>
 <% end %>

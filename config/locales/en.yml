@@ -24,3 +24,8 @@ en:
         add_another_image: "Add Another Image"
         content: Content
         parent: Parent
+  portfolio:
+    my_creations: My creations
+    read_more: Read more
+    description: Description
+    overview: Overview

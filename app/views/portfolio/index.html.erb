@@ -1,15 +1,43 @@
 <% content_for :body_content_title do -%>
   Portfolios
 <% end -%>
-
 <% content_for :body_content_left do -%>
   <% @portfolio_entries.each do | portfolio | -%>
-    <span>
-      <%= link_to raw("#{image_fu portfolio.title_image, '200x200' unless portfolio.title_image.nil?} #{portfolio.title}"),
-                  portfolio_path(portfolio) %>
-    </span>
-    <span class="content"><%= raw portfolio.body %></span>
+  	<entrie id=" blog_post_<%= portfolio.id %>" class="portofolio_entrie">
+      <header>
+        <h1><%= link_to portfolio.title, portfolio_path(portfolio)  %></h1>
+      </header>
+      <section class="clearfix">
+        <table>
+          <tr>
+            <td>
+              <%= link_to raw(image_fu portfolio.title_image, '200x200'), portfolio_path(portfolio) %>
+            </td>
+            <td>
+              <%= truncate(portfolio.body,
+                         :length => RefinerySetting.find_or_set(:portfolio_entrie_teaser_length, 250),
+                         :preserve_html_tags => true) %>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <footer>
+        <p>
+          <%= link_to t('portfolio.read_more'), portfolio_path(portfolio) %>
+        </p>
+      </footer>
+    </entrie>
   <% end -%>
 <% end -%>
+
+<% content_for :body_content_right do -%>
+  <h2><%= t('portfolio.my_creations') %></h2>
+  <ul>
+    <% @portfolio_entries.each do | portfolio | -%>
+      <li class="clearfix"><%= link_to portfolio.title, portfolio_path(portfolio)  %></li>
+    <% end -%>
+  </ul>
+<% end -%>
+
 
 <%= render :partial => '/shared/content_page' -%>
