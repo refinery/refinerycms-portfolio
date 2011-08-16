@@ -6,6 +6,8 @@ class PortfolioController < ApplicationController
     if RefinerySetting.find_or_set(:portfolio_has_no_index, true)
       if (first_entry = PortfolioEntry.where(:parent_id => nil).first).present?
         redirect_to portfolio_url(first_entry)
+      else
+        @portfolio_entries = []
       end
     else
       @portfolio_entries = PortfolioEntry.all
