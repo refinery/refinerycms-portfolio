@@ -1,0 +1,26 @@
+cs:
+  plugins:
+    portfolio:
+      title: Portfolio
+      description: Správa portfolia v Refinery CMS
+  admin:
+    portfolio:
+      index:
+        actions: Akce
+        create_new_portfolio_entry: "Přidat novou položku portfolia"
+        reorder_portfolio: "Přeuspořádat položky"
+        reorder_portfolio_done: "Uložit uspořádání"
+        portfolio: Portfolio
+        no_portfolio_entries_yet: 'Zatím nebyly vytvořeny žádné položky portfolia.'
+      list:
+        view_live_html: "Zobrazit tuto položku <br/><em>(otevře se v novém okně)</em>"
+        edit_this_entry: "Upravit tuto položku"
+        move_this_entry_up: "Přesunout položku o jednu úroveň výš"
+        confirm_delete_entry_title: "Odstranit tuto položku"
+      form:
+        title: Název
+        images: Obrázky
+        add: Přidat
+        add_another_image: "Přidat další obrázek"
+        content: Obsah
+        parent: "Nadřazená položka"
