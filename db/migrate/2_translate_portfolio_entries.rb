@@ -12,7 +12,7 @@ class TranslatePortfolioEntries < ActiveRecord::Migration
   end
 
   def self.down
-    PortfolioEntry.drop_translations_table! :migrate_data => true
+    PortfolioEntry.drop_translation_table! :migrate_data => true
   end
 
 end
