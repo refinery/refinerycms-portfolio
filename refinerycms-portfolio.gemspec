@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name              = %q{refinerycms-portfolio}
   s.version           = %q{0.9.10}
   s.description       = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS}
-  s.date              = %q{2011-08-22}
+  s.date              = %q{2011-12-17}
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
@@ -47,6 +47,7 @@ Gem::Specification.new do |s|
     'app/views/portfolio/show.html.erb',
     'config/locales',
     'config/locales/bg.yml',
+    'config/locales/cs.yml',
     'config/locales/en.yml',
     'config/locales/es.yml',
     'config/locales/fr.yml',
