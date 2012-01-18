@@ -83,6 +83,7 @@ Gem::Specification.new do |s|
     'lib/refinerycms-portfolio.rb',
     'public/javascripts',
     'public/javascripts/portfolio.js',
+    'public/javascripts/portfolio_admin.js',
     'public/stylesheets',
     'public/stylesheets/portfolio.css',
     'spec/models',

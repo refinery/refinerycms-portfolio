@@ -1,8 +1,8 @@
 <% if Refinery.version < '0.9.9' %>
   <%= stylesheet_link_tag 'portfolio' %>
-  <%= javascript_include_tag 'portfolio' %>
+  <%= javascript_include_tag 'portfolio_admin' %>
 <% else %>
-  <% content_for :javascripts, javascript_include_tag('portfolio') %>
+  <% content_for :javascripts, javascript_include_tag('portfolio_admin') %>
   <% content_for :stylesheets, stylesheet_link_tag('portfolio') %>
 <% end %>
 
