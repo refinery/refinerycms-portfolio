@@ -9,7 +9,9 @@ class PortfolioEntry < ActiveRecord::Base
   validates :title, :presence => true
 
   # call to gems included in refinery.
-  has_friendly_id :title, :use_slug => true
+  has_friendly_id :title, :use_slug => true,
+                  :approximate_ascii => RefinerySetting.find_or_set(:approximate_ascii, false, :scoping => "pages"),
+                  :strip_non_ascii => RefinerySetting.find_or_set(:strip_non_ascii, false, :scoping => "pages")
   acts_as_nested_set
   default_scope :order => 'lft ASC'
   acts_as_indexed :fields => [:title, :image_titles, :image_names]
