@@ -1,0 +1,11 @@
+<% content_for :body_content_left do %>
+  <%- if @galleries.present? -%>
+    <ul id="galleries">
+      <%= render @galleries %>
+    </ul>
+  <%- else -%>
+    <p>There are no galleries present.</p>
+  <%- end -%>
+<% end %>
+
+<%= render :partial => "/refinery/content_page" %>

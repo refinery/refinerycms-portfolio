@@ -1,0 +1,28 @@
+<ul>
+  <% if ::Refinery::Portfolio::Admin::GalleriesController.searchable? %>
+    <li>
+      <%= render :partial => "/refinery/admin/search",
+                  :locals => {
+                    :url => refinery.portfolio_admin_galleries_path
+                  } %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_portfolio_admin_gallery_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::Portfolio::Admin::GalleriesController.sortable? && ::Refinery::Portfolio::Gallery.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Galleries"),
+                 refinery.portfolio_admin_galleries_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Galleries"),
+                 refinery.portfolio_admin_galleries_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

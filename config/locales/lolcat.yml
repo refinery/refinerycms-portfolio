@@ -1,0 +1,33 @@
+lolcat:
+  refinery:
+    plugins:
+      galleries:
+        title: Galleries
+    portfolio:
+      admin:
+        galleries:
+          actions:
+            create_new: CREATE NEW Gallery
+            reorder: REORDR Galleries
+            reorder_done: DUN REORDERIN Galleries
+          records:
+            title: Galleries
+            sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+            no_items_yet: THAR R NO Galleries YET. CLICK "CREATE NEW Gallery" 2 ADD UR FURST gallery.
+          gallery:
+            view_live_html: VIEW DIS gallery LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+            edit: EDIT DIS gallery
+            delete: REMOOV DIS gallery FOREVR
+      galleries:
+        show:
+          other: OTHR Galleries
+  activerecord:
+    attributes:
+      'refinery/portfolio/gallery':
+        title: TITLE
+        body: BODY
+        parent_id: PARENT
+        lft: LFT
+        rgt: RGT
+        depth: DEPTH
+        type: TYPE

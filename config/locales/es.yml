@@ -1,0 +1,34 @@
+es:
+  refinery:
+    plugins:
+      galleries:
+        title: Galleries
+#        article: masculino/femenino
+    portfolio:
+      admin:
+        galleries:
+          actions:
+            create_new: Crear nuevo gallery
+            reorder: Reordenar galleries
+            reorder_done: Reordenación de galleries completada
+          records:
+            title: Galleries
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay galleries todavía. Pulsa en "Crear nuevo Gallery" para crear tu primer gallery.
+          gallery:
+            view_live_html: Ver este gallery como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este gallery
+            delete: Borrar este gallery para siempre
+      galleries:
+        show:
+          other: Otros galleries
+  activerecord:
+    attributes:
+      'refinery/portfolio/gallery':
+        title: Title
+        body: Body
+        parent_id: Parent
+        lft: Lft
+        rgt: Rgt
+        depth: Depth
+        type: Type

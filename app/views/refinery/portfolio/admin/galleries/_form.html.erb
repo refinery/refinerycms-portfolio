@@ -1,0 +1,70 @@
+<%= form_for [refinery, :portfolio_admin, @gallery] do |f| -%>
+  <%= render :partial => "/refinery/admin/error_messages", :locals => {
+          :object => @gallery,
+          :include_object_name => true
+        } %>
+  
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest'  -%>
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:body].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/portfolio/gallery", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+
+      <div id='page_part_editors'>
+        <% [:body].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :parent_id -%>
+    <%= f.number_field :parent_id  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :lft -%>
+    <%= f.number_field :lft  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :rgt -%>
+    <%= f.number_field :rgt  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :depth -%>
+    <%= f.number_field :depth  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :gallery_type -%>
+    <%= f.text_field :gallery_type  -%>
+  </div>
+  
+  <%= render :partial => "/refinery/admin/form_actions",
+              :locals => {
+                :f => f,
+                :continue_editing => false,
+                :delete_title => t('delete', :scope => 'refinery.galleries.admin.galleries.gallery'),
+                :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @gallery.title)
+              } %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>
