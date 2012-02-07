@@ -26,7 +26,7 @@ module Refinery
 
           subject { page }
           it { should have_content gallery.body }
-          it { pending } # should show its associated cover image
+          it { pending "placeholder: not implemented yet" } # should show its associated cover image
         end
 
         describe "when nested" do
@@ -44,7 +44,7 @@ module Refinery
             end
 
             subject { page }
-            it { save_and_open_page; should have_content nested_gallery.title }
+            it { should have_content nested_gallery.title }
             it { should have_content nested_gallery.body }
           end
         end
