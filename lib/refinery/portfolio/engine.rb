@@ -10,13 +10,13 @@ module Refinery
       initializer "register refinerycms_portfolio plugin" do |app|
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
-          plugin.name = "refinerycms_portfolio"
+          plugin.name = "portfolio"
           plugin.url = { :controller => 'refinery/portfolio/admin/galleries' }
 
           plugin.activity = {
             :class_name => :'refinery/portfolio/gallery'
           }
-          plugin.menu_match = %r{refinery/portfolio/galleries(/.*)?$}
+          plugin.menu_match = %r{refinery/portfolio(/galleries(/.*)?)?$}
         end
       end
 

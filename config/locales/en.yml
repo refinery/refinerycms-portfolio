@@ -1,8 +1,8 @@
 en:
   refinery:
     plugins:
-      galleries:
-        title: Galleries
+      portfolio:
+        title: Portfolio
     portfolio:
       admin:
         galleries:
