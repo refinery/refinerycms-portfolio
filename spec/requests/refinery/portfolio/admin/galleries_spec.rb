@@ -27,7 +27,7 @@ describe Refinery do
           end
 
           context "valid data" do
-            it "should succeed" do
+            it "succeeds" do
               fill_in "Title", :with => "This is a test of the first string field"
               click_button "Save"
 
@@ -37,7 +37,7 @@ describe Refinery do
           end
 
           context "invalid data" do
-            it "should fail" do
+            it "fails" do
               click_button "Save"
 
               page.should have_content("Title can't be blank")
@@ -48,7 +48,7 @@ describe Refinery do
           context "duplicate" do
             before(:each) { FactoryGirl.create(:gallery, :title => "UniqueTitle") }
 
-            it "should fail" do
+            it "fails" do
               visit refinery.portfolio_admin_galleries_path
 
               click_link "Add New Gallery"
@@ -65,7 +65,7 @@ describe Refinery do
         describe "edit" do
           before(:each) { FactoryGirl.create(:gallery, :title => "A title") }
 
-          it "should succeed" do
+          it "succeeds" do
             visit refinery.portfolio_admin_galleries_path
 
             within ".actions" do
@@ -83,7 +83,7 @@ describe Refinery do
         describe "destroy" do
           before(:each) { FactoryGirl.create(:gallery, :title => "UniqueTitleOne") }
 
-          it "should succeed" do
+          it "succeeds" do
             visit refinery.portfolio_admin_galleries_path
 
             click_link "Remove this gallery forever"

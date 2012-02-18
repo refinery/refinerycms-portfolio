@@ -14,7 +14,7 @@ module Refinery
         
         context "when invalid" do
           subject { FactoryGirl.build(:gallery, :title => nil) }
-          it "should invalidate the model" do
+          it "invalidates the model" do
             subject.save
             subject.should_not be_valid
             subject.should have_at_least(1).error_on(:title)
@@ -22,7 +22,7 @@ module Refinery
         end
       end
       
-      it "should implement some sort of nested set logic" do
+      it "implements some sort of nested set logic" do
         Gallery.new.methods.should include(:children)
       end
     end

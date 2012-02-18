@@ -17,7 +17,7 @@ module Refinery
             Item.stub(:root_items).and_return([@root_item])
           end
 
-          it "should appear" do
+          it "appears" do
             visit refinery.portfolio_galleries_path
             page.should have_css("#item_#{@root_item.id}")
           end
@@ -32,7 +32,7 @@ module Refinery
             Gallery.stub(:find).and_return(@gallery)
           end
 
-          it "should appear" do
+          it "appears" do
             visit refinery.portfolio_gallery_path(@gallery)
             page.should have_css("#item_#{@galleried_item.id}")
           end

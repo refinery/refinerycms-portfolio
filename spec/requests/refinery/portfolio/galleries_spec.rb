@@ -14,12 +14,12 @@ module Refinery
         describe "on root level" do
         
           # Users level
-          it "should appear" do
+          it "appears" do
             visit refinery.portfolio_galleries_path
             page.should have_content @gallery.title
           end
 
-          it "should link to nested galleries" do
+          it "links to nested galleries" do
             visit refinery.portfolio_galleries_path
             click_link @gallery.title
 
@@ -28,7 +28,7 @@ module Refinery
         end
 
         describe "in nested gallery" do
-          describe "should appear" do
+          describe "appears" do
             before(:each) do
               @nested_gallery = FactoryGirl.create(:gallery, :title => "Nested Gallery", :parent_id => @gallery.id)
               visit refinery.portfolio_gallery_path(@gallery)
