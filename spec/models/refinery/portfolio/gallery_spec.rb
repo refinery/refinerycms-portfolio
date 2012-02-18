@@ -23,7 +23,7 @@ module Refinery
       end
       
       it "implements some sort of nested set logic" do
-        Gallery.new.methods.should include(:children)
+        Gallery.instance_methods.map(&:to_sym).should include(:children)
       end
     end
   end
