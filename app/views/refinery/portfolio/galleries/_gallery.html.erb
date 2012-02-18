@@ -1,4 +1,4 @@
-<li id="gallery_<%= gallery.id %>" class="gallery">
+<li id="<%= dom_id(gallery) %>" class="gallery">
   <%#= image_tag gallery.cover_image %>
   <section class="details">
     <%= link_to gallery.title, refinery.portfolio_gallery_path(gallery) %>

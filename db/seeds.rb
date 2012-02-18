@@ -22,3 +22,6 @@ if defined?(::Refinery::Page) && ::Refinery::Page.where(:link_url => url).empty?
   end
 end
 
+
+# Added by RefineryCMS Pages engine
+Refinery::Pages::Engine.load_seed

@@ -8,8 +8,9 @@ class CreatePortfolioGalleries < ActiveRecord::Migration
       t.integer :lft
       t.integer :rgt
       t.integer :depth
-      t.string :gallery_type
       t.integer :position
+
+      t.string :cached_slug
 
       t.timestamps
     end

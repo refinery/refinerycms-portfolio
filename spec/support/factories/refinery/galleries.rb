@@ -3,7 +3,6 @@ FactoryGirl.define do
     sequence(:title) { |n| "refinery#{n}" }
     parent_id nil
     body "This gallery is a sterling example of what a standard gallery might look like."
-    gallery_type "image"
   end
 end
 

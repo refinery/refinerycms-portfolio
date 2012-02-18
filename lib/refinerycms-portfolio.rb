@@ -1,1 +1,1 @@
-require 'refinery/galleries'
+require 'refinery/portfolio'

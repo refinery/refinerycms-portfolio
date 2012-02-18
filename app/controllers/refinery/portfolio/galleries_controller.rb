@@ -5,12 +5,15 @@ module Refinery
       before_filter :find_page
 
       def index
-        @galleries = Gallery.roots.order('position ASC')
+        @galleries = Gallery.roots
+        @items = Item.root_items
         present(@page)
       end
 
       def show
-        @galleries = Gallery.find(params[:id]).children
+        @gallery = Gallery.find(params[:id])
+        @galleries = @gallery.children
+        @items = @gallery.items
         present(@page)
 
         render :action => "index"

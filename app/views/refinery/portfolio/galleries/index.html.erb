@@ -1,9 +1,6 @@
 <% content_for :body_content_left do %>
-  <%- if @galleries.present? -%>
-    <ul id="galleries">
-      <%= render @galleries %>
-    </ul>
-  <%- end -%>
+  <%= render :partial => "refinery/portfolio/items/items", :locals => {:items => @items} %>
+  <%= render :partial => "galleries", :locals => {:galleries => @galleries} %>
 <% end %>
 
 <%= render :partial => "/refinery/content_page" %>

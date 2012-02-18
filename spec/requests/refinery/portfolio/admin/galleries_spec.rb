@@ -29,7 +29,6 @@ describe Refinery do
           context "valid data" do
             it "should succeed" do
               fill_in "Title", :with => "This is a test of the first string field"
-              fill_in "Gallery Type", :with => "image"
               click_button "Save"
 
               page.should have_content("'This is a test of the first string field' was successfully added.")
