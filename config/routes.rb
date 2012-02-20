@@ -11,12 +11,10 @@ Refinery::Core::Engine.routes.draw do
     namespace :admin, :path => 'refinery' do
       scope :path => 'portfolio' do
         resources :galleries, :except => :show do
-          collection do
-            post :update_positions
-          end
+          get :children, :on => :member
+          post :update_positions, :on => :collection
         end
       end
     end
   end
-
 end

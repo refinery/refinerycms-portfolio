@@ -1,10 +1,9 @@
-<section id='records'>
-  <%= render :partial => 'records' %>
+<section id='records' class='tree'>
+  <%= render 'records' %>
 </section>
-<aside id='actions'>
+
+<section id='actions'>
   <%= render :partial => 'actions' %>
-</aside>
-<%= render :partial => '/refinery/admin/make_sortable',
-            :locals => {
-              :tree => false
-            } if !searching? and ::Refinery::Portfolio::Admin::GalleriesController.sortable? and ::Refinery::Portfolio::Gallery.count > 1 %>
+</section>
+
+<%= render '/refinery/admin/make_sortable', :tree => true if @galleries.many? %>

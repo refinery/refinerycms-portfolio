@@ -3,19 +3,23 @@ require "spec_helper"
 describe Refinery do
   describe "Portfolio" do
     describe "Admin" do
-      describe "galleries" do
+      describe "Galleries" do
         login_refinery_user
+        
+        let (:gallery) { FactoryGirl.create(:gallery) }
+        let (:nested_gallery) { FactoryGirl.create(:gallery, :parent => gallery) }
 
         describe "galleries list" do
           before(:each) do
-            FactoryGirl.create(:gallery, :title => "UniqueTitleOne")
-            FactoryGirl.create(:gallery, :title => "UniqueTitleTwo")
+            # Force load
+            gallery
+            nested_gallery
           end
 
-          it "shows two items" do
+          it "shows child items" do
             visit refinery.portfolio_admin_galleries_path
-            page.should have_content("UniqueTitleOne")
-            page.should have_content("UniqueTitleTwo")
+            page.should have_content(gallery.title)
+            page.should have_content(nested_gallery.title)
           end
         end
 

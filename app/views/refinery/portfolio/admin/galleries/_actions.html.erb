@@ -11,7 +11,7 @@
     <%= link_to t('.create_new'), refinery.new_portfolio_admin_gallery_path,
                  :class => "add_icon" %>
   </li>
-<% if !searching? && ::Refinery::Portfolio::Admin::GalleriesController.sortable? && ::Refinery::Portfolio::Gallery.any? %>
+<% if !searching? && @galleries.many? %>
   <li>
     <%= link_to t('.reorder', :what => "Galleries"),
                  refinery.portfolio_admin_galleries_path,

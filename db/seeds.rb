@@ -8,10 +8,10 @@ if defined?(::Refinery::User)
 end
 
 
-url = "/portfolio/galleries"
+url = "/portfolio"
 if defined?(::Refinery::Page) && ::Refinery::Page.where(:link_url => url).empty?
   page = ::Refinery::Page.create(
-    :title => 'Galleries',
+    :title => 'Portfolio',
     :link_url => url,
     :deletable => false,
     :position => ((::Refinery::Page.maximum(:position, :conditions => {:parent_id => nil}) || -1)+1),

@@ -1,7 +1,8 @@
-<ul id='sortable_list'>
-  <%= render :partial => 'gallery', :collection => @galleries %>
+<ul class='sortable_list'>
+  <%= render :partial => 'gallery',
+             :collection => @galleries.select{|g| g.parent_id.nil? },
+             :locals => {
+               :collection => @galleries
+             } %>
 </ul>
-<%= render :partial => "/refinery/admin/sortable_list",
-            :locals => {
-              :continue_reordering => (local_assigns.keys.include?(:continue_reordering)) ? continue_reordering : true
-            } %>
+<%= render :partial => "/refinery/admin/sortable_list", :locals => { :continue_reordering => !!local_assigns[:continue_reordering] } %>

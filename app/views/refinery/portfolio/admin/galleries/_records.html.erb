@@ -2,9 +2,7 @@
   <h2><%= t('results_for', :scope => 'refinery.admin.search', :query => params[:search]) %></h2>
 <% end %>
 <% if @galleries.any? %>
-  <div class='pagination_container'>
-    <%= render :partial => 'galleries' %>
-  </div>
+  <%= render :partial => 'galleries' %>
 <% else %>
   <p>
     <% unless searching? %>
