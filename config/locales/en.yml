@@ -5,19 +5,31 @@ en:
         title: Portfolio
     portfolio:
       admin:
+        items:
+          item:
+            delete: Remove this image from this gallery
+            edit: Edit this image
+            view_live_html: View this image in its gallery
         galleries:
           actions:
+            add_image: Add an image
             create_new: Add New Gallery
             reorder: Reorder Galleries
             reorder_done: Done Reordering Galleries
+            view_root_images: View top-level images
           records:
             title: Galleries
             sorry_no_results: Sorry! There are no results found.
             no_items_yet: There are no Galleries yet. Click "Add New Gallery" to add your first gallery.
           gallery:
-            view_live_html: View this gallery live <br/><em>(opens in a new window)</em>
-            edit: Edit this gallery
+            add_image: Add an image to this gallery
             delete: Remove this gallery forever
+            edit: Edit this gallery
+            new_child: Add a new child gallery
+            view_live_html: View this gallery live <br/><em>(opens in a new window)</em>
+          form:
+            parent_gallery: Parent Gallery
+            parent_gallery_help: You can nest a gallery inside another gallery, creating a multiple-level portfolio. Choose a gallery to make this gallery the child of the one you select, or leave it blank to keep it as a top-level gallery.
       galleries:
         show:
           other: Other Galleries
