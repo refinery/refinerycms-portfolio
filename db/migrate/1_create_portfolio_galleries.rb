@@ -10,7 +10,7 @@ class CreatePortfolioGalleries < ActiveRecord::Migration
       t.integer :depth
       t.integer :position
 
-      t.string :cached_slug
+      t.string :slug
 
       t.timestamps
     end
