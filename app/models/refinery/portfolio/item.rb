@@ -14,6 +14,10 @@ module Refinery
         end
 
         alias_method :orphaned, :root_items
+
+        def child_of(gallery_id)
+          where(:gallery_id => gallery_id)
+        end
       end
 
     end

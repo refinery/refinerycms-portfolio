@@ -3,7 +3,8 @@ module Refinery
     module Admin
       class ItemsController < ::Refinery::AdminController
         crudify :'refinery/portfolio/item',
-                :order => 'lft ASC'
+                :order => 'lft ASC',
+                :xhr_paging => true
 
         def index
           if params[:orphaned]
@@ -11,8 +12,10 @@ module Refinery
           elsif params[:gallery_id]
             @items = Item.child_of(params[:gallery_id])
           else
-            @items = Item.all
+            @items = Item
           end
+
+          @items = @items.paginate(:page => params[:page], :per_page => ::Refinery::Portfolio.items_per_page)
         end
 
         def new

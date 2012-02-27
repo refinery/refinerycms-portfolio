@@ -10,11 +10,11 @@ describe Refinery do
         let(:image) { mock_model(Refinery::Image, :id => 23, :url => 'http://gifs.gifbin.com/1236681924_snail_transformers.gif') }
         let(:item) { FactoryGirl.create(:item, :gallery_id => nil, :image_id => 23) } 
         let(:gallery) { FactoryGirl.create(:gallery) }
+        let(:galleried_item) { FactoryGirl.create(:item, :gallery_id => gallery.id, :image_id => 23) }
 
         describe "items list" do
           before(:each) do
             item.stub(:image).and_return(image)
-            ::Refinery::Portfolio::Item.stub(:root_items).and_return([item])
           end
 
           context "no parent gallery" do
@@ -30,17 +30,17 @@ describe Refinery do
 
           context "parent gallery" do
             before(:each) do
-              gallery.stub(:items).and_return([item])
+              # force load
+              galleried_item.stub(:image).and_return(image)
             end
 
             it "shows items" do
-              pending "Needs implementation"
               visit refinery.portfolio_admin_galleries_path
+              save_and_open_page
               within("##{dom_id(gallery)}") do
-                click_link 'Edit'
+                click_link '1 image'
               end
-
-              page.should have_content(item.title)
+              page.should have_content(galleried_item.title)
             end
           end
         end

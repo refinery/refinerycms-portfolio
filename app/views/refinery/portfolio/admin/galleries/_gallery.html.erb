@@ -8,7 +8,9 @@
 
     <span class='title <%= 'toggle' if gallery.children.present? %>'>
       <%= gallery.title %>
-      <span class="preview">&nbsp;</span>
+      <span class="preview">
+        (<%= link_to t('.item_count', :count => gallery.items.count), refinery.portfolio_admin_gallery_items_path(gallery), :rel => 'items' %>)
+      </span>
     </span>
 
     <span class='actions'>

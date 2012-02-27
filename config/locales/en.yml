@@ -10,6 +10,15 @@ en:
             delete: Remove this image from this gallery
             edit: Edit this image
             view_live_html: View this image in its gallery
+          actions:
+            back_to_galleries: Return to Galleries
+            create_new: Add new Image
+            reorder: Reorder Images
+            reorder_done: Done Reordering Images
+          records:
+            no_items_yet: There are no images here.
+            sorry_no_results: Sorry! There are no results found.
+            title: Images
         galleries:
           actions:
             add_image: Add an image
@@ -25,6 +34,10 @@ en:
             add_image: Add an image to this gallery
             delete: Remove this gallery forever
             edit: Edit this gallery
+            item_count:
+              zero: no images
+              one: 1 image
+              other: '%{count} images'
             new_child: Add a new child gallery
             view_live_html: View this gallery live <br/><em>(opens in a new window)</em>
           form:
