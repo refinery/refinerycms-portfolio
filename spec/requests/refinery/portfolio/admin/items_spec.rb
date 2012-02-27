@@ -31,12 +31,11 @@ describe Refinery do
           context "parent gallery" do
             before(:each) do
               # force load
-              galleried_item.stub(:image).and_return(image)
+              galleried_item
             end
 
             it "shows items" do
               visit refinery.portfolio_admin_galleries_path
-              save_and_open_page
               within("##{dom_id(gallery)}") do
                 click_link '1 image'
               end
@@ -56,7 +55,6 @@ describe Refinery do
 
               fill_in :title, :with => "My Image"
               click_link "There is currently no image selected, please click here to add one."
-              save_and_open_page
             end
           end
 
