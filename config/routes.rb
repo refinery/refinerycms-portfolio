@@ -13,6 +13,12 @@ Refinery::Core::Engine.routes.draw do
         resources :galleries, :except => :show do
           get :children, :on => :member
           post :update_positions, :on => :collection
+          resources :items do
+            post :update_positions, :on => :collection
+          end
+        end
+        resources :items do
+          post :update_positions, :on => :collection
         end
       end
     end

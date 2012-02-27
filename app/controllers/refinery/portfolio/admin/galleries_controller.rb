@@ -8,6 +8,10 @@ module Refinery
                 :include => [:children],
                 :paging => false
 
+        def new
+          @gallery = ::Refinery::Portfolio::Gallery.new(params.except(:controller, :action, :switch_locale))
+        end
+
         def children
           @gallery = find_gallery
           render :layout => false

@@ -1,0 +1,62 @@
+<%= form_for [refinery, :portfolio_admin, @gallery, @item] do |f| -%>
+  <%= render :partial => "/refinery/admin/error_messages", :locals => {
+             :object => @item,
+             :include_object_name => true } %>
+
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:caption].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/portfolio/item", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:caption].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= render :partial => '/refinery/admin/image_picker',
+              :locals => {
+                :f => f,
+                :field => :image_id,
+                :image => @item.image,
+                :toggle_image_display => false
+              } %>
+
+  <div class='field'>
+    <span class='label_with_help'>
+      <%= f.label :gallery_id, t('.gallery') -%>
+      <%= refinery_help_tag t('.gallery_help') -%>
+    </span>
+    <%= f.select :gallery_id, nested_set_options(::Refinery::Portfolio::Gallery, @gallery) { |i| "#{'-' * i.level} #{i.title}" }, :include_blank => true %>
+  </div>
+
+  <%= render :partial => "/refinery/admin/form_actions",
+              :locals => {
+                :f => f,
+                :continue_editing => false,
+                :delete_title => t('delete', :scope => 'refinery.portfolio.admin.items.item'),
+                :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @item.title)
+              } %>
+
+<% end -%>
+
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

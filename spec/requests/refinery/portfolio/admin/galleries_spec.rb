@@ -6,20 +6,22 @@ describe Refinery do
       describe "Galleries" do
         login_refinery_user
         
-        let (:gallery) { FactoryGirl.create(:gallery) }
-        let (:nested_gallery) { FactoryGirl.create(:gallery, :parent => gallery) }
 
         describe "galleries list" do
           before(:each) do
-            # Force load
-            gallery
-            nested_gallery
+            @gallery = FactoryGirl.create(:gallery)
+            @nested_gallery = FactoryGirl.create(:gallery, :parent => @gallery)
           end
 
           it "shows child items" do
             visit refinery.portfolio_admin_galleries_path
-            page.should have_content(gallery.title)
-            page.should have_content(nested_gallery.title)
+            page.should have_content(@gallery.title)
+            page.should have_content(@nested_gallery.title)
+          end
+
+          it "allows item creation" do
+            visit refinery.portfolio_admin_galleries_path
+            page.should have_selector("a[href='/refinery/portfolio/items/new']")
           end
         end
 

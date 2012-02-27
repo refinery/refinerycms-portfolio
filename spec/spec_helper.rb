@@ -1,3 +1,10 @@
+module I18n
+  def self.just_raise(*args)
+    raise args.first.message
+  end
+end
+
+
 def setup_environment
   # Configure Rails Environment
   ENV["RAILS_ENV"] ||= 'test'
@@ -19,6 +26,9 @@ def setup_environment
 
   # set javascript driver for capybara
   Capybara.javascript_driver = :selenium
+
+  ::I18n.exception_handler = :just_raise
+
 end
 
 def each_run

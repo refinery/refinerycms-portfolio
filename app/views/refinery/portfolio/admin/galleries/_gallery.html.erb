@@ -1,7 +1,7 @@
 <li class='clearfix record icons' id="<%= dom_id(gallery) -%>">
   <div class='clearfix'>
     <% if gallery.children.present? %>
-      <span class="icon toggle expanded" title="<%= t('.expand_collapse') %>"></span>
+      <span class="icon expanded" %>"></span>
     <% else %>
       <span class="icon"></span>
     <% end %>
@@ -12,13 +12,16 @@
     </span>
 
     <span class='actions'>
+      <%= link_to refinery_icon_tag("image_add.png"), refinery.new_portfolio_admin_gallery_item_path(gallery),
+          :title => t('.add_image') %>
+
       <%= link_to refinery_icon_tag("application_go.png"), refinery.portfolio_gallery_path(gallery),
           :title => t('.view_live_html'),
           :target => "_blank" %>
 
       <%= link_to refinery_icon_tag('page_add.png'),
           refinery.new_portfolio_admin_gallery_path(:parent_id => gallery.id),
-          :title => t('.new') %>
+          :title => t('.new_child') %>
 
       <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_portfolio_admin_gallery_path(gallery),
            :title => t('.edit') %>
