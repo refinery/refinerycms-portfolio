@@ -2,10 +2,13 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'friendly_id', :git => 'git://github.com/norman/friendly_id.git'
+gem 'refinerycms', '~> 2.0.0' 
+
+# Temp Fix for weird routing issues
+gem 'rails', '3.2.1'
 
 git 'git://github.com/resolve/refinerycms.git' do
-  gem 'refinerycms'
+  #gem 'refinerycms'
 
   group :development, :testing do
     gem 'refinerycms-testing'
