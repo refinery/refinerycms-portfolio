@@ -2,19 +2,15 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', '~> 2.0.0' 
-
 # Temp Fix for weird routing issues
 gem 'rails', '3.2.1'
 
-git 'git://github.com/resolve/refinerycms.git' do
-  #gem 'refinerycms'
+gem 'refinerycms', '~> 2.0.0' 
 
-  group :development, :testing do
-    gem 'refinerycms-testing'
-  end
+group :development, :testing do
+  gem 'refinerycms-testing'
 end
-
+#
 # Refinery/rails should pull in the proper versions of these
 group :assets do
   gem 'sass-rails'
