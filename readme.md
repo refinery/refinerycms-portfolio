@@ -1,10 +1,10 @@
-# Portfolio plugin for [RefineryCMS](http://www.refinerycms.com) ([Github](http://github.com/resolve/refinerycms))
+# Portfolio plugin for [Refinery CMS](http://www.refinerycms.com) ([Github](http://github.com/resolve/refinerycms))
 
 By: [Resolve Digital](http://www.resolvedigital.com)
 
 ## Requirements
 
-This engine requires RefineryCMS version >= 0.9.8 - if you want support for versions before this,
+This engine requires Refinery CMS version >= 0.9.8 - if you want support for versions before this,
 look at [the rails2-stable branch](https://github.com/resolve/refinerycms-portfolio/tree/rails2-stable).
 
 ## Gem Installation

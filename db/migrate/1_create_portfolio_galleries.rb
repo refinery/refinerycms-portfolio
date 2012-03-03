@@ -8,8 +8,6 @@ class CreatePortfolioGalleries < ActiveRecord::Migration
       t.integer :lft
       t.integer :rgt
       t.integer :depth
-      t.integer :position
-
       t.string :slug
 
       t.timestamps
