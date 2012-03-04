@@ -1,7 +1,11 @@
 <li id="<%= dom_id(gallery) %>" class="gallery">
-  <%#= image_tag gallery.cover_image %>
-  <section class="details">
-    <%= link_to gallery.title, refinery.portfolio_gallery_path(gallery) %>
-    <%= raw gallery.description %>
-  </section>
+  <%= link_to refinery.portfolio_gallery_path(gallery) do %>
+    <% if gallery.cover_image.present? %>
+      <%= image_fu gallery.cover_image.image, ::Refinery::Portfolio.cover_image_thumb_size %>
+    <% end %>
+    <section class="details">
+      <h2><%= gallery.title %></h2>
+      <p><%= raw gallery.description %></p>
+    </section>
+  <% end %>
 </li>
