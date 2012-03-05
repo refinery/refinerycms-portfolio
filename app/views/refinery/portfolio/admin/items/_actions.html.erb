@@ -8,11 +8,12 @@
     </li>
   <% end %>
   <li>
+    <%= link_to t('.back_to_galleries'), refinery.portfolio_admin_galleries_path, :class => 'go_icon' %>
+  </li>
+
+  <li>
     <%= link_to t('.create_new'), refinery.new_portfolio_admin_item_path,
                  :class => "add_icon" %>
-  </li>
-  <li>
-    <%= link_to t('.back_to_galleries'), refinery.portfolio_admin_galleries_path, :class => 'go_icon' %>
   </li>
 <% if !searching? && @items.many? %>
   <li>

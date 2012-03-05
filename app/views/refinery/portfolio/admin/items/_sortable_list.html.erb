@@ -1,9 +1,5 @@
-<ul class='sortable_list'>
-  <%= render :partial => 'item',
-             :collection => @items,
-             :locals => {
-               :collection => @items
-             } %>
+<ul id='sortable_list'>
+  <%= render :partial => 'item', :collection => @items %>
 </ul>
-<%= render :partial => "/refinery/admin/sortable_list", :locals => { :continue_reordering => !!local_assigns[:continue_reordering] } %>
+<%= render :partial => "/refinery/admin/sortable_list", :locals => { :continue_reordering => (defined?(continue_reordering) ? continue_reordering : true) } %>
 
