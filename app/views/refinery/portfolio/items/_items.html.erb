@@ -1,5 +1,7 @@
 <%- if items.present? -%>
-  <ul id="gallery_images">
-    <%= render items %>
-  </ul>
+  <div class='slideshow box_skitter box_skitter_large' id='gallery_images'>
+    <ul>
+      <%= render items %>
+    </ul>
+  </div>
 <%- end -%>
