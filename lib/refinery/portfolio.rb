@@ -1,7 +1,7 @@
 require 'refinerycms-core'
 
 module Refinery
-  autoload :PortfolioGenerator, 'generators/refinery/portfolio_generator'
+  autoload :PortfolioGenerator, 'generators/refinery/portfolio/portfolio_generator'
 
   module Portfolio
     require 'refinery/portfolio/engine'
