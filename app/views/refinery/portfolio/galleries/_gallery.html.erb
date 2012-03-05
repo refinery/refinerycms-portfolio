@@ -1,11 +1,11 @@
 <li id="<%= dom_id(gallery) %>" class="gallery">
   <%= link_to refinery.portfolio_gallery_path(gallery) do %>
     <% if gallery.cover_image.present? %>
-      <%= image_fu gallery.cover_image.image, ::Refinery::Portfolio.cover_image_thumb_size %>
+      <div class="image"><%= image_fu gallery.cover_image.image, ::Refinery::Portfolio.cover_image_thumb_size %></div>
     <% end %>
-    <section class="details">
+    <div class="details">
       <h2><%= gallery.title %></h2>
-      <p><%= raw gallery.description %></p>
-    </section>
+      <%= raw gallery.description %>
+    </div>
   <% end %>
 </li>

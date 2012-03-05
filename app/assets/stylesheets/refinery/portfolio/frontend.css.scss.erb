@@ -1,0 +1,50 @@
+<% max_image_width, max_image_height = ::Refinery::Portfolio.cover_image_thumb_size.split("x").map(&:to_i) %>
+ 
+.no-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#galleries {
+  
+  .gallery {
+    border: 1px solid #474747;
+    display: inline-block;
+    margin: 10px 10px;
+    width: <%= max_image_width %>px;
+    background-color: #dedede;
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .image, .details {
+      padding: 0;
+      margin: 0;
+    }
+
+    .image {
+      text-align: center;
+      width: 100%;
+    }
+
+    .details {
+
+      h2, p {
+        padding: 1px 5px;
+      }
+
+      h2 {
+        font-size: 100%;
+        font-weight: bold;
+      }
+    }
+
+    img {
+    }
+  }
+
+}
+

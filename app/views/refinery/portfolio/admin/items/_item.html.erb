@@ -1,18 +1,23 @@
 <li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(item) -%>">
-  <span class='title'>
-    <%= item.title %>
-    <span class="preview">&nbsp;</span>
-  </span>
-  <span class='actions'>
-    <%= link_to refinery_icon_tag("application_go.png"), gallery_path_for(item),
-        :title => t('.view_live_html'),
-        :target => "_blank" %>
-    <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_portfolio_admin_item_path(item),
-         :title => t('.edit') %>
-    <%= link_to refinery_icon_tag("delete.png"), refinery.portfolio_admin_item_path(item),
-        :class => "cancel confirm-delete",
-        :title => t('.delete'),
-        :confirm => t('message', :scope => 'refinery.admin.delete', :title => item.title),
-        :method => :delete %>
-  </span>
+  <div class='details'>
+    <span class='title'>
+      <%= item.title %>
+      <span class="preview">&nbsp;</span>
+    </span>
+    <span class='actions'>
+      <%= link_to refinery_icon_tag("application_go.png"), gallery_path_for(item),
+          :title => t('.view_live_html'),
+          :target => "_blank" %>
+      <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_portfolio_admin_item_path(item),
+           :title => t('.edit') %>
+      <%= link_to refinery_icon_tag("delete.png"), refinery.portfolio_admin_item_path(item),
+          :class => "cancel confirm-delete",
+          :title => t('.delete'),
+          :confirm => t('message', :scope => 'refinery.admin.delete', :title => item.title),
+          :method => :delete %>
+    </span>
+  </div>
+  <div class='image'>
+    <%= image_fu item.image, ::Refinery::Portfolio.cover_image_thumb_size %>
+  </div>
 </li>
