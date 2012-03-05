@@ -7,6 +7,7 @@ module Refinery
     self.items_per_page = 20
     self.cover_image_thumb_size = '300x200'
 
+    # Be sure to see http://thiagosf.net/projects/jquery/skitter/ for terrible documentation.
     self.skitter_options = {
       :interval => 5000,            # Duration of slides in ms
       :animation => :circles,       # Animation to use
