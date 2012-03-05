@@ -11,7 +11,7 @@ if defined?(::Refinery::Page) && ::Refinery::Page.where(:link_url => url).empty?
   page = ::Refinery::Page.create(
     :title => 'Portfolio',
     :link_url => url,
-    :deletable => false
+    :deletable => false,
     :menu_match => "^#{url}(\/|\/.+?|)$"
   )
   Refinery::Pages.default_parts.each do |default_page_part|
