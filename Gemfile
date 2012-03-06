@@ -2,10 +2,7 @@ source "http://rubygems.org"
 
 gemspec
 
-# Temp Fix for weird routing issues
-gem 'rails', '3.2.1'
-
-gem 'refinerycms', '~> 2.0.0' 
+gem 'refinerycms', '~> 2.0.1' 
 
 group :development, :testing do
   gem 'refinerycms-testing'
