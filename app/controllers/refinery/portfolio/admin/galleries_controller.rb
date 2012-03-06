@@ -9,7 +9,7 @@ module Refinery
                 :paging => false
 
         def new
-          @gallery = ::Refinery::Portfolio::Gallery.new(params.except(:controller, :action, :switch_locale))
+          @gallery = ::Refinery::Portfolio::Gallery.new(params.except(:controller, :action, :switch_locale, :locale))
         end
 
         def children
