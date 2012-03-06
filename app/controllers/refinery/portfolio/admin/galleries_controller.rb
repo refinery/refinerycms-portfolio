@@ -9,7 +9,7 @@ module Refinery
                 :paging => false
 
         def new
-          @gallery = ::Refinery::Portfolio::Gallery.new(params.except(:controller, :action, :switch_locale, :locale))
+          @gallery = ::Refinery::Portfolio::Gallery.new(:parent_id => find_parent_gallery)
         end
 
         def children
@@ -18,7 +18,11 @@ module Refinery
         end
 
         protected
-  
+
+        def find_parent_gallery
+          @parent_gallery = ::Refinery::Portfolio::Gallery.find(params[:parent_id]) if params[:parent_id].present?
+        end
+
         def find_gallery
           @gallery = ::Refinery::Portfolio::Gallery.find(params[:id]) if params[:id].present?
         end

@@ -23,7 +23,7 @@ module Refinery
         end
 
         def new
-          @item = Item.new(params.except(:controller, :action, :switch_locale, :locale))
+          @item = Item.new(:gallery_id => find_gallery)
         end
 
         private
