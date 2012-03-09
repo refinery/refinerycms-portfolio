@@ -1,30 +1,23 @@
-# Portfolio plugin for [Refinery CMS](http://www.refinerycms.com) ([Github](http://github.com/resolve/refinerycms))
+# Portfolio
+For [RefineryCMS](http://www.refinerycms.com) ([Github](http://github.com/resolve/refinerycms)) By: [Resolve Digital](http://www.resolvedigital.com)
 
-By: [Resolve Digital](http://www.resolvedigital.com)
+![Refinery Portfolio](https://s3.amazonaws.com/krisf-permanent/portfolio2-demo.png)
 
-## Requirements
-
-This engine requires Refinery CMS version >= 0.9.8 - if you want support for versions before this,
-look at [the rails2-stable branch](https://github.com/resolve/refinerycms-portfolio/tree/rails2-stable).
-
-## Gem Installation
-
-Ensure you have created your application's database before adding this engine (with ``rake db:setup``).
+## Installation on Refinery 2.0.0 or above.
 
 Open your ``Gemfile`` and add this line to the bottom:
 
-    gem 'refinerycms-portfolio', '~> 0.9.9'
+    gem 'refinerycms-portfolio', '~> 2.0.0'
 
-Now run ``bundle install`` and once bundler has installed the gem run:
+Now run ``bundle install``.
 
-    rails generate refinerycms_portfolio
+To install the migrations, run:
+
+    rails generate refinery:portfolio
     rake db:migrate
+    
+Add the Portfolio page to the database:
 
-Now, restart your web server and enjoy.
-
-## Single or Multiple Level Portfolios
-
-The standard setup for portfolios is single-level.
-If you need a multi-level portfolio where you have "categories" of portfolio
-items you can switch to a multi level setup by changing the Refinery Setting for
-``Multi Level Portfolio`` to true.
+    rake db:seed
+    
+Restart your web server and enjoy.
