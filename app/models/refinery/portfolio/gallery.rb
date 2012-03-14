@@ -10,17 +10,17 @@ module Refinery
 
       has_many    :items
 
-      belongs_to  :cover_image, 
-                  :class_name => "Refinery::Portfolio::Item",
-                  :foreign_key => "cover_image_id"
-
       attr_accessible   :title, :body, :lft, :rgt,
                         :position, :gallery_type, :depth,
-                        :parent_id, :cover_image_id
+                        :parent_id
 
       alias_attribute :description, :body
 
       validates :title, :presence => true
+
+      def cover_image
+        items.sort_by(&:position).first if items.present?
+      end
     end
   end
 end
