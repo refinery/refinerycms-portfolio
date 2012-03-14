@@ -4,7 +4,6 @@ module I18n
   end
 end
 
-
 def setup_environment
   # Configure Rails Environment
   ENV["RAILS_ENV"] ||= 'test'
@@ -23,9 +22,6 @@ def setup_environment
     config.filter_run :focus => true
     config.run_all_when_everything_filtered = true
   end
-
-  # set javascript driver for capybara
-  Capybara.javascript_driver = :selenium
 
   ::I18n.exception_handler = :just_raise
 
