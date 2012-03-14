@@ -1,6 +1,9 @@
 module Refinery
   module Portfolio
     class Item < ActiveRecord::Base
+
+      translates :title, :caption
+
       attr_accessible :title, :caption, :image_id, :gallery_id, :position
       validates :gallery_id, :numericality => {:allow_nil => true}
       validates :image_id, :presence => true, :numericality => true

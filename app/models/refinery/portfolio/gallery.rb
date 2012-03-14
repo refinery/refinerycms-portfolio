@@ -6,6 +6,7 @@ module Refinery
 
       extend FriendlyId
       friendly_id :title, :use => [:slugged]
+      translates :title, :body
 
       has_many    :items
 
@@ -19,7 +20,7 @@ module Refinery
 
       alias_attribute :description, :body
 
-      validates :title, :presence => true, :uniqueness => true
+      validates :title, :presence => true
     end
   end
 end
