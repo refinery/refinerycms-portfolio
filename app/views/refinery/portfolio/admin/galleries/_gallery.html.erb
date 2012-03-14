@@ -1,12 +1,8 @@
 <li class='clearfix record icons' id="<%= dom_id(gallery) -%>">
   <div class='clearfix'>
-    <% if gallery.children.present? %>
-      <span class="icon expanded" %>"></span>
-    <% else %>
-      <span class="icon"></span>
-    <% end %>
+    <span class="icon" %></span>
 
-    <span class='title <%= 'toggle' if gallery.children.present? %>'>
+    <span class='title'>
       <%= gallery.title %>
       <span class="preview">
         (<%= link_to t('.item_count', :count => gallery.items.count), refinery.portfolio_admin_gallery_items_path(gallery), :rel => 'items' %>)

@@ -5,16 +5,16 @@ module Refinery
         include Refinery::Portfolio
 
         crudify :'refinery/portfolio/item',
-                :order => 'lft ASC',
+                :order => 'position ASC',
                 :xhr_paging => true
 
         before_filter :find_gallery, :only => [:index]
 
         def index
           if params[:orphaned]
-            @items = Item.orphaned
+            @items = Item.orphaned.order('position ASC')
           elsif params[:gallery_id]
-            @items = @gallery.items 
+            @items = @gallery.items.order('position ASC')
           else
             redirect_to refinery.portfolio_admin_galleries_path and return
           end
