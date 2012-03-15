@@ -2,10 +2,13 @@
 
 By: [Resolve Digital](http://www.resolvedigital.com)
 
+## WARNING!
+
+This latest version (rails-3-1) is not stable. The schema is actively changing. Use at your own risk.
+
 ## Requirements
 
-This engine requires Refinery CMS version >= 0.9.8 - if you want support for versions before this,
-look at [the rails2-stable branch](https://github.com/resolve/refinerycms-portfolio/tree/rails2-stable).
+This engine requires Refinery CMS version >= 2.0.0.
 
 ## Gem Installation
 
@@ -13,18 +16,12 @@ Ensure you have created your application's database before adding this engine (w
 
 Open your ``Gemfile`` and add this line to the bottom:
 
-    gem 'refinerycms-portfolio', '~> 0.9.9'
+    gem 'refinerycms-portfolio', :git => 'git://github.com/resolve/refinerycms-portfolio.git', :branch => 'rails-3-1'
 
 Now run ``bundle install`` and once bundler has installed the gem run:
 
-    rails generate refinerycms_portfolio
+    rails generate refinery:portfolio
     rake db:migrate
+    rake db:seed
 
 Now, restart your web server and enjoy.
-
-## Single or Multiple Level Portfolios
-
-The standard setup for portfolios is single-level.
-If you need a multi-level portfolio where you have "categories" of portfolio
-items you can switch to a multi level setup by changing the Refinery Setting for
-``Multi Level Portfolio`` to true.
