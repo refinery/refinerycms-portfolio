@@ -7,6 +7,8 @@ en:
       admin:
         items:
           item:
+            gallery: Gallery
+            gallery_help: Add this image to a gallery
             delete: Remove this image from this gallery
             edit: Edit this image
             view_live_html: View this image in its gallery
