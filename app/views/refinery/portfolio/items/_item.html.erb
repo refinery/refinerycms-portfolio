@@ -1,2 +1,10 @@
-<li><%= image_tag(item.image.url, {:id => dom_id(item)}) %><div class='label_text'><h2><%= item.title %></h2><p><%= raw item.caption %></p></div></li>
+<li>
+  <%= image_tag(item.image.url, {:id => dom_id(item), :title => item.title}) %>
+  <% if ::Refinery::Portfolio.display_item_text %>
+    <div class='label_text'>
+      <h2><%= item.title %></h2>
+      <p><%= raw item.caption %></p>
+    </div>
+  <% end %>
+</li>
 

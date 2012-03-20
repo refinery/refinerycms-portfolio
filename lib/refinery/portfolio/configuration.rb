@@ -2,7 +2,8 @@ module Refinery
   module Portfolio
     include ActiveSupport::Configurable
 
-    config_accessor :items_per_page, :cover_image_thumb_size, :skitter_options
+    config_accessor :items_per_page, :cover_image_thumb_size, :skitter_options,
+                    :display_item_text, :display_gallery_text
 
     self.items_per_page = 20
     self.cover_image_thumb_size = '300x200'
@@ -19,5 +20,8 @@ module Refinery
       :numbers_align => :center     # Nav placement (left, right, center)
       # :structure => ""            # Use this to override the HTML if utterly necessary.
     }
+
+    self.display_item_text = true
+    self.display_gallery_text = true
   end
 end
