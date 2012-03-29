@@ -2,10 +2,10 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', '~> 2.0.1' 
+gem 'refinerycms', '~> 2.1.0.dev', :git => 'git://github.com/resolve/refinerycms.git'
 
 group :development, :testing do
-  gem 'refinerycms-testing'
+  gem 'refinerycms-testing', '~> 2.1.0.dev', :git => 'git://github.com/resolve/refinerycms.git'
 end
 #
 # Refinery/rails should pull in the proper versions of these
