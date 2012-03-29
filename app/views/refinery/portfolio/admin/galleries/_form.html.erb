@@ -22,6 +22,9 @@
             <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/portfolio/gallery", :default => part.to_s.titleize), "##{part}" %>
           </li>
         <% end %>
+        <li class='ui-state-default'>
+          <%= link_to t('.images'), "#images" %>
+        </li>
       </ul>
       <div id='page_part_editors'>
         <% [:body].each do |part| %>
@@ -29,6 +32,9 @@
             <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
           </div>
         <% end %>
+        <div class='page_part' id='images'>
+          <%= render :partial => 'images', :locals => {:f => f} %>
+        </div>
       </div>
     </div>
   </div>
@@ -49,10 +55,5 @@
                 :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @gallery.title)
               } %>
 <% end -%>
-<% content_for :javascripts do %>
-  <script>
-    $(document).ready(function(){
-      page_options.init(false, '', '');
-    });
-  </script>
-<% end %>
+<% content_for :javascripts, javascript_include_tag('refinery/portfolio/admin/portfolio') %>
+<% content_for :stylesheets, stylesheet_link_tag('refinery/portfolio/admin/galleries') %>
