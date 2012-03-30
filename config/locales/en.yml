@@ -48,7 +48,7 @@ en:
             cover_image: Cover Image
             cover_image_help: The image that is used as the cover of this gallery.
             images: Images
-          items:
+          image_fields:
             add_new_image: Add an image
       galleries:
         show:

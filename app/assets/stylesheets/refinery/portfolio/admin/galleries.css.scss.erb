@@ -12,41 +12,54 @@ a#add_image_link {
   display: inline;
 }
 
-#page_images {
-  li.image_field {
+li.image_field {
+  text-align: center;
+  position: relative;
+  margin: 5px;
+  width: <%= thumb_width %>px;
+  float: left;
+
+  .thumb {
+    height: 350px;
+    max-height: 300px;
+    img {
+      max-width: 300px;
+    }
+  }
+  .attributes {
+    display: none;
+  }
+
+  &:hover div.image_actions {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    overflow: visible;
     text-align: center;
-    position: relative;
-    margin: 5px;
-    width: <%= thumb_width %>px;
-    float: left;
-  
-    &:hover div.image_actions {
-      display: block;
-      width: 100%;
+
+    div.floater {
       position: absolute;
-      top: 50%;
-      height: 1px;
-      overflow: visible;
+      left: 50%;
+      margin-left: -20px;
+      margin-top: -8px;
+      width: 50px;
       text-align: center;
+      height: 22px;
 
-      div.floater {
-        position: absolute;
-        left: 50%;
-        margin-left: -20px;
-        margin-top: -8px;
-        width: 50px;
-        text-align: center;
-        height: 22px;
-
-        img {
-          cursor: pointer;
-        }
+      img {
+        cursor: pointer;
       }
     }
+  }
 
-    div.image_actions {
-      display: none;
-    }
+  div.image_actions {
+    display: none;
+  }
+
+  &.blank {
+    display: none;
   }
 }
 

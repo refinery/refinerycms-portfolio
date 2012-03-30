@@ -1,15 +1,15 @@
-<div class='wym_box field item_group'>
-  <ul id='page_images' class='clearfix'>
-    <% f.object.items.order("position").each_with_index do |item, i| %>
-      <li id='<%= dom_id(item) %>' class='image_field'>
-        <div class='thumb'><%= image_fu item.image, ::Refinery::Portfolio.cover_image_thumb_size %></div>
-        <div class='image_actions'>
-          <div class='floater'>
-            <%= image_tag('refinery/icons/edit.png', {:width => 22, :height => 22, :class => 'edit_image', :alt => 'edit', :'data-item-id' => item.id }) %>
-            <%= image_tag('refinery/icons/delete.png', {:width => 22, :height => 22, :class => 'delete_image', :alt => 'delete', :'data-item-id' => item.id }) %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<% css_classes = ['image_field'] %>
+<% css_classes << 'blank' if image.new_record? %>
+
+<li id='<%= "image_#{image.id || 'new'}" %>' class='<%= css_classes.join(' ') %>'>
+  <div class='thumb'><% unless image.new_record? %><%= image_tag image.url %><% end %></div>
+  <div class='image_actions'>
+    <div class='floater'>
+      <%#= image_tag('refinery/icons/edit.png', {:width => 22, :height => 22, :class => 'edit_image', :alt => 'edit'}) %>
+      <%= image_tag('refinery/icons/delete.png', {:width => 22, :height => 22, :class => 'delete_image', :alt => 'delete' }) %>
+    </div>
+  </div>
+  <div class='attributes'>
+    <%= f.hidden_field :images, :name => "gallery[images][]", :id => nil, :class => 'image_id', :value => image.id %>
+  </div>
+</li>

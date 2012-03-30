@@ -8,7 +8,7 @@ module Refinery
       validates :gallery_id, :numericality => {:allow_nil => true}
       validates :image_id, :presence => true, :numericality => true
 
-      belongs_to :image, :class_name => 'Refinery::Image'
+      belongs_to :image, :class_name => 'Refinery::Image', :dependent => :destroy
       belongs_to :gallery, :class_name => 'Refinery::Portfolio::Gallery'
 
       class << self

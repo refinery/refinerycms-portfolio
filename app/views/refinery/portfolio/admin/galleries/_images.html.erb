@@ -1,13 +1,11 @@
-<div class='wym_skin_refinery' id='images_picker'>
-  <%= render :partial => "image", :locals => {:f => f} %>
+<div class='wym_box field item_group'>
+  <ul id='page_images' class='clearfix'>
+    <% f.object.items.order("position").each_with_index do |item, i| %>
+      <%= render :partial => 'image', :locals => {:f => f, :image => item.image} %>
+    <% end %>
+  
+  </ul>
+  
+  <%= render :partial => 'image', :locals => {:f => f, :image => ::Refinery::Image.new } %> 
 
-  <span class='clearfix label_inline_with_link'>
-    <%= link_to t('.add_new_image'), refinery.insert_admin_images_url({
-                  :dialog => true,
-                  :width => 950,
-                  :height => 510,
-                  :callback => "portfolio.append_image"
-        }),
-        :id => "add_image_link" %>
-  </span>
 </div>

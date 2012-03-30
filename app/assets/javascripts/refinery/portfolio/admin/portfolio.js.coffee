@@ -2,19 +2,22 @@
 $ = jQuery
 
 window.portfolio =
-  append_image: (image) ->
-    image_id = $(image).attr('id').replace 'image', ''
-    new_image = $('#page_images li.image_field:first-child').clone() # Clone li
+  append_image: (images) ->
+    $.each images, (index, image) ->
+      image_id = $(image).attr('id').replace 'image_', ''
+      image_src = $(image).attr('data-grid')
+      new_image = $('li.image_field.blank:first').clone() # Clone li
+      
+      new_image.find('.attributes input.image_id').val image_id # Set input image_id value = image_id
+      
+      # Create thumbnail
+      $('<img/>', {src: image_src}).appendTo(new_image.find('.thumb'))
 
-    # new_item.find('input').next().val image_id # Set input image_id value = image_id
-
-    # Update thumbnail
-    new_image.find('.thumb img').attr('src', $(image).attr('data-grid'))
-    # Update id
-    new_image.attr('id', "image_#{image_id}")
-
-    # Append to list
-    new_image.appendTo '#page_images'
+      new_image
+        .attr('id', "image_#{image_id}") # Update id
+        .appendTo('#page_images') # Append to list
+        .removeClass('blank')
+        
 
 $ ->
   page_options.init(false, '', '')
@@ -23,7 +26,7 @@ $ ->
   # Edit image association?
 
   # Remove image association
-  $('.delete_image').on 'click', -> 
+  $(document).on 'click', '#page_images li .delete_image', -> 
     if confirm("Are you sure you want to delete this image?")
       $(this).parents('li').remove()
     else
