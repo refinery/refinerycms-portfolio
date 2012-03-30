@@ -7,8 +7,8 @@ en:
       admin:
         items:
           item:
-            galerie: Galerie
-            galerie_help: Ajouter cette image à une galerie
+            gallery: Galerie
+            gallery_help: Ajouter cette image à une galerie
             delete: Supprimer cette image de cette galerie
             edit: Modifier cette image
             view_live_html: Visionner cette image dans sa galerie
@@ -32,7 +32,7 @@ en:
             title: Galeries
             sorry_no_results: Désolé! Il n'y aucun résultat
             no_items_yet: Il n'y aucun Galerie. Cliquez sur "Ajouter une galerie" pour ajouter votre première galerie.
-          galerie:
+          gallery:
             add_image: Ajouter une image à cette galerie
             delete: Supprimer cette galerie
             edit: Modifier cette galerie
@@ -43,8 +43,8 @@ en:
             new_child: Ajouter une nouvelle sous-galerie
             view_live_html: Visionner cette galerie en production <br/><em>(s'ouvre dans une nouvelle fenêtre)</em>
           form:
-            parent_galerie: Galerie principale
-            parent_galerie_help: Vous pouvez imbriquer une galerie dans une autre galerie, en créant un portfolio multi-niveau. Choisissez une galerie pour faire de cette galerie l'enfant de celle que vous avez sélectionnez, ou laisser le champ vide pour la garder comme galerie principale (parente)
+            parent_gallery: Galerie principale
+            parent_gallery_help: Vous pouvez imbriquer une galerie dans une autre galerie, en créant un portfolio multi-niveau. Choisissez une galerie pour faire de cette galerie l'enfant de celle que vous avez sélectionnez, ou laisser le champ vide pour la garder comme galerie principale (parente)
             cover_image: L'image principale
             cover_image_help: L'image qui est utilisée pour la couverture de cette galerie.
             images: Images
@@ -55,6 +55,6 @@ en:
           other: Autres galeries
   activerecord:
     attributes:
-      'refinery/portfolio/galerie':
+      'refinery/portfolio/gallery':
         title: Titre
         body: Contenu
