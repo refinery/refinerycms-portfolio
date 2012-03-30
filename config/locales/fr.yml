@@ -1,0 +1,60 @@
+en:
+  refinery:
+    plugins:
+      portfolio:
+        title: Portfolio
+    portfolio:
+      admin:
+        items:
+          item:
+            galerie: Galerie
+            galerie_help: Ajouter cette image à une galerie
+            delete: Supprimer cette image de cette galerie
+            edit: Modifier cette image
+            view_live_html: Visionner cette image dans sa galerie
+          actions:
+            back_to_galleries: Retour aux galeries
+            create_new: Ajouter une nouvelle image
+            reorder: Réorganiser les images
+            reorder_done: Fini
+          index:
+            no_items_yet: Il n'y a pas d'images ici
+            sorry_no_results: Désolé! Il n'y aucun résultat
+            title: Images
+        galleries:
+          actions:
+            add_image: Ajouter une image
+            create_new: Ajouter nouvelle galerie
+            reorder: Réorganiser les galeries
+            reorder_done: Fini
+            view_root_images: Voir les images à la racine
+          records:
+            title: Galeries
+            sorry_no_results: Désolé! Il n'y aucun résultat
+            no_items_yet: Il n'y aucun Galerie. Cliquez sur "Ajouter une galerie" pour ajouter votre première galerie.
+          galerie:
+            add_image: Ajouter une image à cette galerie
+            delete: Supprimer cette galerie
+            edit: Modifier cette galerie
+            item_count:
+              zero: 0 images
+              one: 1 image
+              other: '%{count} images'
+            new_child: Ajouter une nouvelle sous-galerie
+            view_live_html: Visionner cette galerie en production <br/><em>(s'ouvre dans une nouvelle fenêtre)</em>
+          form:
+            parent_galerie: Galerie principale
+            parent_galerie_help: Vous pouvez imbriquer une galerie dans une autre galerie, en créant un portfolio multi-niveau. Choisissez une galerie pour faire de cette galerie l'enfant de celle que vous avez sélectionnez, ou laisser le champ vide pour la garder comme galerie principale (parente)
+            cover_image: L'image principale
+            cover_image_help: L'image qui est utilisée pour la couverture de cette galerie.
+            images: Images
+          image_fields:
+            add_new_image: Ajouter une image
+      galleries:
+        show:
+          other: Autres galeries
+  activerecord:
+    attributes:
+      'refinery/portfolio/galerie':
+        title: Titre
+        body: Contenu

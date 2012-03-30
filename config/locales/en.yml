@@ -17,7 +17,7 @@ en:
             create_new: Add new Image
             reorder: Reorder Images
             reorder_done: Done Reordering Images
-          records:
+          index:
             no_items_yet: There are no images here.
             sorry_no_results: Sorry! There are no results found.
             title: Images
@@ -58,8 +58,3 @@ en:
       'refinery/portfolio/gallery':
         title: Title
         body: Body
-        parent_id: Parent
-        lft: Lft
-        rgt: Rgt
-        depth: Depth
-        type: Type
