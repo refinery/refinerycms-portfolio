@@ -4,8 +4,9 @@ $ = jQuery
 window.portfolio =
   append_image: (images) ->
     $.each images, (index, image) ->
+      console.log image
       image_id = $(image).attr('id').replace 'image_', ''
-      image_src = $(image).attr('data-grid')
+      image_src = $(image).attr('data-medium')
       new_image = $('li.image_field.blank:first').clone() # Clone li
       
       new_image.find('.attributes input.image_id').val image_id # Set input image_id value = image_id
