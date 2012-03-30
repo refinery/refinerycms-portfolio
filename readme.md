@@ -4,7 +4,7 @@ By: [Resolve Digital](http://www.resolvedigital.com)
 
 ## WARNING!
 
-This latest version (rails-3-1) is not stable. The schema is actively changing. Use at your own risk.
+This latest version (master) is not stable. The schema is actively changing. Use at your own risk. If you are looking for a Refinery 2.0-compatible branch, use the '2-0-stable' branch.
 
 ## Requirements
 
@@ -16,7 +16,7 @@ Ensure you have created your application's database before adding this engine (w
 
 Open your ``Gemfile`` and add this line to the bottom:
 
-    gem 'refinerycms-portfolio', :git => 'git://github.com/resolve/refinerycms-portfolio.git', :branch => 'rails-3-1'
+    gem 'refinerycms-portfolio', :git => 'git://github.com/resolve/refinerycms-portfolio.git', :branch => '2-0-stable'
 
 Now run ``bundle install`` and once bundler has installed the gem run:
 
