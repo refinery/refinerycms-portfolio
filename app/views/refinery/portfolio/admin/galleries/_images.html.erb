@@ -1,11 +1,10 @@
 <div class='wym_box field item_group'>
   <ul id='page_images' class='clearfix'>
-    <% f.object.items.order("position").each_with_index do |item, i| %>
-      <%= render :partial => 'image', :locals => {:f => f, :image => item.image} %>
-    <% end %>
-  
+    <%= render :partial => 'image', 
+                  :collection => f.object.items.order('position').collect(&:image),
+                  :locals => { :f => f } %>
   </ul>
   
-  <%= render :partial => 'image', :locals => {:f => f, :image => ::Refinery::Image.new } %> 
+  <%= render :partial => 'empty_image', :locals => {:f => f } %> 
 
 </div>

@@ -1,0 +1,11 @@
+<li id='' class='image_field blank'>
+  <div class='thumb'></div>
+  <div class='image_actions'>
+    <div class='floater'>
+      <%= image_tag('refinery/icons/delete.png', {:width => 22, :height => 22, :class => 'delete_image', :alt => 'delete' }) %>
+    </div>
+  </div>
+  <div class='attributes'>
+    <%= f.hidden_field :images, :name => "gallery[images][]", :id => nil, :class => 'image_id', :value => nil %>
+  </div>
+</li>

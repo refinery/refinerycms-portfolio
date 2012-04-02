@@ -1,11 +1,7 @@
-<% css_classes = ['image_field'] %>
-<% css_classes << 'blank' if image.new_record? %>
-
-<li id='<%= "image_#{image.id || 'new'}" %>' class='<%= css_classes.join(' ') %>'>
-  <div class='thumb'><% unless image.new_record? %><%= image_tag image.thumbnail(:medium).url %><% end %></div>
+<li id='<%= "image_#{image.id}" %>' class='image_field'>
+  <div class='thumb'><%= image_tag image.thumbnail(:medium).url %></div>
   <div class='image_actions'>
     <div class='floater'>
-      <%#= image_tag('refinery/icons/edit.png', {:width => 22, :height => 22, :class => 'edit_image', :alt => 'edit'}) %>
       <%= image_tag('refinery/icons/delete.png', {:width => 22, :height => 22, :class => 'delete_image', :alt => 'delete' }) %>
     </div>
   </div>

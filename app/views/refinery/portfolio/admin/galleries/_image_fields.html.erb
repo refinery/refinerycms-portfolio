@@ -1,6 +1,4 @@
 <div class='wym_skin_refinery' id='images_picker'>
-  <%= render :partial => "images", :locals => {:f => f} %>
-
   <span class='clearfix label_inline_with_link'>
     <%= link_to t('.add_new_image'), refinery.insert_admin_images_url({
                   :dialog => true,
@@ -11,4 +9,6 @@
         }),
         :id => "add_image_link" %>
   </span>
+
+  <%= render :partial => "images", :locals => {:f => f} %>
 </div>
