@@ -12,7 +12,7 @@ module Refinery
 
       attr_accessible   :title, :body, :lft, :rgt,
                         :position, :gallery_type, :depth,
-                        :parent_id
+                        :parent_id, :locale
 
       alias_attribute :description, :body
 
