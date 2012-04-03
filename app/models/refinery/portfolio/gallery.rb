@@ -33,6 +33,7 @@ module Refinery
 
 
       def bulk_update_associated_items
+        @image_ids ||= []
         existing_images = ::Refinery::Portfolio::Item.select('id').where(:gallery_id => id)
         existing_ids = existing_images.collect(&:id)
         @image_ids.each_with_index do |image_id, position|
