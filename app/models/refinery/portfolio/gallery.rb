@@ -8,11 +8,15 @@ module Refinery
       friendly_id :title, :use => [:slugged]
       translates :title, :body
 
+      class Translation
+        attr_accessible :locale
+      end
+
       has_many    :items, :dependent => :destroy
 
       attr_accessible   :title, :body, :lft, :rgt,
                         :position, :gallery_type, :depth,
-                        :parent_id, :images, :locale
+                        :parent_id, :images
 
       alias_attribute :description, :body
 
