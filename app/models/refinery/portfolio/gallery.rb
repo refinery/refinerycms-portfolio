@@ -8,6 +8,10 @@ module Refinery
       friendly_id :title, :use => [:slugged]
       translates :title, :body
 
+      class Translation
+        attr_accessible :locale
+      end
+
       has_many    :items
 
       attr_accessible   :title, :body, :lft, :rgt,
