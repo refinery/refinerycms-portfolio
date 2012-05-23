@@ -16,7 +16,7 @@ module Refinery
           plugin.activity = {
             :class_name => :'refinery/portfolio/gallery'
           }
-          plugin.menu_match = %r{refinery/portfolio(/galleries(/.*)?)?$}
+          plugin.menu_match = %r{refinery/portfolio(/galleries(/.*)?)?(/items(/.*)?)?$}
         end
       end
 
