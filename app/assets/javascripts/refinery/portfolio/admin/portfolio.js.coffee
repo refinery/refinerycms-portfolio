@@ -28,7 +28,7 @@ $ ->
 
   # Remove image association
   $(document).on 'click', '#page_images li .delete_image', -> 
-    if confirm("Are you sure you want to delete this image?")
+    if confirm("Are you sure you want to remove this image?")
       $(this).parents('li').remove()
     else
       false
