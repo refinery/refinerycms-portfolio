@@ -16,7 +16,7 @@ Ensure you have created your application's database before adding this engine (w
 Open your ``Gemfile`` and add this line to the bottom:
 
 ```ruby
-gem 'refinerycms-portfolio', :git => 'git://github.com/resolve/refinerycms-portfolio.git', :branch => '2-0-stable'
+gem 'refinerycms-portfolio', :git => 'git://github.com/refinery/refinerycms-portfolio.git', :branch => '2-0-stable'
 ```
 
 Now run ``bundle install`` and once bundler has installed the gem run:
