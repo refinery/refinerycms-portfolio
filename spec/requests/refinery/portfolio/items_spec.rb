@@ -3,13 +3,17 @@ require "spec_helper"
 module Refinery
   module Portfolio
     describe "items" do
-      login_refinery_user
-      
+      refinery_login_with :refinery_user
+
+      before do
+        Refinery::Portfolio::Engine.load_seed
+      end
+
       context "when present" do
         before(:each) do
           @image = mock_model(Refinery::Image, :id => 23, :url => 'http://gifs.gifbin.com/1236681924_snail_transformers.gif')
         end
-      
+
         describe "on root level" do
           before(:each) do
             @root_item = FactoryGirl.create(:item, :gallery_id => nil, :image_id => 23)

@@ -3,8 +3,11 @@ require "spec_helper"
 module Refinery
   module Portfolio
     describe "galleries" do
-      login_refinery_user
+      refinery_login_with :refinery_user
 
+      before do
+        Refinery::Portfolio::Engine.load_seed
+      end
 
       context "when present" do
         before(:each) do
@@ -12,7 +15,7 @@ module Refinery
         end
 
         describe "on root level" do
-        
+
           # Users level
           it "appears" do
             visit refinery.portfolio_galleries_path
