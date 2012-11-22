@@ -5,7 +5,7 @@ describe Refinery do
     describe "Admin" do
       describe "Galleries" do
         login_refinery_user
-        
+
 
         describe "galleries list" do
           before(:each) do
@@ -48,22 +48,6 @@ describe Refinery do
 
               page.should have_content("Title can't be blank")
               Refinery::Portfolio::Gallery.count.should == 0
-            end
-          end
-
-          context "duplicate" do
-            before(:each) { FactoryGirl.create(:gallery, :title => "UniqueTitle") }
-
-            it "fails" do
-              visit refinery.portfolio_admin_galleries_path
-
-              click_link "Add New Gallery"
-
-              fill_in "Title", :with => "UniqueTitle"
-              click_button "Save"
-
-              page.should have_content("There were problems")
-              Refinery::Portfolio::Gallery.count.should == 1
             end
           end
         end

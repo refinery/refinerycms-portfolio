@@ -5,6 +5,16 @@ module Refinery
     describe "galleries" do
       login_refinery_user
 
+      describe "page" do
+        let!(:portfolio_page) do
+          FactoryGirl.create :page, :title => "My Portfolio Page", :link_url => "/portfolio"
+        end
+
+        it "has page parts" do
+          visit refinery.portfolio_galleries_path
+          page.should have_css '#body_content_title', :text => portfolio_page.title
+        end
+      end
 
       context "when present" do
         before(:each) do
@@ -12,7 +22,7 @@ module Refinery
         end
 
         describe "on root level" do
-        
+
           # Users level
           it "appears" do
             visit refinery.portfolio_galleries_path
