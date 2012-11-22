@@ -1,9 +1,3 @@
-module I18n
-  def self.just_raise(*args)
-    raise args.first.message
-  end
-end
-
 def setup_environment
   # Configure Rails Environment
   ENV["RAILS_ENV"] ||= 'test'
@@ -22,8 +16,6 @@ def setup_environment
     config.filter_run :focus => true
     config.run_all_when_everything_filtered = true
   end
-
-  ::I18n.exception_handler = :just_raise
 
 end
 
