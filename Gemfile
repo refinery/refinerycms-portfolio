@@ -3,7 +3,8 @@ source "http://rubygems.org"
 gemspec
 
 gem 'refinerycms', '~> 2.0.9'
-gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git', :branch => '2-0-stable'
+gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git',
+                        :branch => '2-0-stable'
 
 group :development, :test do
   gem 'refinerycms-testing', '~> 2.0.9'
@@ -19,9 +20,7 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'generator_spec'
+  gem 'generator_spec', '~> 0.8.6'
 
   require 'rbconfig'
 
@@ -45,9 +44,6 @@ group :development, :test do
   end
 
   platforms :ruby do
-    gem 'spork', '0.9.0.rc9'
-    gem 'guard-spork'
-
     unless ENV['TRAVIS']
       if RbConfig::CONFIG['target_os'] =~ /darwin/i
         gem 'rb-fsevent', '>= 0.3.9'
