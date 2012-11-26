@@ -5,7 +5,7 @@ gemspec
 gem 'refinerycms', '~> 2.0.1'
 gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git', :branch => '2-0-stable'
 
-group :development, :testing do
+group :development, :test do
   gem 'refinerycms-testing'
 end
 #
