@@ -23,12 +23,12 @@ module Refinery
         end
 
         def new
-          @item = Item.new(:gallery_id => find_gallery)
+          @item = Item.new(:gallery_id => find_gallery.id)
         end
 
         private
         def find_gallery
-          @gallery = Gallery.find(params[:gallery_id]) if params[:gallery_id]
+          @gallery = Gallery.where(slug: params[:gallery_id]).first if params[:gallery_id]
         end
 
       end
