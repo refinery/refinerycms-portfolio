@@ -8,7 +8,8 @@ module Refinery
                 :order => 'position ASC',
                 :xhr_paging => true
 
-        before_filter :find_gallery, :only => [:index]
+        before_filter :find_gallery, :only => [:index, :new]
+        before_filter :get_galleries, :only => [:edit, :new]
 
         def index
           if params[:orphaned]
@@ -23,12 +24,19 @@ module Refinery
         end
 
         def new
-          @item = Item.new(:gallery_id => find_gallery.id)
+          @item = Item.new
+          if params[:gallery_id]
+            @item.gallery_id = @gallery.id
+          end
         end
 
         private
         def find_gallery
           @gallery = Gallery.where(slug: params[:gallery_id]).first if params[:gallery_id]
+        end
+
+        def get_galleries
+          @galleries = Gallery.all
         end
 
       end
