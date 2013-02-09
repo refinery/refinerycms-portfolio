@@ -29,6 +29,7 @@ module Refinery
         private
         def find_gallery
           @gallery = Gallery.find(params[:gallery_id]) if params[:gallery_id]
+          defined?(@gallery) && !@gallery.nil? ? @gallery.id : nil
         end
 
       end

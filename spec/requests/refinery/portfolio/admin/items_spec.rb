@@ -69,6 +69,17 @@ describe Refinery do
               fill_in :title, :with => "My Image"
               click_link "There is currently no image selected, please click here to add one."
             end
+
+            it "allows adding image via gallery's grid link (issue85: https://github.com/refinery/refinerycms-portfolio/issues/85)" do
+              FactoryGirl.create(:gallery, :title => "A title")
+              visit refinery.portfolio_admin_galleries_path
+
+              within("#records") do
+                expect {
+                  click_link 'Add an image to this gallery'
+                }.to_not raise_error(NoMethodError)
+              end
+            end
           end
 
           context "invalid data" do

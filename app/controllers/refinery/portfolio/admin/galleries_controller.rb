@@ -13,7 +13,7 @@ module Refinery
         end
 
         def children
-          @gallery = find_gallery
+          find_gallery
           render :layout => false
         end
 
@@ -21,10 +21,12 @@ module Refinery
 
         def find_parent_gallery
           @parent_gallery = ::Refinery::Portfolio::Gallery.find(params[:parent_id]) if params[:parent_id].present?
+          defined?(@parent_gallery) && !@parent_gallery.nil? ? @parent_gallery.id : nil
         end
 
         def find_gallery
           @gallery = ::Refinery::Portfolio::Gallery.find(params[:id]) if params[:id].present?
+          defined?(@gallery) && !@gallery.nil? ? @gallery.id : nil
         end
 
       end
