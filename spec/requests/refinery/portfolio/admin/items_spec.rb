@@ -7,7 +7,7 @@ describe Refinery do
       describe "Items" do
 
         login_refinery_user
-        
+
         # Note that this spec must execute before we populate data, because it depends on no pre-existing top-level images
         it "doesn't display generic I18n content, indicating a translation issue (79: https://github.com/refinery/refinerycms-portfolio/issues/79)" do
           visit refinery.portfolio_admin_galleries_path
@@ -70,40 +70,55 @@ describe Refinery do
               click_link "There is currently no image selected, please click here to add one."
             end
 
-            it "allows adding image via gallery's grid link (issue85: https://github.com/refinery/refinerycms-portfolio/issues/85)" do
+            context "Regression tests"
+
+            before(:each) do
               FactoryGirl.create(:gallery, :title => "A title")
               visit refinery.portfolio_admin_galleries_path
+            end
 
+            it "allows adding image via gallery's grid link (issue85: https://github.com/refinery/refinerycms-portfolio/issues/85)" do
               within("#records") do
                 expect {
                   click_link 'Add an image to this gallery'
                 }.to_not raise_error(NoMethodError)
               end
             end
-          end
 
-          context "invalid data" do
-            it "fails" do
+            it "populates the gallery dropdown correctly (issue76: https://github.com/refinery/refinerycms-portfolio/issues/76)" do
+              within("#records") do
+                click_link 'Add an image to this gallery'
+              end
+
+              within("#item_gallery_id") do
+                page.should have_content("A title")
+              end
             end
-          end
 
-          context "duplicate" do
-            it "fails" do
-            end
           end
         end
 
-        describe "edit" do
-          it "succeeds" do
+        context "invalid data" do
+          it "fails" do
           end
         end
 
-        describe "destroy" do
-          it "succeeds" do
+        context "duplicate" do
+          it "fails" do
           end
         end
-
       end
+
+      describe "edit" do
+        it "succeeds" do
+        end
+      end
+
+      describe "destroy" do
+        it "succeeds" do
+        end
+      end
+
     end
   end
 end
