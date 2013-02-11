@@ -78,4 +78,7 @@ capybara-*html
 .rvmrc
 .rvmrc.*
 
+#kde directory cache?
+.directory
+
 Gemfile.lock

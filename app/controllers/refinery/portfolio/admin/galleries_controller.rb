@@ -9,11 +9,11 @@ module Refinery
                 :paging => false
 
         def new
-          @gallery = ::Refinery::Portfolio::Gallery.new(:parent_id => find_parent_gallery)
+          @gallery = ::Refinery::Portfolio::Gallery.new(:parent_id => find_parent_gallery.try(:id))
         end
 
         def children
-          @gallery = find_gallery
+          find_gallery
           render :layout => false
         end
 
