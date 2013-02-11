@@ -23,13 +23,12 @@ module Refinery
         end
 
         def new
-          @item = Item.new(:gallery_id => find_gallery)
+          @item = Item.new(:gallery_id => find_gallery.try(:id))
         end
 
         private
         def find_gallery
           @gallery = Gallery.find(params[:gallery_id]) if params[:gallery_id]
-          defined?(@gallery) && !@gallery.nil? ? @gallery.id : nil
         end
 
       end
