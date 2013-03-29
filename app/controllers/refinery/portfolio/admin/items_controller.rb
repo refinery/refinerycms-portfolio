@@ -23,7 +23,7 @@ module Refinery
         end
 
         def new
-          @item = Item.new(:gallery_id => find_gallery)
+          @item = Item.new(:gallery_id => find_gallery.try(:id))
         end
 
         private

@@ -45,7 +45,7 @@
       <%= f.label :gallery_id, t('gallery', :scope => 'refinery.portfolio.admin.items.item') -%>
       <%= refinery_help_tag t('gallery_help', :scope => 'refinery.portfolio.admin.items.item') -%>
     </span>
-    <%= f.select :gallery_id, nested_set_options(::Refinery::Portfolio::Gallery, @gallery) { |i| "#{'-' * i.level} #{i.title}" }, :include_blank => true %>
+    <%= f.select :gallery_id, nested_set_options(::Refinery::Portfolio::Gallery) { |i| "#{'-' * i.level} #{i.title}" }, :include_blank => true %>
   </div>
 
   <%= render :partial => "/refinery/admin/form_actions",
