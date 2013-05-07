@@ -8,8 +8,10 @@ module Refinery
                 :include => [:children],
                 :paging => false
 
+        before_filter :find_parent_gallery
+
         def new
-          @gallery = ::Refinery::Portfolio::Gallery.new(:parent_id => find_parent_gallery)
+          @gallery = ::Refinery::Portfolio::Gallery.new(:parent_id => @parent_gallery && @parent_gallery.id)
         end
 
         def children
