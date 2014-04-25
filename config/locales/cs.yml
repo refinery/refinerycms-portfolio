@@ -27,7 +27,7 @@ cs:
             create_new: Přidat novou galerii
             reorder: Seřadit galerie
             reorder_done: Ukončit řazení galerií
-            view_root_images: Zobrazit top-level obrázky
+            view_root_images: Zobrazit všechny obrázky
           records:
             title: Galerie
             sorry_no_results: Sorry! Žádné výsledky nenalezeny.
@@ -39,6 +39,7 @@ cs:
             item_count:
               zero: žádné obrázky
               one: 1 obrázek
+              few: '%{count} obrázky'
               other: '%{count} obrázků'
             new_child: Přidat novou galerii jako potomka
             view_live_html: Zobrazit tuto galerii naživo <br/><em>(otevře se v novém okně)</em>
