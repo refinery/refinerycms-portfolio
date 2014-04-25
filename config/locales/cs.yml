@@ -2,54 +2,52 @@ cs:
   refinery:
     plugins:
       portfolio:
-        title: Portfolio
+        title: Fotogalerie
     portfolio:
       admin:
         items:
           item:
-            gallery: Galerie
-            gallery_help: Přidat tento obrázek do galerie
-            delete: Odebrat tento obrázek z galerie
-            edit: Upravit obrázek
-            view_live_html: Zobrazit obrázek ve své galerii
+             gallery: Galerie
+             gallery_help: Přidat obrázek do této galerie
+             delete: Odebrat obrázek z této galerie
+             edit: Upravit obrázek
+             view_live_html: Zobrazit obrázek
           actions:
-            back_to_galleries: Vrátit na přehled galerií
-            create_new: Přidat nový obrázek
-            reorder: Seřadit obrázky
-            reorder_done: Ukončit řazení obrázků
-          index:
-            no_items_yet: Nejsou zde zatím žádné obrázky.
-            sorry_no_results: Sorry! Žádné výsledky nenalezeny.
+             back_to_galleries: Zpět na galerie
+             create_new: 'Přidat obrázek'
+             reorder: 'Přeuspořádat obrázky'
+             reorder_done: Úvodní obrázek
+          records:
+            no_items_yet: 'Žádné záznamy'
+            sorry_no_results: 'Omlouváme se, ale nic nenalezeno'
             title: Obrázky
         galleries:
           actions:
-            add_image: Přidat obrázek
-            create_new: Přidat novou galerii
-            reorder: Seřadit galerie
-            reorder_done: Ukončit řazení galerií
-            view_root_images: Zobrazit top-level obrázky
+            add_image: 'Přidat obrázek'
+            create_new: 'Přidat novou galerii'
+            reorder: 'Přeuspořádat galerie'
+            reorder_done: Dokončit
+            view_root_images: Zobrazit titulní obrázky
           records:
-            title: Galerie
-            sorry_no_results: Sorry! Žádné výsledky nenalezeny.
-            no_items_yet: Zatím zde nejsou žádné galerie. Zvol "Přidat novou galerii" pro přidání první galerie.
+            title: Galleries
+            sorry_no_results: 'Omlouváme se, ale nic nenalezeno'
+            no_items_yet: Nejsou vytvořeny žádné galerie.
           gallery:
-            add_image: Přidat obrázek do této galerie
-            delete: Odebrat obrázek z této galerie
-            edit: Upravit tuto galerii
+            add_image: 'Vložit obrázky'
+            delete: 'Odstranit galerii'
+            edit: 'Upravit galerii'
             item_count:
-              zero: žádné obrázky
-              one: 1 obrázek
+              zero: 'žádné obrázky'
+              one: '1 obrázek'
+              few: '%{count} obrázky'
               other: '%{count} obrázků'
-            new_child: Přidat novou galerii jako potomka
-            view_live_html: Zobrazit tuto galerii naživo <br/><em>(otevře se v novém okně)</em>
+            new_child: Přidat podgalerii
+            view_live_html: Náhled galerie <br/><em>(v novém okně)</em>
           form:
-            parent_gallery: Rodičovská galerie
-            parent_gallery_help: Můžete zanořovat galerii do dalších galerií, vytvářením multi-levelového portfolia. Zvolte galerii k vytvoření této galerie jako potomka, nebo nechte prázdnou k udržení top-level galerie.
-            cover_image: Titulní obrázek
-            cover_image_help: Obrázek je použit jako titulní pro tuto galerii.
-            images: Obrázky
-          image_fields:
-            add_new_image: Přidat obrázek
+            parent_gallery: Nadřazená galerie
+            parent_gallery_help: Můžete vytvořit galerii uvnitř jiné galerie. Vyberte galerii,  která bude tuto galerii obsahovat a nebo nevybírejte nic a vytvořte hlavní galerii.
+            cover_image: Úvodní obrázek
+            cover_image_help: Tento obrázek slouží jako úvodní prezentace galerie.
       galleries:
         show:
           other: Ostatní galerie
@@ -57,4 +55,12 @@ cs:
     attributes:
       'refinery/portfolio/gallery':
         title: Název
-        body: Obsah
+        body: Popis
+        parent_id: Nadřazená galerie
+        lft: Lft
+        rgt: Rgt
+        depth: Depth
+        type: Type
+      'refinery/portfolio/item':
+        title: Název
+        caption: Popisek
