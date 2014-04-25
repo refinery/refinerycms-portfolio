@@ -3,9 +3,9 @@ source "http://rubygems.org"
 gemspec
 
 git 'git://github.com/refinery/refinerycms.git' do
-  gem 'refinerycms', '~> 2.1.1'
+  gem 'refinerycms', '~> 2.1.0.dev'
   group :development, :test do
-    gem 'refinerycms-testing', '~> 2.1.1'
+    gem 'refinerycms-testing', '~> 2.1.0.dev'
   end
 end
 
