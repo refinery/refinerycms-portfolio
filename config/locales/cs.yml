@@ -30,7 +30,7 @@ cs:
             view_root_images: Zobrazit všechny obrázky
           records:
             title: Galerie
-            sorry_no_results: Sorry! Žádné výsledky nenalezeny.
+            sorry_no_results: Omlouváme se! Žádné výsledky nenalezeny.
             no_items_yet: Zatím zde nejsou žádné galerie. Zvol "Přidat novou galerii" pro přidání první galerie.
           gallery:
             add_image: Přidat obrázek do této galerie
