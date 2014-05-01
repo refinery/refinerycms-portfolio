@@ -1,5 +1,5 @@
 require "spec_helper"
-include ActionController::RecordIdentifier
+include ActionView::RecordIdentifier
 
 module Refinery
   module Portfolio

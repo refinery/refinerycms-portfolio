@@ -16,11 +16,11 @@
           :title => t('.view_live_html'),
           :target => "_blank" %>
       <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_portfolio_admin_item_path(item),
-           :title => t('.edit') %>
+          :title => t('.edit') %>
       <%= link_to refinery_icon_tag("delete.png"), refinery.portfolio_admin_item_path(item),
           :class => "cancel confirm-delete",
           :title => t('.delete'),
-          :confirm => t('message', :scope => 'refinery.admin.delete', :title => item.title),
+          :data => { :confirm => t('message', :scope => 'refinery.admin.delete', :title => item.title) },
           :method => :delete %>
     </span>
   </div>
