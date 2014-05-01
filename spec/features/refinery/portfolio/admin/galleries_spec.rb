@@ -1,11 +1,10 @@
 require "spec_helper"
 
-describe Refinery do
-  describe "Portfolio" do
-    describe "Admin" do
+module Refinery
+  module Portfolio
+    module Admin
       describe "Galleries" do
-        login_refinery_user
-        
+        refinery_login_with :refinery_user
 
         describe "galleries list" do
           before(:each) do

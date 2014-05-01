@@ -1,14 +1,14 @@
 require "spec_helper"
 include ActionController::RecordIdentifier
 
-describe Refinery do
-  describe "Portfolio" do
-    describe "Admin" do
+module Refinery
+  module Portfolio
+    module Admin
       describe "Items" do
-        login_refinery_user
+        refinery_login_with :refinery_user
 
         let(:image) { mock_model(Refinery::Image, :id => 23, :url => 'http://gifs.gifbin.com/1236681924_snail_transformers.gif') }
-        let(:item) { FactoryGirl.create(:item, :gallery_id => nil, :image_id => 23) } 
+        let(:item) { FactoryGirl.create(:item, :gallery_id => nil, :image_id => 23) }
         let(:gallery) { FactoryGirl.create(:gallery) }
         let(:galleried_item) { FactoryGirl.create(:item, :gallery_id => gallery.id, :image_id => 23) }
 

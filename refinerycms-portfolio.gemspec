@@ -1,10 +1,6 @@
-# TODO: Add gem version from lib file.
-
-version = "2.1.0.dev"
-
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-portfolio}
-  s.version           = version
+  s.version           = %q{3.0.0.dev}
   s.description       = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with Refinery CMS}
   s.date              = %q{2012-03-28}
   s.summary           = %q{Ruby on Rails portfolio plugin for Refinery CMS.}
@@ -16,7 +12,6 @@ Gem::Specification.new do |s|
   s.files             = `git ls-files`.split("\n")
   s.test_files        = `git ls-files`.split("\n")
 
-  s.add_dependency 'refinerycms-core', version
-  s.add_dependency 'awesome_nested_set', '~> 2.1.0'
-  s.add_development_dependency 'refinerycms-testing', version
+  s.add_dependency 'refinerycms-core', '~> 3.0.0.dev'
+  s.add_dependency 'refinerycms-acts-as-indexed', '~> 1.0.0'
 end
