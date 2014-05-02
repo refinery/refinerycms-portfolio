@@ -11,7 +11,7 @@ module Refinery
           its(:errors) { should be_empty }
           its(:title) { should == "Refinery CMS" }
         end
-        
+
         context "when invalid" do
           subject { FactoryGirl.build(:gallery, :title => nil) }
           it "invalidates the model" do
@@ -21,7 +21,7 @@ module Refinery
           end
         end
       end
-      
+
       it "implements some sort of nested set logic" do
         Gallery.instance_methods.map(&:to_sym).should include(:children)
       end
