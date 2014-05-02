@@ -8,15 +8,7 @@ module Refinery
       friendly_id :title, :use => [:slugged]
       translates :title, :body
 
-      class Translation
-        attr_accessible :locale
-      end
-
       has_many    :items, :dependent => :destroy
-
-      attr_accessible   :title, :body, :lft, :rgt,
-                        :position, :gallery_type, :depth,
-                        :parent_id, :images
 
       alias_attribute :description, :body
 
@@ -29,8 +21,8 @@ module Refinery
       end
 
       # We reject any empty ones because we have a template sitting around
-      # (Probably not the best way to do this, but it's what the project 
-      # we cribbed the multi-image tab from did, and it's what we're doing 
+      # (Probably not the best way to do this, but it's what the project
+      # we cribbed the multi-image tab from did, and it's what we're doing
       # in the interest of time.
       def images=(ids = [])
         @image_ids = ids.reject(&:empty?).map(&:to_i).uniq
