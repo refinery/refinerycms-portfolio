@@ -12,7 +12,7 @@ module Refinery
 
       alias_attribute :description, :body
 
-      validates :title, :presence => true
+      validates :title, presence: true, uniqueness: true
 
       after_save :bulk_update_associated_items
 
