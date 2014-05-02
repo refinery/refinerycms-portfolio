@@ -1,5 +1,4 @@
 require "spec_helper"
-include ActionView::RecordIdentifier
 
 module Refinery
   module Portfolio
@@ -36,7 +35,7 @@ module Refinery
 
             it "shows items" do
               visit refinery.portfolio_admin_galleries_path
-              within("##{dom_id(gallery)}") do
+              within("#gallery_#{gallery.id}") do
                 click_link '1 image'
               end
               page.should have_content(galleried_item.title)
@@ -59,24 +58,20 @@ module Refinery
           end
 
           context "invalid data" do
-            it "fails" do
-            end
+            it "fails"
           end
 
           context "duplicate" do
-            it "fails" do
-            end
+            it "fails"
           end
         end
 
         describe "edit" do
-          it "succeeds" do
-          end
+          it "succeeds"
         end
 
         describe "destroy" do
-          it "succeeds" do
-          end
+          it "succeeds"
         end
 
       end

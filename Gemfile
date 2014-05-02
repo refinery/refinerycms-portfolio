@@ -21,6 +21,8 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'pry'
+  gem 'launchy'
   gem 'generator_spec', '~> 0.9.0'
 
   require 'rbconfig'
