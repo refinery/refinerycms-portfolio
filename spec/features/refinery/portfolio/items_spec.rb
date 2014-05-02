@@ -31,7 +31,7 @@ module Refinery
           before(:each) do
             @gallery = FactoryGirl.create(:gallery, :title => "My Gallery")
             @galleried_item = FactoryGirl.create(:item, :gallery_id => @gallery.id, :image_id => 23)
-            @galleried_item.stub(:image).and_return(@image)
+            Item.any_instance.stub(:image).and_return(@image)
             @gallery.stub(:items).and_return([@galleried_item])
             Gallery.stub(:find).and_return(@gallery)
           end
