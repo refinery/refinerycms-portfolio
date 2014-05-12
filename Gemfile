@@ -2,12 +2,12 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', github: 'refinery/refinerycms'
-gem 'refinerycms-acts-as-indexed', github: 'refinery/refinerycms-acts-as-indexed'
-gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n'
+gem 'refinerycms', github: 'refinery/refinerycms', branch: 'master'
+gem 'refinerycms-acts-as-indexed', github: 'refinery/refinerycms-acts-as-indexed', branch: 'master'
+gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
 
 group :development, :test do
-  gem 'refinerycms-testing', github: 'refinery/refinerycms'
+  gem 'refinerycms-testing', github: 'refinery/refinerycms', branch: 'master'
 end
 
 
