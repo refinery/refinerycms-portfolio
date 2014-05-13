@@ -65,7 +65,7 @@ module Refinery
         #
         # That is:
         # [1 2 3] - [1 2 4] = [3]
-        removed_items = items.find_all_by_image_id(existing_image_ids - @image_ids)
+        removed_items = items.where(image_id: (existing_image_ids - @image_ids))
         removed_items.map(&:destroy)
       end
     end
