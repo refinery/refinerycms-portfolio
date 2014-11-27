@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Refinery
   module Portfolio
-    describe "galleries" do
+    describe "galleries", :type => :feature do
       refinery_login_with :refinery_user
 
       before do
@@ -19,14 +19,14 @@ module Refinery
           # Users level
           it "appears" do
             visit refinery.portfolio_galleries_path
-            page.should have_content @gallery.title
+            expect(page).to have_content @gallery.title
           end
 
           it "links to nested galleries" do
             visit refinery.portfolio_galleries_path
             click_link @gallery.title
 
-            current_path.should == refinery.portfolio_gallery_path(@gallery)
+            expect(current_path).to eq(refinery.portfolio_gallery_path(@gallery))
           end
         end
 
@@ -38,8 +38,8 @@ module Refinery
             end
 
             subject { page }
-            it { should have_content @nested_gallery.title }
-            it { should have_content @nested_gallery.body }
+            it { is_expected.to have_content @nested_gallery.title }
+            it { is_expected.to have_content @nested_gallery.body }
           end
         end
       end

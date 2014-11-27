@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Refinery
   module Portfolio
-    describe "items" do
+    describe "items", :type => :feature do
       refinery_login_with :refinery_user
 
       before do
@@ -17,13 +17,13 @@ module Refinery
         describe "on root level" do
           before(:each) do
             @root_item = FactoryGirl.create(:item, :gallery_id => nil, :image_id => 23)
-            @root_item.stub(:image).and_return(@image)
-            Item.stub(:root_items).and_return([@root_item])
+            allow(@root_item).to receive(:image).and_return(@image)
+            allow(Item).to receive(:root_items).and_return([@root_item])
           end
 
           it "appears" do
             visit refinery.portfolio_galleries_path
-            page.should have_css("#item_#{@root_item.id}")
+            expect(page).to have_css("#item_#{@root_item.id}")
           end
         end
 
@@ -31,14 +31,14 @@ module Refinery
           before(:each) do
             @gallery = FactoryGirl.create(:gallery, :title => "My Gallery")
             @galleried_item = FactoryGirl.create(:item, :gallery_id => @gallery.id, :image_id => 23)
-            Item.any_instance.stub(:image).and_return(@image)
-            @gallery.stub(:items).and_return([@galleried_item])
-            Gallery.stub(:find).and_return(@gallery)
+            allow_any_instance_of(Item).to receive(:image).and_return(@image)
+            allow(@gallery).to receive(:items).and_return([@galleried_item])
+            allow(Gallery).to receive(:find).and_return(@gallery)
           end
 
           it "appears" do
             visit refinery.portfolio_gallery_path(@gallery)
-            page.should have_css("#item_#{@galleried_item.id}")
+            expect(page).to have_css("#item_#{@galleried_item.id}")
           end
         end
       end

@@ -3,7 +3,7 @@ require "spec_helper"
 module Refinery
   module Portfolio
     module Admin
-      describe "Galleries" do
+      describe "Galleries", :type => :feature do
         refinery_login_with :refinery_user
 
         describe "galleries list" do
@@ -14,13 +14,13 @@ module Refinery
 
           it "shows child items" do
             visit refinery.portfolio_admin_galleries_path
-            page.should have_content(@gallery.title)
-            page.should have_content(@nested_gallery.title)
+            expect(page).to have_content(@gallery.title)
+            expect(page).to have_content(@nested_gallery.title)
           end
 
           it "allows item creation" do
             visit refinery.portfolio_admin_galleries_path
-            page.should have_selector("a[href='/refinery/portfolio/items/new']")
+            expect(page).to have_selector("a[href='/refinery/portfolio/items/new']")
           end
         end
 
@@ -36,8 +36,8 @@ module Refinery
               fill_in "Title", :with => "This is a test of the first string field"
               click_button "Save"
 
-              page.should have_content("'This is a test of the first string field' was successfully added.")
-              Refinery::Portfolio::Gallery.count.should == 1
+              expect(page).to have_content("'This is a test of the first string field' was successfully added.")
+              expect(Refinery::Portfolio::Gallery.count).to eq(1)
             end
           end
 
@@ -45,8 +45,8 @@ module Refinery
             it "fails" do
               click_button "Save"
 
-              page.should have_content("Title can't be blank")
-              Refinery::Portfolio::Gallery.count.should == 0
+              expect(page).to have_content("Title can't be blank")
+              expect(Refinery::Portfolio::Gallery.count).to eq(0)
             end
           end
 
@@ -61,8 +61,8 @@ module Refinery
               fill_in "Title", :with => "UniqueTitle"
               click_button "Save"
 
-              page.should have_content("There were problems")
-              Refinery::Portfolio::Gallery.count.should == 1
+              expect(page).to have_content("There were problems")
+              expect(Refinery::Portfolio::Gallery.count).to eq(1)
             end
           end
         end
@@ -80,8 +80,8 @@ module Refinery
             fill_in "Title", :with => "A different title"
             click_button "Save"
 
-            page.should have_content("'A different title' was successfully updated.")
-            page.should have_no_content("A title")
+            expect(page).to have_content("'A different title' was successfully updated.")
+            expect(page).to have_no_content("A title")
           end
         end
 
@@ -93,8 +93,8 @@ module Refinery
 
             click_link "Remove this gallery forever"
 
-            page.should have_content("'UniqueTitleOne' was successfully removed.")
-            Refinery::Portfolio::Gallery.count.should == 0
+            expect(page).to have_content("'UniqueTitleOne' was successfully removed.")
+            expect(Refinery::Portfolio::Gallery.count).to eq(0)
           end
         end
 

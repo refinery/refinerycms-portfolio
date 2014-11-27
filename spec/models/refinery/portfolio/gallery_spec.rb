@@ -2,28 +2,36 @@ require 'spec_helper'
 
 module Refinery
   module Portfolio
-    describe Gallery do
+    describe Gallery, :type => :model do
       describe "validations" do
 
         context "when valid" do
           subject { FactoryGirl.create(:gallery, :title => "Refinery CMS") }
-          it { should be_valid }
-          its(:errors) { should be_empty }
-          its(:title) { should == "Refinery CMS" }
+          it { is_expected.to be_valid }
+
+          describe '#errors' do
+            subject { super().errors }
+            it { is_expected.to be_empty }
+          end
+
+          describe '#title' do
+            subject { super().title }
+            it { is_expected.to eq("Refinery CMS") }
+          end
         end
 
         context "when invalid" do
           subject { FactoryGirl.build(:gallery, :title => nil) }
           it "invalidates the model" do
             subject.save
-            subject.should_not be_valid
-            subject.should have_at_least(1).error_on(:title)
+            expect(subject).not_to be_valid
+            expect(subject.error_on(:title).size).to be >= 1
           end
         end
       end
 
       it "implements some sort of nested set logic" do
-        Gallery.instance_methods.map(&:to_sym).should include(:children)
+        expect(Gallery.instance_methods.map(&:to_sym)).to include(:children)
       end
     end
   end

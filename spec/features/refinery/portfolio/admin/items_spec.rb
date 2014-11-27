@@ -3,7 +3,7 @@ require "spec_helper"
 module Refinery
   module Portfolio
     module Admin
-      describe "Items" do
+      describe "Items", :type => :feature do
         refinery_login_with :refinery_user
 
         let(:image) { mock_model(Refinery::Image, :id => 23, :url => 'http://gifs.gifbin.com/1236681924_snail_transformers.gif') }
@@ -13,7 +13,7 @@ module Refinery
 
         describe "items list" do
           before(:each) do
-            item.stub(:image).and_return(image)
+            allow(item).to receive(:image).and_return(image)
           end
 
           context "no parent gallery" do
@@ -23,7 +23,7 @@ module Refinery
                 click_link "View top-level images"
               end
 
-              page.should have_content item.title
+              expect(page).to have_content item.title
             end
           end
 
@@ -38,7 +38,7 @@ module Refinery
               within("#gallery_#{gallery.id}") do
                 click_link '1 image'
               end
-              page.should have_content(galleried_item.title)
+              expect(page).to have_content(galleried_item.title)
             end
           end
         end
