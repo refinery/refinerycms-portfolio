@@ -32,7 +32,7 @@
       <%= link_to refinery_icon_tag("delete.png"), refinery.portfolio_admin_gallery_path(gallery),
           :class => "cancel confirm-delete",
           :title => t('.delete'),
-          :confirm => t('message', :scope => 'refinery.admin.delete', :title => gallery.title),
+          :data => { :confirm => t('message', :scope => 'refinery.admin.delete', :title => gallery.title) },
           :method => :delete %>
     </span>
   </div>

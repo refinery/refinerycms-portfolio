@@ -1,14 +1,13 @@
 require "spec_helper"
-include ActionController::RecordIdentifier
 
-describe Refinery do
-  describe "Portfolio" do
-    describe "Admin" do
+module Refinery
+  module Portfolio
+    module Admin
       describe "Items" do
-        login_refinery_user
+        refinery_login_with :refinery_user
 
         let(:image) { mock_model(Refinery::Image, :id => 23, :url => 'http://gifs.gifbin.com/1236681924_snail_transformers.gif') }
-        let(:item) { FactoryGirl.create(:item, :gallery_id => nil, :image_id => 23) } 
+        let(:item) { FactoryGirl.create(:item, :gallery_id => nil, :image_id => 23) }
         let(:gallery) { FactoryGirl.create(:gallery) }
         let(:galleried_item) { FactoryGirl.create(:item, :gallery_id => gallery.id, :image_id => 23) }
 
@@ -36,7 +35,7 @@ describe Refinery do
 
             it "shows items" do
               visit refinery.portfolio_admin_galleries_path
-              within("##{dom_id(gallery)}") do
+              within("#gallery_#{gallery.id}") do
                 click_link '1 image'
               end
               page.should have_content(galleried_item.title)
@@ -59,24 +58,20 @@ describe Refinery do
           end
 
           context "invalid data" do
-            it "fails" do
-            end
+            it "fails"
           end
 
           context "duplicate" do
-            it "fails" do
-            end
+            it "fails"
           end
         end
 
         describe "edit" do
-          it "succeeds" do
-          end
+          it "succeeds"
         end
 
         describe "destroy" do
-          it "succeeds" do
-          end
+          it "succeeds"
         end
 
       end

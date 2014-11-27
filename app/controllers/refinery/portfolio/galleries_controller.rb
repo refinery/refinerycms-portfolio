@@ -11,7 +11,7 @@ module Refinery
       end
 
       def show
-        @gallery = Gallery.find(params[:id])
+        @gallery = Gallery.friendly.find(params[:id])
         @galleries = @gallery.children
         @items = @gallery.items
         present(@page)
@@ -19,7 +19,7 @@ module Refinery
         render :action => "index"
       end
 
-    protected
+      protected
 
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/portfolio").first

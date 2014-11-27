@@ -20,11 +20,19 @@ module Refinery
         protected
 
         def find_parent_gallery
-          @parent_gallery = ::Refinery::Portfolio::Gallery.find(params[:parent_id]) if params[:parent_id].present?
+          if params[:parent_id].present?
+            ::Refinery::Portfolio::Gallery.find(params[:parent_id])
+          end
         end
 
         def find_gallery
-          @gallery = ::Refinery::Portfolio::Gallery.find(params[:id]) if params[:id].present?
+          if params[:id].present?
+            @gallery = ::Refinery::Portfolio::Gallery.friendly.find(params[:id])
+          end
+        end
+
+        def gallery_params
+          params.require(:gallery).permit(:title, :body, :parent_id, images: [])
         end
 
       end

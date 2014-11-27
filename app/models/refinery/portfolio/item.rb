@@ -4,11 +4,6 @@ module Refinery
 
       translates :title, :caption
 
-      class Translation
-        attr_accessible :locale
-      end
-
-      attr_accessible :title, :caption, :image_id, :gallery_id, :position
       validates :gallery_id, :numericality => {:allow_nil => true}
       validates :image_id, :presence => true, :numericality => true
 

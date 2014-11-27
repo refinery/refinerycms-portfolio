@@ -8,19 +8,11 @@ module Refinery
       friendly_id :title, :use => [:slugged]
       translates :title, :body
 
-      class Translation
-        attr_accessible :locale
-      end
-
       has_many    :items, :dependent => :destroy
-
-      attr_accessible   :title, :body, :lft, :rgt,
-                        :position, :gallery_type, :depth,
-                        :parent_id, :images
 
       alias_attribute :description, :body
 
-      validates :title, :presence => true
+      validates :title, presence: true, uniqueness: true
 
       after_save :bulk_update_associated_items
 
@@ -29,8 +21,8 @@ module Refinery
       end
 
       # We reject any empty ones because we have a template sitting around
-      # (Probably not the best way to do this, but it's what the project 
-      # we cribbed the multi-image tab from did, and it's what we're doing 
+      # (Probably not the best way to do this, but it's what the project
+      # we cribbed the multi-image tab from did, and it's what we're doing
       # in the interest of time.
       def images=(ids = [])
         @image_ids = ids.reject(&:empty?).map(&:to_i).uniq
@@ -73,7 +65,7 @@ module Refinery
         #
         # That is:
         # [1 2 3] - [1 2 4] = [3]
-        removed_items = items.find_all_by_image_id(existing_image_ids - @image_ids)
+        removed_items = items.where(image_id: (existing_image_ids - @image_ids))
         removed_items.map(&:destroy)
       end
     end

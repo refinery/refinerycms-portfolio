@@ -2,14 +2,13 @@ source "http://rubygems.org"
 
 gemspec
 
-git 'git://github.com/refinery/refinerycms.git' do
-  gem 'refinerycms', '~> 2.1.0.dev'
-  group :development, :test do
-    gem 'refinerycms-testing', '~> 2.1.0.dev'
-  end
-end
+gem 'refinerycms', github: 'refinery/refinerycms', branch: 'master'
+gem 'refinerycms-acts-as-indexed', github: 'refinery/refinerycms-acts-as-indexed', branch: 'master'
+gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
 
-gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git'
+group :development, :test do
+  gem 'refinerycms-testing', github: 'refinery/refinerycms', branch: 'master'
+end
 
 
 # Refinery/Rails should pull in the proper versions of these
@@ -22,7 +21,9 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'generator_spec', '~> 0.8.6'
+  gem 'pry'
+  gem 'launchy'
+  gem 'generator_spec', '~> 0.9.0'
 
   require 'rbconfig'
 

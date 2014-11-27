@@ -1,5 +1,5 @@
 <li id='<%= "image_#{image.id}" %>' class='image_field'>
-  <div class='thumb'><%= image_tag image.thumbnail(:medium).url %></div>
+  <div class='thumb'><%= image_fu image, :medium %></div>
   <div class='image_actions'>
     <div class='floater'>
       <%= image_tag('refinery/icons/delete.png', {:width => 22, :height => 22, :class => 'delete_image', :alt => 'delete' }) %>

@@ -13,7 +13,7 @@ module Refinery
         def index
           if params[:orphaned]
             @items = Item.orphaned.order('position ASC')
-          elsif params[:gallery_id]
+          elsif @gallery.present?
             @items = @gallery.items.order('position ASC')
           else
             redirect_to refinery.portfolio_admin_galleries_path and return
@@ -23,12 +23,17 @@ module Refinery
         end
 
         def new
-          @item = Item.new(:gallery_id => find_gallery)
+          @item = Item.new(gallery: find_gallery)
         end
 
         private
+
         def find_gallery
-          @gallery = Gallery.find(params[:gallery_id]) if params[:gallery_id]
+          @gallery = Gallery.friendly.find(params[:gallery_id]) if params[:gallery_id]
+        end
+
+        def item_params
+          params.require(:item).permit(:title, :caption, :image_id, :gallery_id)
         end
 
       end

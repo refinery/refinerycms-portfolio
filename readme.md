@@ -2,27 +2,26 @@
 
 ## WARNING!
 
-This latest version (master) is not stable. The schema is actively changing. Use at your own risk. 
+This latest version (master) is not stable. The schema is actively changing. Use at your own risk.
 If you are looking for a Refinery 2.0-compatible branch, use the '2-0-stable' branch.
 
 ## Requirements
 
-This engine requires Refinery CMS version >= 2.0.0.
+This engine requires Refinery CMS version >= 3.0.0.dev.
 
 ## Gem Installation
 
-Ensure you have created your application's database before adding this engine (with ``rake db:setup``).
+Ensure you have created your application's database before adding this engine (with `rake db:setup`).
 
-Open your ``Gemfile`` and add this line to the bottom:
+Open your `Gemfile` and add this line to the bottom:
 
 ```ruby
-gem 'refinerycms-portfolio', :git => 'git://github.com/refinery/refinerycms-portfolio.git', :branch => '2-0-stable'
+gem 'refinerycms-portfolio', github: 'refinery/refinerycms-portfolio', branch: 'master'
 ```
 
-Now run ``bundle install`` and once bundler has installed the gem run:
+Now run `bundle install` and once bundler has installed the gem run:
 
     rails generate refinery:portfolio
-    rake db:migrate
-    rake db:seed
+    rake db:migrate db:seed
 
 Now, restart your web server and enjoy.
