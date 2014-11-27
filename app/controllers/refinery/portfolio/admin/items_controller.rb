@@ -4,9 +4,7 @@ module Refinery
       class ItemsController < ::Refinery::AdminController
         include Refinery::Portfolio
 
-        crudify :'refinery/portfolio/item',
-                :order => 'position ASC',
-                :xhr_paging => true
+        crudify :'refinery/portfolio/item', :order => 'position ASC'
 
         before_filter :find_gallery, :only => [:index]
 

@@ -25,7 +25,7 @@ module Refinery
           it "invalidates the model" do
             subject.save
             expect(subject).not_to be_valid
-            expect(subject.error_on(:title).size).to be >= 1
+            expect(subject.errors[:title].size).to be >= 1
           end
         end
       end

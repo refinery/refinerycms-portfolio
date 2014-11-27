@@ -40,3 +40,7 @@ group :development, :test do
     gem 'pg'
   end
 end
+
+group :test do
+  gem 'rspec-activemodel-mocks'
+end
