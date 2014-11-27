@@ -2,12 +2,12 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', github: 'refinery/refinerycms', branch: 'master'
-gem 'refinerycms-acts-as-indexed', github: 'refinery/refinerycms-acts-as-indexed', branch: 'master'
-gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
+gem 'refinerycms', git: 'https://github.com/refinery/refinerycms', branch: 'master'
+gem 'refinerycms-acts-as-indexed', git: 'https://github.com/refinery/refinerycms-acts-as-indexed', branch: 'master'
+gem 'refinerycms-i18n', git: 'https://github.com/refinery/refinerycms-i18n', branch: 'master'
 
 group :development, :test do
-  gem 'refinerycms-testing', github: 'refinery/refinerycms', branch: 'master'
+  gem 'refinerycms-testing', git: 'https://github.com/refinery/refinerycms', branch: 'master'
 end
 
 
@@ -38,36 +38,5 @@ group :development, :test do
     gem 'sqlite3'
     gem 'mysql2'
     gem 'pg'
-  end
-
-  platforms :mswin, :mingw do
-    gem 'win32console'
-    gem 'rb-fchange', '~> 0.0.5'
-    gem 'rb-notifu', '~> 0.0.4'
-  end
-
-  platforms :ruby do
-    unless ENV['TRAVIS']
-      if RbConfig::CONFIG['target_os'] =~ /darwin/i
-        gem 'rb-fsevent', '>= 0.3.9'
-        gem 'growl',      '~> 1.0.3'
-      end
-      if RbConfig::CONFIG['target_os'] =~ /linux/i
-        gem 'rb-inotify', '>= 0.5.1'
-        gem 'libnotify',  '~> 0.1.3'
-      end
-    end
-  end
-
-  platforms :jruby do
-    unless ENV['TRAVIS']
-      if RbConfig::CONFIG['target_os'] =~ /darwin/i
-        gem 'growl',      '~> 1.0.3'
-      end
-      if RbConfig::CONFIG['target_os'] =~ /linux/i
-        gem 'rb-inotify', '>= 0.5.1'
-        gem 'libnotify',  '~> 0.1.3'
-      end
-    end
   end
 end

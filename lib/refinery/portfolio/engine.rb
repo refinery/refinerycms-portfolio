@@ -12,10 +12,6 @@ module Refinery
           plugin.pathname = root
           plugin.name = "portfolio"
           plugin.url = { :controller => 'refinery/portfolio/admin/galleries' }
-
-          plugin.activity = {
-            :class_name => :'refinery/portfolio/gallery'
-          }
           plugin.menu_match = %r{refinery/portfolio(/galleries(/.*)?)?(/items(/.*)?)?$}
         end
       end
