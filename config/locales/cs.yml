@@ -1,0 +1,22 @@
+cs:
+  refinery:
+    plugins:
+      portfolio:
+        title: Fotogalerie
+    portfolio:
+      admin:
+        items:
+          item:
+            gallery: Galerie
+            gallery_help: Přidat tento obrázek do galerie
+            delete: Odebrat tento obrázek z galerie
+            edit: Upravit obrázek
+            view_live_html: Zobrazit obrázek ve své galerii
+          actions:
+            back_to_galleries: Vrátit na přehled galerií
+            create_new: Přidat nový obrázek
+            reorder: Seřadit obrázky
+            reorder_done: Ukončit řazení obrázků
+          index:
+            no_items_yet: Nejsou zde zatím žádné obrázky.
+            sorry_no_results: Omlouváme se! Nebyly nenalezeny žádné výsledky.
