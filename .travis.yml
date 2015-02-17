@@ -2,9 +2,6 @@ language: ruby
 before_script:
   - "sh -e /etc/init.d/xvfb start"
   - "bundle exec rake refinery:testing:dummy_app > /dev/null"
-# Per https://github.com/travis-ci/travis-ci/issues/2821
-install:
-  - bundle install --retry=3
 script:
   - "DISPLAY=:99.0 bundle exec rspec spec"
 notifications:
@@ -23,7 +20,7 @@ env:
   - DB=postgresql
   - DB=mysql
 rvm:
-  - 2.0.0
+  - 2.2
   - 2.1
+  - 2.0.0
   - rbx-2
-  - jruby-19mode
