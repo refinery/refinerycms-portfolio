@@ -22,7 +22,7 @@ module Refinery
       protected
 
       def find_page
-        @page = ::Refinery::Page.where(:link_url => "/portfolio").first
+        @page = ::Refinery::Page.find_by(:link_url => Refinery::Portfolio.page_url)
       end
 
     end

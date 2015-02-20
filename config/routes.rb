@@ -1,7 +1,7 @@
 Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
-  namespace :portfolio do
+  namespace :portfolio, :path => Refinery::Portfolio.page_url do
     root :to => "galleries#index"
     resources :galleries, :only => [:index, :show]
   end

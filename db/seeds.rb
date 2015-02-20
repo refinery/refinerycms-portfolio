@@ -6,7 +6,7 @@ if defined?(::Refinery::User)
   end
 end
 
-url = "/portfolio"
+url = Refinery::Portfolio.page_url
 if defined?(::Refinery::Page) && ::Refinery::Page.where(:link_url => url).empty?
   page = ::Refinery::Page.create(
     :title => 'Portfolio',
