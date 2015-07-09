@@ -8,7 +8,7 @@ Refinery::Core::Engine.routes.draw do
 
   # Admin routes
   namespace :portfolio, :path => '' do
-    namespace :admin, :path => 'refinery' do
+    namespace :admin, :path => Refinery::Core.backend_route do
       scope :path => 'portfolio' do
         resources :galleries, :except => :show do
           get :children, :on => :member
