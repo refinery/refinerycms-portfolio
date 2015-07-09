@@ -2,7 +2,11 @@
   <div class='thumb'><%= image_fu image, :medium %></div>
   <div class='image_actions'>
     <div class='floater'>
-      <%= image_tag('refinery/icons/delete.png', {:width => 22, :height => 22, :class => 'delete_image', :alt => 'delete' }) %>
+      <button class="remove_icon">
+        <span class="visuallyhidden">
+          <%= t('.unlink_image') %>
+        </span>
+      </button>
     </div>
   </div>
   <div class='attributes'>

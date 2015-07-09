@@ -1,3 +1,15 @@
+<% # setup params for various action links
+  image_add_url = refinery.new_portfolio_admin_gallery_item_path(gallery)
+  new_child_add_url = refinery.new_portfolio_admin_gallery_path(:parent_id => gallery.id)
+  preview_url = refinery.portfolio_gallery_path(gallery)
+  edit_url = refinery.edit_portfolio_admin_gallery_path(gallery)
+  delete_url = refinery.portfolio_admin_gallery_path(gallery)
+  delete_options = {
+     class: "cancel confirm-delete",
+            data: {confirm: t('message',  scope: 'refinery.admin.delete', title: gallery.title)}
+          }
+%>
+
 <li class='clearfix record icons' id="<%= dom_id(gallery) -%>">
   <div class='clearfix'>
     <span class="icon" %></span>
@@ -5,35 +17,31 @@
     <span class='title'>
       <%= gallery.title %>
       <span class="preview">
-        <% if defined?(::Refinery::I18n) and ::Refinery::I18n.frontend_locales.many? and
-              (locales = gallery.translations.collect{|t| t.locale}).present? %>
-          <% locales.each do |locale| %>
-            <%= refinery_icon_tag "flags/#{locale}.png", :size => '16x11' %>
-          <% end %>
+        <% if Refinery::I18n.frontend_locales.many? %>
+          <span class='locales'>
+            <% gallery.translations.sort_by{ |t| Refinery::I18n.frontend_locales.index(t.locale)}.each do |translation| %>
+              <% if translation.title.present? %>
+                <%= link_to refinery.edit_portfolio_admin_gallery_path(gallery, :switch_locale => translation.locale), :class => 'locale', title: translation.locale.upcase do %>
+
+                  <div class="<%=translation.locale %> locale_marker">
+                    <%= locale_text_icon(translation.locale.upcase) %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
         <% end %>
+
         (<%= link_to t('.item_count', :count => gallery.items.count), refinery.portfolio_admin_gallery_items_path(gallery), :rel => 'items' %>)
+      </span>
     </span>
 
     <span class='actions'>
-      <%= link_to refinery_icon_tag("image_add.png"), refinery.new_portfolio_admin_gallery_item_path(gallery),
-          :title => t('.add_image') %>
-
-      <%= link_to refinery_icon_tag('page_add.png'),
-          refinery.new_portfolio_admin_gallery_path(:parent_id => gallery.id),
-          :title => t('.new_child') %>
-
-      <%= link_to refinery_icon_tag("application_go.png"), refinery.portfolio_gallery_path(gallery),
-          :title => t('.view_live_html'),
-          :target => "_blank" %>
-
-      <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_portfolio_admin_gallery_path(gallery),
-           :title => t('.edit') %>
-
-      <%= link_to refinery_icon_tag("delete.png"), refinery.portfolio_admin_gallery_path(gallery),
-          :class => "cancel confirm-delete",
-          :title => t('.delete'),
-          :data => { :confirm => t('message', :scope => 'refinery.admin.delete', :title => gallery.title) },
-          :method => :delete %>
+      <%= action_icon(:preview, preview_url, t('.view_live_html')) %>
+      <%= action_icon(:add, new_child_add_url, t('.new_child' ) ) %>
+      <%= action_icon(:upload, image_add_url, t('.add_image' ) ) %>
+      <%= action_icon(:edit, edit_url, t('.edit' ) ) %>
+      <%= action_icon(:delete, delete_url, t('.delete' ), delete_options ) %>
     </span>
   </div>
   <ul class='nested' data-ajax-content="<%= refinery.children_portfolio_admin_gallery_path(gallery.id) %>">

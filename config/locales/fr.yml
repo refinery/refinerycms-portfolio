@@ -28,6 +28,10 @@ fr:
             reorder: Réorganiser les galeries
             reorder_done: Fini
             view_root_images: Voir les images à la racine
+          image:
+            unlink_image: Enlever cette image
+          empty_image:
+            unlink_image: Enlever cette image
           records:
             title: Galeries
             sorry_no_results: Désolé! Il n'y aucun résultat
