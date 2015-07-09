@@ -3,10 +3,7 @@
              :object => @item,
              :include_object_name => true } %>
 
-  <%= render :partial => "refinery/portfolio/admin/shared/locale_picker",
-             :locals => {
-               :current_locale => Globalize.locale
-             } if defined?(::Refinery::I18n) %>
+  <%= render '/refinery/admin/locale_picker', :current_locale => Globalize.locale %>
 
   <div class='field'>
     <%= f.label :title -%>
