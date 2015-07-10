@@ -44,13 +44,12 @@
     <%= f.select :parent_id, nested_set_options(::Refinery::Portfolio::Gallery, @gallery) {|i| "#{'-' * i.level} #{i.title}" }, :include_blank => true, :selected => @gallery.parent_id || params[:parent_id] %>
   </div>
 
-  <%= render :partial => "/refinery/admin/form_actions",
-              :locals => {
-                :f => f,
-                :continue_editing => false,
-                :delete_title => t('delete', :scope => 'refinery.portfolio.admin.galleries.gallery'),
-                :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @gallery.title)
-              } %>
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title =>t('delete', :scope => 'refinery.portfolio.admin.galleries.gallery'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @gallery.title),
+             :cancel_url => refinery.portfolio_admin_galleries_path %>
+
 <% end -%>
 <% content_for :javascripts, javascript_include_tag('refinery/portfolio/admin/portfolio') %>
 <% content_for :stylesheets, stylesheet_link_tag('refinery/portfolio/admin/galleries') %>
