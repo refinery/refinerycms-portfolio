@@ -1,20 +1,31 @@
 module Refinery
   module Portfolio
     class Gallery < Refinery::Core::BaseModel
+      translates :title, :body, :slug
+      extend FriendlyId
+
       acts_as_indexed :fields => [:title, :body]
       acts_as_nested_set :dependent => :destroy
 
-      extend FriendlyId
-      friendly_id :title, :use => [:slugged]
-      translates :title, :body
+      friendly_id :friendly_id_source, use: :globalize
 
-      has_many    :items, :dependent => :destroy
+      has_many :items, :dependent => :destroy
 
       alias_attribute :description, :body
 
       validates :title, presence: true, uniqueness: true
 
       after_save :bulk_update_associated_items
+
+      # If title changes tell friendly_id to regenerate slug when
+      # saving record
+      def should_generate_new_friendly_id?
+        title_changed?
+      end
+
+      def friendly_id_source
+        title
+      end
 
       def cover_image
         items.sort_by(&:position).first if items.present?

@@ -1,7 +1,7 @@
 <%= form_for [refinery, :portfolio_admin, @gallery, @item] do |f| -%>
-  <%= render :partial => "/refinery/admin/error_messages", :locals => {
-             :object => @item,
-             :include_object_name => true } %>
+  <%= render "/refinery/admin/error_messages",
+             :object => f.object,
+             :include_object_name => true %>
 
   <%= render '/refinery/admin/locale_picker', :current_locale => Globalize.locale %>
 

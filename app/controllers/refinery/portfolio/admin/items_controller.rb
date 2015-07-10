@@ -24,15 +24,15 @@ module Refinery
           @item = Item.new(gallery: find_gallery)
         end
 
+        protected
+          def find_gallery
+            @gallery = Gallery.friendly.find(params[:gallery_id]) if params[:gallery_id]
+          end
+
         private
-
-        def find_gallery
-          @gallery = Gallery.friendly.find(params[:gallery_id]) if params[:gallery_id]
-        end
-
-        def item_params
-          params.require(:item).permit(:title, :caption, :image_id, :gallery_id)
-        end
+          def item_params
+            params.require(:item).permit(:title, :caption, :image_id, :gallery_id)
+          end
 
       end
     end
