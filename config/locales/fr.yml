@@ -22,16 +22,13 @@ fr:
             sorry_no_results: Désolé! Il n'y aucun résultat
             title: Images
         galleries:
+          unlink_image: Enlever cette image
           actions:
             add_image: Ajouter une image
             create_new: Ajouter nouvelle galerie
             reorder: Réorganiser les galeries
             reorder_done: Fini
             view_root_images: Voir les images à la racine
-          image:
-            unlink_image: Enlever cette image
-          empty_image:
-            unlink_image: Enlever cette image
           records:
             title: Galeries
             sorry_no_results: Désolé! Il n'y aucun résultat

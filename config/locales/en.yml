@@ -22,16 +22,13 @@ en:
             sorry_no_results: Sorry! There are no results found.
             title: Images
         galleries:
+          unlink_image: Unlink this image
           actions:
             add_image: Add an image
             create_new: Add New Gallery
             reorder: Reorder Galleries
             reorder_done: Done Reordering Galleries
             view_root_images: View top-level images
-          image:
-            unlink_image: Unlink this image
-          empty_image:
-            unlink_image: Unlink this image
           records:
             title: Galleries
             sorry_no_results: Sorry! There are no results found.
