@@ -8,15 +8,59 @@ cs:
         items:
           item:
             gallery: Galerie
-            gallery_help: Přidat tento obrázek do galerie
-            delete: Odebrat tento obrázek z galerie
+            gallery_help: Přidat obrázek do této galerie
+            delete: Odebrat obrázek z této galerie
             edit: Upravit obrázek
-            view_live_html: Zobrazit obrázek ve své galerii
+            view_live_html: Zobrazit obrázek
           actions:
-            back_to_galleries: Vrátit na přehled galerií
-            create_new: Přidat nový obrázek
-            reorder: Seřadit obrázky
-            reorder_done: Ukončit řazení obrázků
-          index:
-            no_items_yet: Nejsou zde zatím žádné obrázky.
-            sorry_no_results: Omlouváme se! Nebyly nenalezeny žádné výsledky.
+            back_to_galleries: Zpět na galerie
+            create_new: 'Přidat obrázek'
+            reorder: 'Přeuspořádat obrázky'
+            reorder_done: Úvodní obrázek
+          records:
+            no_items_yet: 'Žádné záznamy'
+            sorry_no_results: 'Omlouváme se, ale nic nenalezeno'
+            title: Obrázky
+        galleries:
+          actions:
+            add_image: 'Přidat obrázek'
+            create_new: 'Přidat novou galerii'
+            reorder: 'Přeuspořádat galerie'
+            reorder_done: Dokončit
+            view_root_images: Zobrazit titulní obrázky
+          records:
+            title: Galleries
+            sorry_no_results: 'Omlouváme se, ale nic nenalezeno'
+            no_items_yet: Nejsou vytvořeny žádné galerie.
+          gallery:
+            add_image: 'Vložit obrázky'
+            delete: 'Odstranit galerii'
+            edit: 'Upravit galerii'
+            item_count:
+              zero: 'žádné obrázky'
+              one: '1 obrázek'
+              few: '%{count} obrázky'
+              other: '%{count} obrázků'
+            new_child: Přidat podgalerii
+            view_live_html: Náhled galerie <br/><em>(v novém okně)</em>
+          form:
+            parent_gallery: Nadřazená galerie
+            parent_gallery_help: Můžete vytvořit galerii uvnitř jiné galerie. Vyberte galerii, která bude tuto galerii obsahovat a nebo nevybírejte nic a vytvořte hlavní galerii.
+            cover_image: Úvodní obrázek
+            cover_image_help: Tento obrázek slouží jako úvodní prezentace galerie.
+      galleries:
+        show:
+          other: Ostatní galerie
+  activerecord:
+    attributes:
+      'refinery/portfolio/gallery':
+        title: Název
+        body: Popis
+        parent_id: Nadřazená galerie
+        lft: Lft
+        rgt: Rgt
+        depth: Depth
+        type: Type
+      'refinery/portfolio/item':
+        title: Název
+        caption: Popisek
