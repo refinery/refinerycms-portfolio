@@ -5,9 +5,9 @@
   edit_url = refinery.edit_portfolio_admin_gallery_path(gallery)
   delete_url = refinery.portfolio_admin_gallery_path(gallery)
   delete_options = {
-     class: "cancel confirm-delete",
-            data: {confirm: t('message',  scope: 'refinery.admin.delete', title: gallery.title)}
-          }
+    class: "cancel confirm-delete",
+    data: {confirm: t('message',  scope: 'refinery.admin.delete', title: gallery.title)}
+  }
 %>
 
 <li class='clearfix record icons' id="<%= dom_id(gallery) -%>">
