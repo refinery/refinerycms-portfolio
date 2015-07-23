@@ -5,7 +5,6 @@ gemspec
 gem 'refinerycms', git: 'https://github.com/refinery/refinerycms', branch: 'master'
 gem 'refinerycms-acts-as-indexed', git: 'https://github.com/refinery/refinerycms-acts-as-indexed', branch: 'master'
 gem 'refinerycms-i18n', git: 'https://github.com/refinery/refinerycms-i18n', branch: 'master'
-gem 'friendly_id-globalize', github: 'norman/friendly_id-globalize', branch: 'master', ref: '5fedb92ff554f35a3351cdedc2eaafadbf16fd0d'
 
 group :development, :test do
   gem 'refinerycms-testing', git: 'https://github.com/refinery/refinerycms', branch: 'master'
