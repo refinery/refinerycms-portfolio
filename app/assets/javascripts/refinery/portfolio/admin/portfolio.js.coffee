@@ -4,7 +4,6 @@ $ = jQuery
 window.portfolio =
   append_image: (images) ->
     $.each images, (index, image) ->
-      console.log image
       image_id = $(image).attr('id').replace 'image_', ''
       image_src = $(image).attr('data-medium')
       new_image = $('li.image_field.blank:first').clone() # Clone li
