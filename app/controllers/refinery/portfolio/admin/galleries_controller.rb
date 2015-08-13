@@ -5,7 +5,7 @@ module Refinery
 
         crudify :'refinery/portfolio/gallery',
                 :order => 'lft ASC',
-                :include => [:children],
+                :include => [:children, :translations],
                 :paging => false
 
         def new
@@ -30,6 +30,8 @@ module Refinery
             @gallery = ::Refinery::Portfolio::Gallery.friendly.find(params[:id])
           end
         end
+
+        private
 
         def gallery_params
           params.require(:gallery).permit(:title, :body, :parent_id, images: [])

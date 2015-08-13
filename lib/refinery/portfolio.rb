@@ -1,4 +1,5 @@
 require 'refinerycms-core'
+require 'friendly_id/globalize'
 
 module Refinery
   autoload :PortfolioGenerator, 'generators/refinery/portfolio/portfolio_generator'

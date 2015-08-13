@@ -1,0 +1,20 @@
+<% if searching? %>
+  <h2><%= t('results_for', :scope => 'refinery.admin.search', :query => params[:search]) %></h2>
+  <% if @items.any? %>
+    <%= render :partial => 'items', :collection => @items %>
+  <% else %>
+    <p><%= t('.no_results', :scope => 'refinery.admin.search') %></p>
+  <% end %>
+<% else %>
+  <% if @items.any? %>
+    <%= will_paginate @items %>
+    <%= render :partial => "sortable_list" %>
+    <%= will_paginate @items %>
+  <% else %>
+    <p>
+      <strong>
+        <%= t('.no_items_yet', :create => t('new', :scope => 'refinery.portfolio.admin.items')) %>
+      </strong>
+    </p>
+  <% end %>
+<% end %>

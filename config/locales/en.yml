@@ -22,6 +22,7 @@ en:
             sorry_no_results: Sorry! There are no results found.
             title: Images
         galleries:
+          unlink_image: Unlink this image
           actions:
             add_image: Add an image
             create_new: Add New Gallery

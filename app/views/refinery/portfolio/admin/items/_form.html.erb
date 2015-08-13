@@ -1,12 +1,9 @@
 <%= form_for [refinery, :portfolio_admin, @gallery, @item] do |f| -%>
-  <%= render :partial => "/refinery/admin/error_messages", :locals => {
-             :object => @item,
-             :include_object_name => true } %>
+  <%= render "/refinery/admin/error_messages",
+             :object => f.object,
+             :include_object_name => true %>
 
-  <%= render :partial => "refinery/portfolio/admin/shared/locale_picker",
-             :locals => {
-               :current_locale => Globalize.locale
-             } if defined?(::Refinery::I18n) %>
+  <%= render '/refinery/admin/locale_picker', :current_locale => Globalize.locale %>
 
   <div class='field'>
     <%= f.label :title -%>
@@ -45,17 +42,14 @@
       <%= f.label :gallery_id, t('gallery', :scope => 'refinery.portfolio.admin.items.item') -%>
       <%= refinery_help_tag t('gallery_help', :scope => 'refinery.portfolio.admin.items.item') -%>
     </span>
-    <%= f.select :gallery_id, nested_set_options(::Refinery::Portfolio::Gallery, @gallery) { |i| "#{'-' * i.level} #{i.title}" }, :include_blank => true %>
+    <%= f.select :gallery_id, nested_set_options(::Refinery::Portfolio::Gallery) { |i| "#{'-' * i.level} #{i.title}" }, :include_blank => true %>
   </div>
 
-  <%= render :partial => "/refinery/admin/form_actions",
-              :locals => {
-                :f => f,
-                :continue_editing => false,
-                :delete_title => t('delete', :scope => 'refinery.portfolio.admin.items.item'),
-                :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @item.title)
-              } %>
-
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title =>t('delete', :scope => 'refinery.portfolio.admin.items.item'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @item.title),
+             :cancel_url => @item.gallery ? refinery.portfolio_admin_gallery_items_path(@item.gallery) : refinery.portfolio_admin_items_path %>
 <% end -%>
 
 <% content_for :javascripts do %>
