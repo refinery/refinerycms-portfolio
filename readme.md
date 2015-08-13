@@ -1,8 +1,8 @@
-# Portfolio plugin for [Refinery CMS](http://www.refinerycms.com) ([Github](http://github.com/refinery/refinerycms))
+# Portfolio plugin for [Refinery CMS](http://www.refinerycms.com) ([GitHub](http://github.com/refinery/refinerycms))
 
 ## WARNING!
 
-This latest version (master) is not stable. The schema is actively changing. Use at your own risk.
+This latest version (master) is not stable and the schema may actively change. Use at your own risk.
 If you are looking for a Refinery 2.0-compatible branch, use the '2-0-stable' branch.
 
 ## Requirements
