@@ -10,8 +10,8 @@ module Refinery
       before_inclusion do
         Refinery::Plugin.register do |plugin|
           plugin.pathname = root
-          plugin.name = "portfolio"
-          plugin.url = { :controller => 'refinery/portfolio/admin/galleries' }
+          plugin.name = "refinerycms_portfolio"
+          plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.portfolio_admin_galleries_path }
           plugin.menu_match = %r{refinery/portfolio(/galleries(/.*)?)?(/items(/.*)?)?$}
         end
 
