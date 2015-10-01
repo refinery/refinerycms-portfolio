@@ -1,0 +1,61 @@
+es:
+  refinery:
+    plugins:
+      portfolio:
+        title: Portafolio
+    portfolio:
+      admin:
+        items:
+          item:
+            gallery: Galería
+            gallery_help: Agregar esta imagen a la galería
+            delete: Remover esta imagen de la galería
+            edit: Editar esta imagen
+            view_live_html: Ver esta imagen en su galería
+          actions:
+            back_to_galleries: Volver a galerías
+            create_new: Agregar nueva imagen
+            reorder: Reordenar imágenes
+            reorder_done: Finalizar reordenado de galerías
+          index:
+            no_items_yet: No hay imágenes aquí.
+            sorry_no_results: ¡Lo sentimos! No se han encontrado resultados.
+            title: imágenes
+        galleries:
+          unlink_image: Desvincular esta imagen
+          actions:
+            add_image: Agregar una imagen
+            create_new: Agregar nueva galería
+            reorder: Reordenar galerías
+            reorder_done: Finalizar reordenado de galerías
+            view_root_images: Ver imágenes del nivel superior
+          records:
+            title: Galerías
+            sorry_no_results: ¡Lo sentimos! No se han encontrado resultados.
+            no_items_yet: No existen galerías todavía. Click en "Agregar nueva galería" para agregar tu primera galería.
+          gallery:
+            add_image: Agregar una imagen a esta galería
+            delete: Eliminar esta galería de manera permanente
+            edit: Editar esta galería
+            item_count:
+              zero: sin imágenes
+              one: 1 imagen
+              other: '%{count} imágenes'
+            new_child: Agregar una nueva sub galería
+            view_live_html: Previsualizar esta galería en producción <br/><em>(abrir en una nueva pestaña)</em>
+          form:
+            parent_gallery: Galería principal
+            parent_gallery_help: Tú puedes anidar una galería dentro de otra galería, creando un portafolio multinivel. Elija una galería para hacer esta la galería hija (sub galería) de la selecionada , o déjelo en blanco para mantener esta como una galería principal.
+            cover_image: Imagen de portada
+            cover_image_help: La imagen que se esta utilizado como portada de esta galería.
+            images: Imágenes
+          image_fields:
+            add_new_image: Agregar una imagen
+      galleries:
+        show:
+          other: Otras galerías
+  activerecord:
+    attributes:
+      'refinery/portfolio/gallery':
+        title: Título
+        body: Contenido
