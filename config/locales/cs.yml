@@ -2,7 +2,7 @@ cs:
   refinery:
     plugins:
       portfolio:
-        title: Fotogalerie
+        refinerycms_portfolio: Fotogalerie
     portfolio:
       admin:
         items:
