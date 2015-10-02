@@ -1,7 +1,7 @@
 es:
   refinery:
     plugins:
-      portfolio:
+      refinerycms_portfolio:
         title: Portafolio
     portfolio:
       admin:
