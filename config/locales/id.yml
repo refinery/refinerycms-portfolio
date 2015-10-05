@@ -1,0 +1,61 @@
+id:
+  refinery:
+    plugins:
+      refinerycms_portfolio:
+        title: Portofolio
+    portfolio:
+      admin:
+        items:
+          item:
+            gallery: Galeri
+            gallery_help: Tambahkan gambar ini ke galeri
+            delete: Hapus gambar ini dari galeri ini
+            edit: Edit gambar ini
+            view_live_html: Lihat gambar ini di galerinya
+          actions:
+            back_to_galleries: Kembali ke Galeri
+            create_new: Tambah Gambar baru
+            reorder: Susun ulang Gambar
+            reorder_done: Selesai Menyusun Ulang Gambar
+          index:
+            no_items_yet: Tak ada gambar di sini.
+            sorry_no_results: Maaf! Tak ada hasil yang ditemukan.
+            title: Gambar
+        galleries:
+          unlink_image: Putuskan tautan gambar ini
+          actions:
+            add_image: Tambahkan gambar
+            create_new: Tambahkan galeri baru
+            reorder: Susun ulang Galeri
+            reorder_done: Selesai Menyusun ulang Galeri
+            view_root_images: Lihat gambar top-level
+          records:
+            title: Galeri-galeri
+            sorry_no_results: Maaf! Tak ada hasil yang ditemukan.
+            no_items_yet: Belum ada Galeri. Klik "Tambah Galeri Baru" untuk menambahkan galeri pertama Anda.
+          galery:
+            add_image: Tambahkan gambar ke galeri ini
+            delete: Hapus galeri ini selamatnya
+            edit: Edit galeri ini
+            item_count:
+              zero: tak ada gambar
+              one: 1 gambar
+              other: '%{count} gambar'
+            new_child: Tambah galeri anak baru
+            view_live_html: Lihat langsung galeri ini<br/><em>(buka di jendela baru)</em>
+          form:
+            parent_gallery: Induk Galeri
+            parent_gallery_help: Anda dapat menambahkan galeri di dalam galeri, menciptakan portofolio bertingkat. Pilih galeri untuk sebagai galeri anak dari yang Anda pilih, atau biarkan kosong untuk tetap sebagai galeri tingkat atas.
+            cover_image: Gambar Sampul
+            cover_image_help: Gambar yang digunakan sebagai sampul dari galeri ini.
+            images: Gambar
+          image_fields:
+            add_new_image: Tambahkan gambar
+      galleries:
+        show:
+          other: Galeri Lainnya
+  activerecord:
+    attributes:
+      'refinery/portfolio/gallery':
+        title: Judul
+        body: Isi
