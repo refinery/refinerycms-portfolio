@@ -4,7 +4,7 @@
 
 Simple portfolio engine for [Refinery CMS](http://refinerycms.com).
 
-This version of `refinerycms-portfolio` supports Refinery 3.x and Rails 4.2.x. To use Rails 3.x / Refinery 2.1.x use the [refinerycms-portfolio "Refinery CMS 2-1 stable branch"](http://github.com/refinery/refinerycms-portfolio/tree/2-1-stable).
+This version of `refinerycms-portfolio` supports Refinery 3.x and Rails 4.2.x. To use Rails 3.x / Refinery 2.0.x use the [refinerycms-portfolio "Refinery CMS 2-0 stable branch"](http://github.com/refinery/refinerycms-portfolio/tree/2-0-stable).
 
 ## Requirements
 
