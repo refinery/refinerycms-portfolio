@@ -31,7 +31,7 @@ module Refinery
 
         private
           def item_params
-            params.require(:item).permit(:title, :caption, :image_id, :gallery_id)
+            params.require(:item).permit(:title, :caption, :image_id, :gallery_id, :position)
           end
 
       end
