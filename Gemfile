@@ -2,14 +2,15 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'refinerycms', git: 'https://github.com/refinery/refinerycms', branch: 'master'
-gem 'refinerycms-acts-as-indexed', git: 'https://github.com/refinery/refinerycms-acts-as-indexed', branch: 'master'
-gem 'refinerycms-i18n', git: 'https://github.com/refinery/refinerycms-i18n', branch: 'master'
+git "https://github.com/refinery/refinerycms", branch: "master" do
+  gem "refinerycms"
 
-group :development, :test do
-  gem 'refinerycms-testing', git: 'https://github.com/refinery/refinerycms', branch: 'master'
+  group :test do
+    gem "refinerycms-testing"
+  end
 end
 
+gem 'refinerycms-acts-as-indexed', git: 'https://github.com/refinery/refinerycms-acts-as-indexed', branch: 'master'
 
 # Refinery/Rails should pull in the proper versions of these
 group :assets do
