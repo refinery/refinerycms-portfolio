@@ -3,7 +3,7 @@
   <% if @items.any? %>
     <%= render :partial => 'items', :collection => @items %>
   <% else %>
-    <p><%= t('.no_results', :scope => 'refinery.admin.search') %></p>
+    <p><%= t('no_results', :scope => 'refinery.admin.search') %></p>
   <% end %>
 <% else %>
   <% if @items.any? %>
@@ -13,7 +13,7 @@
   <% else %>
     <p>
       <strong>
-        <%= t('.no_items_yet', :create => t('new', :scope => 'refinery.portfolio.admin.items')) %>
+        <%= t('no_items_yet', :scope => 'refinery.portfolio.admin.items.index') %>
       </strong>
     </p>
   <% end %>

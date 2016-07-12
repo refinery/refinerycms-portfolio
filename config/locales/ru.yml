@@ -1,0 +1,63 @@
+ru:
+  refinery:
+    plugins:
+      refinerycms_portfolio:
+        title: Портфолио
+    portfolio:
+      admin:
+        items:
+          item:
+            gallery: Галерея
+            gallery_help: Добавить это изображение в галерею
+            delete: Убрать это изображение из этой галереи
+            edit: Редактировать это изображение
+            view_live_html: Посмотреть эту картинку в своей галерее
+          actions:
+            back_to_galleries: Вернуться в Галереи
+            create_new: Добавить новое изображение
+            reorder: Сортировать изображения
+            reorder_done: Закончить сортировку изображений
+          index:
+            no_items_yet: Здесь еще нет изображений.
+            sorry_no_results: Извините, поиск не дал результатов.
+            title: Изображения
+        galleries:
+          unlink_image: Открепить это изображение
+          actions:
+            add_image: Добавить изображение
+            create_new: Создать новую галерею.
+            reorder: Сортировать галереи
+            reorder_done: Закончить сортировку галерей
+            view_root_images: Смотреть изображения в корневом уровне
+          records:
+            title: Галереи
+            sorry_no_results: Извините, поиск не дал результатов.
+            no_items_yet: Здесь еще нет галерей. Нажмите сначала "Создать новую галерею" и создайте свою первую галерею
+          gallery:
+            add_image: Добавить изображение в эту галерею
+            delete: Удалить эту галерею навсегда
+            edit: Редактировать эту галерею
+            item_count:
+              zero: нет изображений
+              one: одно изображение
+              few: '%{count} изображения'
+              many: '%{count} изображений'
+              other: '%{count} изображений'
+            new_child: Создать новую дочернюю галерею
+            view_live_html: Просмотреть эту галерею вживую <br/><em>(в новом окне)</em>
+          form:
+            parent_gallery: Родительская галерея
+            parent_gallery_help: Вы можете разместить эту галерею внутри другой, чтобы сделать многоуровневое портфолио. Выберите родительскую галерею, или оставьте поле пустое, чтобы данная галерея была в корневом уровне.
+            cover_image: Обложка
+            cover_image_help: Изображение, которое будет использовано в качестве обложки галереи
+            images: Изображения
+          image_fields:
+            add_new_image: Добавить изображения
+      galleries:
+        show:
+          other: Другие галереи
+  activerecord:
+    attributes:
+      refinery/portfolio/gallery:
+        title: Название
+        body: Текст
