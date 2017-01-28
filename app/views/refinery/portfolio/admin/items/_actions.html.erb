@@ -12,7 +12,7 @@
   </li>
 
   <li>
-    <%= link_to t('.create_new'), refinery.new_portfolio_admin_item_path,
+    <%= link_to t('.create_new'), refinery.new_portfolio_admin_gallery_item_path(params[:gallery_id]),
                  :class => "add_icon" %>
   </li>
 <% if !searching? && @items.many? %>
